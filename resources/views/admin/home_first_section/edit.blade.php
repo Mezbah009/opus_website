@@ -5,7 +5,7 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create First Section</h1>
+                <h1>Update First Section</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('home_first_sections.index') }}" class="btn btn-primary">Back</a>
@@ -17,8 +17,9 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('home_first_sections.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('home_first_sections.update', $section->id) }}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <div class="container-fluid">
             <div class="card">
@@ -27,7 +28,8 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <input type="text" class="form-control" id="title" name="title" required
+                                    value="{{ $section->title }}">
                                 <p class="error"></p>
                             </div>
                         </div>
@@ -36,7 +38,7 @@
                                 <div class="mb-3">
                                     <label for="description">Description</label>
                                     <textarea name="description" id="description" cols="30" rows="10" class="summernote"
-                                        placeholder="Description"></textarea>
+                                        placeholder="Description">{{ $section->description }}</textarea>
                                     <p class="error"></p>
                                 </div>
                             </div>
@@ -45,13 +47,14 @@
                             <div class="mb-3">
                                 <label for="button_name">Button Name</label>
                                 <input type="text" name="button_name" id="button_name" class="form-control"
-                                    placeholder="Button Name">
+                                    placeholder="Button Name" value="{{ $section->button_name }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="link">Link</label>
-                                <input type="text" name="link" id="link" class="form-control" placeholder="Link">
+                                <input type="text" name="link" id="link" class="form-control" placeholder="Link"
+                                    value="{{ $section->link }}">
                                 <p class="error"></p>
                             </div>
                         </div>
@@ -71,8 +74,8 @@
                 </div>
             </div>
             <div class="pb-5 pt-3">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{route('home_first_sections.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{ route('home_first_sections.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>

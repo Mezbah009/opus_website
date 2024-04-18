@@ -3,6 +3,8 @@
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
+use App\Http\Controllers\admin\HomeSecondSectionController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
@@ -46,6 +48,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/sliders/{sliders}/edit', [SliderController::class, 'edit'])->name('sliders.edit');
         Route::put('/sliders/{sliders}', [SliderController::class, 'update'])->name('sliders.update');
         Route::delete('/sliders/{sliders}', [SliderController::class, 'destroy'])->name('sliders.delete');
+        // temp-image create
         Route::post('/upload-temp-image', [TempImagesController::class, 'create'])->name('temp-images.create');
 
         /* Team Members */
@@ -63,6 +66,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/home_first_sections/{first_section}/edit', [HomeFirstSectionController::class, 'edit'])->name('home_first_sections.edit');
         Route::put('/home_first_sections/{first_section}', [HomeFirstSectionController::class, 'update'])->name('home_first_sections.update');
         Route::delete('/home_first_sections/{first_section}', [HomeFirstSectionController::class, 'destroy'])->name('home_first_sections.delete');
-        Route::post('/upload-temp-image', [HomeFirstSectionController::class, 'create'])->name('temp-images.create');
+        // Home second section
+        Route::get('/home_second_section', [HomeSecondSectionController::class, 'index'])->name('home_second_sections.index');
+        Route::get('/home_second_section/create', [HomeSecondSectionController::class, 'create'])->name('home_second_sections.create');
+        Route::post('/home_second_section', [HomeSecondSectionController::class, 'store'])->name('home_second_sections.store');
+        Route::get('/home_second_section/{second_section}/edit', [HomeSecondSectionController::class, 'edit'])->name('home_second_sections.edit');
+        Route::put('/home_second_section/{second_section}', [HomeSecondSectionController::class, 'update'])->name('home_second_sections.update');
+        Route::delete('/home_second_section/{second_section}', [HomeSecondSectionController::class, 'destroy'])->name('home_second_sections.delete');
+
+        // Home Product section
+        Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+        Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{products}/edit', [ProductController::class, 'edit'])->name('products.edit');
+        Route::put('/products/{products}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/products/{products}', [ProductController::class, 'destroy'])->name('products.delete');
+
     });
 });

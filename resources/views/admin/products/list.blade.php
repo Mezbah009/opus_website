@@ -4,10 +4,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Home First Sections</h1>
+                <h1>Product</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{route('home_first_sections.create')}}" class="btn btn-primary">New Sections</a>
+                <a href="{{route('products.create')}}" class="btn btn-primary">New Product</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             <form action="" method="GET">
                 <div class="card-header">
                     <div class="card-title">
-                        <button type="button" onclick="window.location.href='{{route("home_first_sections.index")}}'"
+                        <button type="button" onclick="window.location.href='{{route("products.index")}}'"
                             class="btn btn-default btn-sm">reset</button>
                     </div>
                     <div class="card-tools">
@@ -44,7 +44,7 @@
                     <thead>
                         <tr>
                             <th width="60">ID</th>
-                            <th>Image</th>
+                            <th>Logo</th>
                             <th>Title</th>
                             <th width="100">Action</th>
                         </tr>
@@ -81,7 +81,7 @@
                                 @endif
                             </td> --}}
                             <td>
-                                <a href="{{route('home_first_sections.edit',$section->id)}}">
+                                <a href="{{route('products.edit',$section->id)}}">
                                     <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path
@@ -119,7 +119,7 @@
 @section('customJs')
 <script>
     function destroySection(id){
-            var url = '{{ route("home_first_sections.delete", "ID") }}';
+            var url = '{{ route("products.delete", "ID") }}';
 
             var newUrl  = url.replace("ID",id)
             if (confirm("Are you sure you want to delete")) {
@@ -135,7 +135,7 @@
                         // Handle success response here
                         $("button[type=submit]").prop('disabled', false);
                         if (response["status"]) {
-                            window.location.href = "{{route('home_first_sections.index')}}";
+                            window.location.href = "{{route('products.index')}}";
                         } else {
                             // Handle other cases if needed
                         }

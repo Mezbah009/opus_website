@@ -3,31 +3,26 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeFirstSection;
-use App\Models\TempImage;
+use App\Models\HomeSecondSection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
-class HomeFirstSectionController extends Controller
+class HomeSecondSectionController extends Controller
 {
     public function index(Request $request)
     {
-        $sections = HomeFirstSection::latest();
+        $sections = HomeSecondSection::latest();
         if(!empty($request->get('keyword'))){
             $sections = $sections->where('title','like','%'.$request->get('keyword').'%');
         }
         $sections = $sections->latest()->paginate(10);
-        return view('admin.home_first_section.list',compact('sections'));
+        return view('admin.home_second_section.list',compact('sections'));
     }
-
-
 
     public function create()
     {
-        return view('admin.home_first_section.create');
+        return view('admin.home_second_section.create');
     }
-
 
 
     public function store(Request $request)
@@ -43,7 +38,7 @@ class HomeFirstSectionController extends Controller
     ]);
 
     if ($validator->passes()) {
-        $section = new HomeFirstSection();
+        $section = new HomeSecondSection();
         $section->title = $request->title;
         $section->description = $request->description;
         $section->button_name = $request->button_name;
@@ -68,7 +63,7 @@ class HomeFirstSectionController extends Controller
         $section->save();
 
         // Redirect to index page
-        return redirect()->route('home_first_sections.index')->with('success', 'Section added successfully');
+        return redirect()->route('home_second_section.index')->with('success', 'Section added successfully');
     } else {
         return response()->json([
             'status' => false,
@@ -80,9 +75,10 @@ class HomeFirstSectionController extends Controller
 
 public function edit($id)
 {
-    $section = HomeFirstSection::findOrFail($id);
-    return view('admin.home_first_section.edit', compact('section'));
+    $section = HomeSecondSection::findOrFail($id);
+    return view('admin.home_second_section.edit', compact('section'));
 }
+
 
 public function update(Request $request, $id)
 {
@@ -96,7 +92,7 @@ public function update(Request $request, $id)
     ]);
 
     if ($validator->passes()) {
-        $section = HomeFirstSection::findOrFail($id);
+        $section = HomeSecondSection::findOrFail($id);
         $section->title = $request->title;
         $section->description = $request->description;
         $section->button_name = $request->button_name;
@@ -120,15 +116,16 @@ public function update(Request $request, $id)
 
         $section->save();
 
-        return redirect()->route('home_first_sections.index')->with('success', 'Section updated successfully');
+        return redirect()->route('home_second_section.index')->with('success', 'Section updated successfully');
     } else {
         return back()->withErrors($validator)->withInput();
     }
 }
 
+
 public function destroy($id)
 {
-    $section = HomeFirstSection::findOrFail($id);
+    $section = HomeSecondSection::findOrFail($id);
     $section->delete();
 
     // Flash success message
@@ -142,82 +139,4 @@ public function destroy($id)
 }
 
 
-
-
-
-//     public function store(Request $request)
-//     {
-//         // Validate the request data
-//         $validator = Validator::make($request->all(), [
-//             'title' => 'required|string',
-//             'description' => 'nullable|string',
-//             'button_name' => 'nullable|string',
-//             'link' => 'nullable|string',
-
-//         ]);
-
-//         if($validator->passes()){
-//             $section = new HomeFirstSection();
-//             $section->title = $request->title;
-//             $section->description = $request->description;
-//             $section->button_name = $request->button_name;
-//             $section->link = $request->link;
-//             $section->save();
-
-//         // Save image here
-
-//         if(!empty($request->image_id))
-//         {
-//             $tempImage = TempImage::find($request-> image_id);
-
-//             $extArray = explode('.',$tempImage->name);
-//             $ext = last($extArray);
-
-//             $newImageName= $section->id.'.'.$ext;
-//             $sPath =public_path().'/temp/'.$tempImage->name;
-//             $dPath =public_path().'/uploads/first_section/'.$newImageName;
-//             File::copy($sPath,$dPath);
-
-//             $section->image=$newImageName;
-//             $section->save();
-
-//         }
-
-//         // Save logo here
-
-//         if(!empty($request->image_id))
-//         {
-//             $tempImage = TempImage::find($request-> image_id);
-
-//             $extArray = explode('.',$tempImage->name);
-//             $ext = last($extArray);
-
-//             $newLogoName= $section->id.'.'.$ext;
-//             $sPath =public_path().'/temp/'.$tempImage->name;
-//             $dPath =public_path().'/uploads/first_section/'.$newLogoName ;
-//             File::copy($sPath,$dPath);
-
-//             $section->logo=$newLogoName ;
-//             $section->save();
-
-//         }
-
-
-//         $request->session()->flash('success','Section added successfully');
-//         return response()->json([
-//             'status'=>true,
-//             'messege'=>'Section added successfully'
-//         ]);
-
-//     }
-//     else{
-//         return response()->json([
-//             'status'=>false,
-//             'errors'=>$validator->errors()
-//         ]);
-//     }
-// }
-
 }
-
-

@@ -24,14 +24,14 @@ class TempImagesController extends Controller
             $sourcePath = public_path('temp/' . $newName);
             $destPath = public_path('temp/thumb/' . $newName);
 
-     
+
                 return response()->json([
                     'status' => true,
                     'image_id' => $tempImage->id,
                     'imagePath' => asset('/temp/thumb/' . $newName),
                     'message' => 'Image uploaded successfully',
                 ]);
-           
+
 
         }
 

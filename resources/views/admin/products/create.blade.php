@@ -5,10 +5,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create First Section</h1>
+                <h1>Create Product</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('home_first_sections.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('home_first_sections.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
@@ -57,12 +57,6 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-1">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-1">
                                 <label for="logo">Logo</label>
                                 <input type="file" class="form-control-file" id="logo" name="logo">
                             </div>
@@ -72,7 +66,7 @@
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{route('home_first_sections.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{route('products.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
@@ -90,7 +84,7 @@
         var element = $(this);
         $("button[type=submit]").prop('disabled',true);
         $.ajax({
-            url: '{{ route("home_first_sections.store") }}',
+            url: '{{ route("products.store") }}',
             type: 'POST',
             data: element.serializeArray(),  // Fixed typo: 'data' instead of 'date'
             dataType: 'json',
@@ -102,7 +96,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{route('home_first_sections.index')}}"
+                    window.location.href="{{route('products.index')}}"
 
 
 

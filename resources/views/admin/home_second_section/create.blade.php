@@ -5,10 +5,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create First Section</h1>
+                <h1>Create Second Section</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('home_first_sections.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('home_second_sections.index') }}" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('home_first_sections.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('home_second_sections.store') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
@@ -72,7 +72,7 @@
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{route('home_first_sections.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{route('home_second_sections.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
@@ -90,7 +90,7 @@
         var element = $(this);
         $("button[type=submit]").prop('disabled',true);
         $.ajax({
-            url: '{{ route("home_first_sections.store") }}',
+            url: '{{ route("home_second_sections.store") }}',
             type: 'POST',
             data: element.serializeArray(),  // Fixed typo: 'data' instead of 'date'
             dataType: 'json',
@@ -102,7 +102,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{route('home_first_sections.index')}}"
+                    window.location.href="{{route('home_second_sections.index')}}"
 
 
 
