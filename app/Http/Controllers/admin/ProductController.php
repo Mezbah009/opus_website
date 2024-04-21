@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\TempImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
@@ -43,12 +45,19 @@ class ProductController extends Controller
         $section->button_name = $request->button_name;
         $section->link = $request->link;
 
-        // Save logo
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = 'logo_' . time() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('uploads/first_section'), $logoName);
-            $section->logo = $logoName;
+        if (!empty($request->image_id)) {
+            $tempImage = TempImage::find($request->image_id);
+    
+            $extArray = explode('.', $tempImage->name);
+            $ext = last($extArray);
+            $newImageName = $section->id . '.' . $ext;
+            $sPath = public_path() . '/temp/' . $tempImage->name;
+            $dPath = public_path() . '/uploads/first_section/' . $newImageName;
+    
+            File::copy($sPath, $dPath);
+    
+            $section->logo = $newImageName;
+            $section->save();
         }
 
         $section->save();
@@ -88,12 +97,19 @@ public function update(Request $request, $id)
         $product->button_name = $request->button_name;
         $product->link = $request->link;
 
-        // Update logo if provided
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = 'logo_' . time() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('uploads/first_section'), $logoName);
-            $product->logo = $logoName;
+        if (!empty($request->image_id)) {
+            $tempImage = TempImage::find($request->image_id);
+    
+            $extArray = explode('.', $tempImage->name);
+            $ext = last($extArray);
+            $newImageName = $product->id . '.' . $ext;
+            $sPath = public_path() . '/temp/' . $tempImage->name;
+            $dPath = public_path() . '/uploads/first_section/' . $newImageName;
+    
+            File::copy($sPath, $dPath);
+    
+            $product->logo = $newImageName;
+            $product->save();
         }
 
         $product->save();
