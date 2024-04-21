@@ -44,7 +44,7 @@
                     <thead>
                         <tr>
                             <th width="60">ID</th>
-                            <th>Logo</th>
+                            <th>Image</th>
                             <th>Title</th>
                             <th width="100">Action</th>
                         </tr>
