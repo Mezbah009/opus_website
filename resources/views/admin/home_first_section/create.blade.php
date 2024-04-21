@@ -31,16 +31,6 @@
                                 <p class="error"></p>
                             </div>
                         </div>
-                        {{-- <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="10" class=""
-                                        placeholder="Description"></textarea>
-                                    <p class="error"></p>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="description">Description</label>
@@ -74,16 +64,6 @@
                                 <input type="file" class="form-control-file" id="logo" name="logo">
                             </div>
                         </div>
-                        {{-- <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="mission">Mission</label>
-                                    <textarea name="mission" id="mission" cols="30" rows="10" class=""
-                                        placeholder="Mission"></textarea>
-                                    <p class="error"></p>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="mission">Mission</label>
@@ -91,16 +71,6 @@
                                     placeholder="Mission"></textarea>
                             </div>
                         </div>
-                        {{-- <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="vision">Vision</label>
-                                    <textarea name="vision" id="vision" cols="30" rows="10" class=""
-                                        placeholder="Vision"></textarea>
-                                    <p class="error"></p>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="vision">Vision</label>
