@@ -35,7 +35,7 @@
                                     <td>{{ $member->id }}</td>
                                     <td>
                                         @if (!empty($member->image))
-                                            <img src="{{ asset('uploads/team/' . $member->image) }}" class="img-thumbnail" alt="{{ $member->name }}" width="50">
+                                            <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-thumbnail" alt="{{ $member->name }}" width="50">
                                         @else
                                             <img src="{{ asset('admin-assets/img/default.png') }}" class="img-thumbnail" alt="default image" width="50">
                                         @endif
