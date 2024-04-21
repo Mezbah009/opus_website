@@ -55,8 +55,8 @@
                         <tr>
                             <td>{{$section->id}}</td>
                             <td>
-                                @if(!empty($section->image))
-                                <img src="{{asset('uploads/first_section/'.$section->image)}}" class="img-thumbnail"
+                                @if(!empty($section->logo))
+                                <img src="{{asset('uploads/first_section/'.$section->logo)}}" class="img-thumbnail"
                                     alt="{{$section->title}}" width="50">
                                 @else
                                 <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail"
