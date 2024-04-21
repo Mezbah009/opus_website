@@ -2,8 +2,48 @@
 
 @section('content')
 
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators">
+                @foreach ($slider as $key => $sliders)
+                <li data-bs-target="#heroCarousel" data-bs-slide-to="{{ $key }}"
+                    class="{{ $key == 0 ? 'active' : '' }}"></li>
+                @endforeach
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                @foreach ($slider as $key => $sliders)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}"
+                    style="background-image: url('{{ asset('uploads/slider/'.$sliders->image) }}');">
+                    <div class="carousel-container">
+                        <div class="carousel-content container">
+                            <h2 class="animate__animated animate__fadeInDown">{{ $sliders->title }}</h2>
+                            <p class="animate__animated animate__fadeInUp">{{ $sliders->description }}</p>
+                            <a href="{{ $sliders->link }}"
+                                class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                                $sliders->button_name }}</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
 <!-- ======= About Us Section ======= -->
-<section id="about" class="about">
+{{-- <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
         <div class="row no-gutters">
@@ -45,7 +85,53 @@
         </div>
 
     </div>
+</section><!-- End About Us Section --> --}}
+
+{{-- firts section --}}
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        @foreach ($home_first_section as $key => $home_first_sections)
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$home_first_sections->image) }}" class="img-fluid" alt="">
+                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
+                    data-vbtype="video" data-autoplay="true"></a>
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+                <div class="section-title">
+                    <h2>{{ $home_first_sections->title }}</h2>
+                    <p>{!! $home_first_sections->description!!} </p>
+                    <a href="{{ $home_first_sections->link }}"
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                        $home_first_sections->button_name }}</a>
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-rocket"></i></div>
+                    <h4 class="title"><a href="">Our Mission</a></h4>
+                    <p class="description">{{$home_first_sections->mission}}</p>
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-compass"></i></div>
+                    <h4 class="title"><a href="">Our Vision</a></h4>
+                    <p class="description">{{$home_first_sections->vision}}</p>
+
+                </div>
+
+            </div>
+        </div>
+        @endforeach
+
+    </div>
 </section><!-- End About Us Section -->
+
+
 
 <!-- ======= About Lists Section ======= -->
 <section class="about-lists">
@@ -321,7 +407,7 @@
         </div>
 
     </div>
-</section><!-- End Our Portfolio Section -->
+</section><!-- End Our Portfolio Section -->
 
 <!-- ======= Our Team Section ======= -->
 <section id="team" class="team">
@@ -337,8 +423,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
                     <div class="pic">
-                        <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-fluid" alt="{{ $member->name }}">
+                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}"
+                            height="300px" width="350px">
                     </div>
+
                     <div class="member-info">
                         <h4>{{ $member->name }}</h4>
                         <span>{{ $member->designation }}</span>
