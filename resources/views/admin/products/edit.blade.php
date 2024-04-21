@@ -25,50 +25,56 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required
-                                    value="{{ $product->title }}">
+                                <input type="text" class="form-control" id="title" name="title" required value="{{ $product->title }}">
                                 <p class="error"></p>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="10" class="summernote"
-                                        placeholder="Description">{{ $product->description }}</textarea>
-                                    <p class="error"></p>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="button_name">Button Name</label>
-                                <input type="text" name="button_name" id="button_name" class="form-control"
-                                    placeholder="Button Name" value="{{ $product->button_name }}">
+                                <label for="button_name">Product Category</label>
+                                <select name="button_name" id="button_name" class="form-control">
+                                    <option value="" disabled>Select Product Category</option>
+                                    <option value="filter-sig" {{ $product->button_name === 'Signature' ? 'selected' : '' }}>Signature</option>
+                                    <option value="filter-fin" {{ $product->button_name === 'Fintech' ? 'selected' : '' }}>Fintech</option>
+                                    <!-- Add more options as needed -->
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="link">Link</label>
-                                <input type="text" name="link" id="link" class="form-control" placeholder="Link"
-                                    value="{{ $product->link }}">
+                                <input type="text" name="link" id="link" class="form-control" placeholder="Link" value="{{ $product->link }}">
                                 <p class="error"></p>
                             </div>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="mb-1">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" id="description" class="form-control" placeholder="Description">{{ $product->description }}</textarea>
                             </div>
                         </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-3">
                             <div class="mb-1">
-                                <label for="logo">Logo</label>
-                                <input type="file" class="form-control-file" id="logo" name="logo">
+                                <label for="image">Image</label>
+                                <input type="hidden" id="image_id" name="image_id">
+
+                                <div id="image" class="dropzone dz-clickable">
+                                    <div class="dz-message needsclick">
+                                        <br>Drop files here or click to upload.<br><br>
+                                    </div>
+                                </div>
                             </div>
+                            @if (!@empty($product->logo))
+                            <div>
+                                <img width="250" src="{{asset('uploads/first_section/'.$product->logo)}}" alt="">
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -88,28 +94,28 @@
 
 
 <script>
-    $("#sectionForm").submit(function(event){
+    $("#sectionForm").submit(function(event) {
         event.preventDefault();
         var element = $(this);
-        $("button[type=submit]").prop('disabled',true);
+        $("button[type=submit]").prop('disabled', true);
         $.ajax({
             url: '{{ route("products.store") }}',
             type: 'POST',
-            data: element.serializeArray(),  // Fixed typo: 'data' instead of 'date'
+            data: element.serializeArray(), // Fixed typo: 'data' instead of 'date'
             dataType: 'json',
             headers: {
 
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-            success: function(response) {  // Fixed typo: 'function' instead of 'funtion'
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) { // Fixed typo: 'function' instead of 'funtion'
                 // Handle success response here
-                $("button[type=submit]").prop('disabled',false);
-                if(response["status"] == true){
-                    window.location.href="{{route('products.index')}}"
+                $("button[type=submit]").prop('disabled', false);
+                if (response["status"] == true) {
+                    window.location.href = "{{route('products.index')}}"
 
 
 
-                } else{
+                } else {
                     var errors = response['errors'];
                     $(".error").removeClass('is-invalid').html(''); // Remove error classes and clear error messages
                     $("input[type='text'], select").removeClass('is-invalid');
@@ -129,29 +135,28 @@
 
 
     Dropzone.autoDiscover = false;
-const dropzone = $("#image,#logo").dropzone({
-    init: function() {
-        this.on('addedfile', function(file) {
-            if (this.files.length > 1) {
-                this.removeFile(this.files[0]);
-            }
-        });
-    },
-    url:  "{{ route('temp-images.create') }}",
-    maxFiles: 1,
-    paramName: 'image',
-    addRemoveLinks: true,
-    acceptedFiles: "image/jpeg,image/png,image/gif",
-    headers: {
+    const dropzone = $("#image,#logo").dropzone({
+        init: function() {
+            this.on('addedfile', function(file) {
+                if (this.files.length > 1) {
+                    this.removeFile(this.files[0]);
+                }
+            });
+        },
+        url: "{{ route('temp-images.create') }}",
+        maxFiles: 1,
+        paramName: 'image',
+        addRemoveLinks: true,
+        acceptedFiles: "image/jpeg,image/png,image/gif",
+        headers: {
 
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function(file, response){
-        $("#image_id").val(response.image_id);
-        console.log(response)
-    }
-});
-
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(file, response) {
+            $("#image_id").val(response.image_id);
+            console.log(response)
+        }
+    });
 </script>
 
 
