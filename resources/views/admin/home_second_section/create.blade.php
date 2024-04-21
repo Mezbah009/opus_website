@@ -24,21 +24,18 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" required>
                                 <p class="error"></p>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="10" class="summernote"
-                                        placeholder="Description"></textarea>
-                                    <p class="error"></p>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" id="description" class="form-control"
+                                    placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
