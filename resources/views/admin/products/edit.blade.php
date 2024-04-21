@@ -17,7 +17,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('products.update', $products->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -29,7 +29,7 @@
                             <div class="mb-3">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" required
-                                    value="{{ $products->title }}">
+                                    value="{{ $product->title }}">
                                 <p class="error"></p>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                 <div class="mb-3">
                                     <label for="description">Description</label>
                                     <textarea name="description" id="description" cols="30" rows="10" class="summernote"
-                                        placeholder="Description">{{ $products->description }}</textarea>
+                                        placeholder="Description">{{ $product->description }}</textarea>
                                     <p class="error"></p>
                                 </div>
                             </div>
@@ -47,14 +47,14 @@
                             <div class="mb-3">
                                 <label for="button_name">Button Name</label>
                                 <input type="text" name="button_name" id="button_name" class="form-control"
-                                    placeholder="Button Name" value="{{ $products->button_name }}">
+                                    placeholder="Button Name" value="{{ $product->button_name }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="link">Link</label>
                                 <input type="text" name="link" id="link" class="form-control" placeholder="Link"
-                                    value="{{ $products->link }}">
+                                    value="{{ $product->link }}">
                                 <p class="error"></p>
                             </div>
                         </div>
