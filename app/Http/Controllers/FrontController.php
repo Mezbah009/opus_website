@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeFirstSection;
 use App\Models\Slider;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -17,6 +18,9 @@ class FrontController extends Controller
 
         $home_first_section = HomeFirstSection::all();
         $data['home_first_section']= $home_first_section;
+
+        $teamMembers = User::where('role', '!=', 2)->get();
+        $data['teamMembers']= $teamMembers;
 
 
         return view('front.home',$data);

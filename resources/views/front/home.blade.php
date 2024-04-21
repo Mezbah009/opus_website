@@ -469,75 +469,33 @@
         </div>
 
         <div class="row">
-
+            @foreach($teamMembers as $member)
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
-                    <div class="pic"><img src="{{ asset('front-assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                    <div class="pic">
+                        <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-fluid" alt="{{ $member->name }}">
                     </div>
                     <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
+                        <h4>{{ $member->name }}</h4>
+                        <span>{{ $member->designation }}</span>
                         <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
+                            @if($member->twitter)
+                            <a href="{{ $member->twitter }}"><i class="bi bi-twitter"></i></a>
+                            @endif
+                            @if($member->facebook)
+                            <a href="{{ $member->facebook }}"><i class="bi bi-facebook"></i></a>
+                            @endif
+                            @if($member->instagram)
+                            <a href="{{ $member->instagram }}"><i class="bi bi-instagram"></i></a>
+                            @endif
+                            @if($member->linkedin)
+                            <a href="{{ $member->linkedin }}"><i class="bi bi-linkedin"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="member">
-                    <div class="pic"><img src="{{ asset('front-assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Sarah Jhonson</h4>
-                        <span>Product Manager</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="member">
-                    <div class="pic"><img src="{{ asset('front-assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="member">
-                    <div class="pic"><img src="{{ asset('front-assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
     </div>
