@@ -24,21 +24,28 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" required>
                                 <p class="error"></p>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        {{-- <div class="col-md-12">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="description">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="10" class="summernote"
+                                    <textarea name="description" id="description" cols="30" rows="10" class=""
                                         placeholder="Description"></textarea>
                                     <p class="error"></p>
                                 </div>
+                            </div>
+                        </div> --}}
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" id="description" class="form-control"
+                                    placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -65,6 +72,40 @@
                             <div class="mb-1">
                                 <label for="logo">Logo</label>
                                 <input type="file" class="form-control-file" id="logo" name="logo">
+                            </div>
+                        </div>
+                        {{-- <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="mission">Mission</label>
+                                    <textarea name="mission" id="mission" cols="30" rows="10" class=""
+                                        placeholder="Mission"></textarea>
+                                    <p class="error"></p>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="mission">Mission</label>
+                                <textarea type="text" name="mission" id="mission" class="form-control"
+                                    placeholder="Mission"></textarea>
+                            </div>
+                        </div>
+                        {{-- <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="vision">Vision</label>
+                                    <textarea name="vision" id="vision" cols="30" rows="10" class=""
+                                        placeholder="Vision"></textarea>
+                                    <p class="error"></p>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="vision">Vision</label>
+                                <textarea type="text" name="vision" id="vision" class="form-control"
+                                    placeholder="Vision"></textarea>
                             </div>
                         </div>
                     </div>

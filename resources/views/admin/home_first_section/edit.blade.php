@@ -70,6 +70,26 @@
                                 <input type="file" class="form-control-file" id="logo" name="logo">
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="mission">Mission</label>
+                                    <textarea name="mission" id="mission" cols="30" rows="10" class="summernote"
+                                        placeholder="Mission">{{ $section->mission }}</textarea>
+                                    <p class="error"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="vision">Vision</label>
+                                    <textarea name="vision" id="vision" cols="30" rows="10" class="summernote"
+                                        placeholder="Vision">{{ $section->vision }}</textarea>
+                                    <p class="error"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
