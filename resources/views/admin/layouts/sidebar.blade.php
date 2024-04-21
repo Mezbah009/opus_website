@@ -48,6 +48,12 @@
                     </ul>
                 </li>
                 <!-- Other menu items -->
+                <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Product</p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('team_members.index') }}" class="nav-link">
