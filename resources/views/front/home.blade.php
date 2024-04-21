@@ -111,22 +111,18 @@
                         $home_first_sections->button_name }}</a>
                 </div>
 
-                {{-- <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="bx bx-rocket"></i></div>
                     <h4 class="title"><a href="">Our Mission</a></h4>
-                    <p class="description">We aim to provide world-class software solutions for all our
-                        prospective clients from all over the world and build the best innovative software using
-                        our cutting edge technology and expert software development team.</p>
+                    <p class="description">{!! $home_first_sections->mission!!}</p>
                 </div>
 
                 <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="bx bx-compass"></i></div>
                     <h4 class="title"><a href="">Our Vision</a></h4>
-                    <p class="description">We want to serve customers from every corner of the world and provide
-                        them with the best IT solutions so that we are able to create a worldwide goodwill on
-                        the IT sector and achieve good worldwide recognition for being one of the best IT
-                        companies out there.</p>
-                </div> --}}
+                    <p class="description">{!! $home_first_sections->vision!!}</p>
+
+                </div>
 
             </div>
         </div>
@@ -134,6 +130,46 @@
 
     </div>
 </section><!-- End About Us Section -->
+
+
+{{-- test --}}
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$home_first_sections->image) }}" class="img-fluid" alt="">
+                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
+                    data-vbtype="video" data-autoplay="true"></a>
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+                <div class="section-title">
+                    <h2>{{ $home_first_sections->title }}</h2>
+                    <p>{!! $home_first_sections->description!!} </p>
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-rocket"></i></div>
+                    <h4 class="title"><a href="">Our Mission</a></h4>
+                    {!! $home_first_sections->mission!!}
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-compass"></i></div>
+                    <h4 class="title"><a href="">Our Vision</a></h4>
+
+                    <p class="description">{!! $home_first_sections->vision !!}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Us Section -->
+
 
 <!-- ======= About Lists Section ======= -->
 <section class="about-lists">
@@ -301,16 +337,15 @@
             <div class="col-lg-12">
                 <ul id="portfolio-flters">
                     <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-app">App</li>
-                    <li data-filter=".filter-card">Card</li>
-                    <li data-filter=".filter-web">Web</li>
+                    <li data-filter=".filter-fin">Fintech</li>
+                    <li data-filter=".filter-sig">Signature</li>
                 </ul>
             </div>
         </div>
 
         <div class="row portfolio-container">
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-fin">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -326,7 +361,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-sig">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -342,7 +377,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-fin">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-3.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -358,23 +393,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                    <img src="{{ asset('front-assets/img/portfolio/portfolio-4.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                            <a href="{{ asset('front-assets/img/portfolio/portfolio-4.jpg')}}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i
-                                    class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-sig">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-5.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -390,7 +409,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-fin">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-6.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -406,39 +425,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                    <img src="{{ asset('front-assets/img/portfolio/portfolio-7.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                            <a href="{{ asset('front-assets/img/portfolio/portfolio-7.jpg')}}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i
-                                    class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                    <img src="{{ asset('front-assets/img/portfolio/portfolio-8.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                            <a href="{{ asset('front-assets/img/portfolio/portfolio-8.jpg')}}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i
-                                    class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-sig">
                 <div class="portfolio-wrap">
                     <img src="{{ asset('front-assets/img/portfolio/portfolio-9.jpg')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -457,7 +445,7 @@
         </div>
 
     </div>
-</section><!-- End Our Portfolio Section -->
+</section><!-- End Our Portfolio Section -->
 
 <!-- ======= Our Team Section ======= -->
 <section id="team" class="team">
@@ -473,8 +461,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
                     <div class="pic">
-                        <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-fluid" alt="{{ $member->name }}">
+                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}"
+                            height="300px" width="350px">
                     </div>
+
                     <div class="member-info">
                         <h4>{{ $member->name }}</h4>
                         <span>{{ $member->designation }}</span>

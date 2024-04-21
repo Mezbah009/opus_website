@@ -40,6 +40,8 @@ class HomeFirstSectionController extends Controller
         'link' => 'nullable|string',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for image
         'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
+        'mission' => 'nullable|string',
+        'vision' => 'nullable|string',
     ]);
 
     if ($validator->passes()) {
@@ -48,6 +50,8 @@ class HomeFirstSectionController extends Controller
         $section->description = $request->description;
         $section->button_name = $request->button_name;
         $section->link = $request->link;
+        $section->mission = $request->mission;
+        $section->vision = $request->vision;
 
         // Save image
         if ($request->hasFile('image')) {
@@ -93,6 +97,8 @@ public function update(Request $request, $id)
         'link' => 'nullable|string',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for image
         'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
+        'mission' => 'nullable|string',
+        'vision' => 'nullable|string',
     ]);
 
     if ($validator->passes()) {
@@ -101,6 +107,8 @@ public function update(Request $request, $id)
         $section->description = $request->description;
         $section->button_name = $request->button_name;
         $section->link = $request->link;
+        $section->mission = $request->mission; // Update mission
+        $section->vision = $request->vision; // Update vision
 
         // Update image if provided
         if ($request->hasFile('image')) {
@@ -125,6 +133,7 @@ public function update(Request $request, $id)
         return back()->withErrors($validator)->withInput();
     }
 }
+
 
 public function destroy($id)
 {
