@@ -37,30 +37,30 @@ class ProductController extends Controller
             'link' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
         ]);
-    
+
         if ($validator->passes()) {
             $section = new Product();
             $section->title = $request->title;
             $section->description = $request->description;
             $section->button_name = $request->button_name;
             $section->link = $request->link;
-    
+
             if (!empty($request->image_id)) {
                 $tempImage = TempImage::find($request->image_id);
-        
+
                 $extArray = explode('.', $tempImage->name);
                 $ext = last($extArray);
                 $newImageName = uniqid() . '.' . $ext; // Generate a unique filename
                 $sPath = public_path() . '/temp/' . $tempImage->name;
                 $dPath = public_path() . '/uploads/first_section/' . $newImageName;
-        
+
                 File::copy($sPath, $dPath);
-        
+
                 $section->logo = $newImageName;
             }
-    
+
             $section->save();
-    
+
             // Redirect to index page
             return redirect()->route('products.index')->with('success', 'Section added successfully');
         } else {
@@ -70,7 +70,7 @@ class ProductController extends Controller
             ]);
         }
     }
-    
+
 
 
 public function edit($id)
@@ -99,15 +99,15 @@ public function update(Request $request, $id)
 
         if (!empty($request->image_id)) {
             $tempImage = TempImage::find($request->image_id);
-    
+
             $extArray = explode('.', $tempImage->name);
             $ext = last($extArray);
             $newImageName = $product->id . '.' . $ext;
             $sPath = public_path() . '/temp/' . $tempImage->name;
             $dPath = public_path() . '/uploads/first_section/' . $newImageName;
-    
+
             File::copy($sPath, $dPath);
-    
+
             $product->logo = $newImageName;
             $product->save();
         }
