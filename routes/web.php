@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.home');
 Route::get('/contact-us', [FrontController::class, 'contact'])->name('front.contact');
+Route::get('/about-us', [FrontController::class, 'about'])->name('front.about');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
