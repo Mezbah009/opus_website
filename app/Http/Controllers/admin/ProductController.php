@@ -28,49 +28,49 @@ class ProductController extends Controller
 
 
     public function store(Request $request)
-{
-    // Validate the request data
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|string',
-        'description' => 'nullable|string',
-        'button_name' => 'nullable|string',
-        'link' => 'nullable|string',
-        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
-    ]);
-
-    if ($validator->passes()) {
-        $section = new Product();
-        $section->title = $request->title;
-        $section->description = $request->description;
-        $section->button_name = $request->button_name;
-        $section->link = $request->link;
-
-        if (!empty($request->image_id)) {
-            $tempImage = TempImage::find($request->image_id);
-    
-            $extArray = explode('.', $tempImage->name);
-            $ext = last($extArray);
-            $newImageName = $section->id . '.' . $ext;
-            $sPath = public_path() . '/temp/' . $tempImage->name;
-            $dPath = public_path() . '/uploads/first_section/' . $newImageName;
-    
-            File::copy($sPath, $dPath);
-    
-            $section->logo = $newImageName;
-            $section->save();
-        }
-
-        $section->save();
-
-        // Redirect to index page
-        return redirect()->route('products.index')->with('success', 'Section added successfully');
-    } else {
-        return response()->json([
-            'status' => false,
-            'errors' => $validator->errors()
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string',
+            'description' => 'nullable|string',
+            'button_name' => 'nullable|string',
+            'link' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
         ]);
+    
+        if ($validator->passes()) {
+            $section = new Product();
+            $section->title = $request->title;
+            $section->description = $request->description;
+            $section->button_name = $request->button_name;
+            $section->link = $request->link;
+    
+            if (!empty($request->image_id)) {
+                $tempImage = TempImage::find($request->image_id);
+        
+                $extArray = explode('.', $tempImage->name);
+                $ext = last($extArray);
+                $newImageName = uniqid() . '.' . $ext; // Generate a unique filename
+                $sPath = public_path() . '/temp/' . $tempImage->name;
+                $dPath = public_path() . '/uploads/first_section/' . $newImageName;
+        
+                File::copy($sPath, $dPath);
+        
+                $section->logo = $newImageName;
+            }
+    
+            $section->save();
+    
+            // Redirect to index page
+            return redirect()->route('products.index')->with('success', 'Section added successfully');
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
     }
-}
+    
 
 
 public function edit($id)
