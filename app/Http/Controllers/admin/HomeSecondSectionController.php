@@ -63,7 +63,7 @@ class HomeSecondSectionController extends Controller
         $section->save();
 
         // Redirect to index page
-        return redirect()->route('home_second_section.index')->with('success', 'Section added successfully');
+        return redirect()->route('home_second_sections.index')->with('success', 'Section added successfully');
     } else {
         return response()->json([
             'status' => false,
@@ -116,7 +116,7 @@ public function update(Request $request, $id)
 
         $section->save();
 
-        return redirect()->route('home_second_section.index')->with('success', 'Section updated successfully');
+        return redirect()->route('home_second_sections.index')->with('success', 'Section updated successfully');
     } else {
         return back()->withErrors($validator)->withInput();
     }
