@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
+use App\Http\Controllers\admin\HomeServicesSectionController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -81,6 +82,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/products/{products}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{products}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{products}', [ProductController::class, 'destroy'])->name('products.delete');
+
+        // Home Service section
+        Route::get('/home_services', [HomeServicesSectionController::class, 'index'])->name('home_services_section.index');
+        Route::get('/home_services/create', [HomeServicesSectionController::class, 'create'])->name('home_services_section.create');
+        Route::post('/home_services', [HomeServicesSectionController::class, 'store'])->name('home_services_section.store');
+        Route::get('/home_services/{home_services}/edit', [HomeServicesSectionController::class, 'edit'])->name('home_services_section.edit');
+        Route::put('/home_services/{home_services}', [HomeServicesSectionController::class, 'update'])->name('home_services_section.update');
+        Route::delete('/home_services/{home_services}', [HomeServicesSectionController::class, 'destroy'])->name('home_services_section.delete');
 
     });
 });
