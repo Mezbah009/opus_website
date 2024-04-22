@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
+use App\Models\HomeServicesSection;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
@@ -23,6 +24,9 @@ class FrontController extends Controller
 
         $home_second_section = HomeSecondSection::all();
         $data['home_second_section']= $home_second_section;
+
+        $home_services_section = HomeServicesSection::all();
+        $data['home_services_section']= $home_services_section;
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
