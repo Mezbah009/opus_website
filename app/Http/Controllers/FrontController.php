@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
+use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class FrontController extends Controller
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
 
+        $sections = Product::all();
+        $data['sections']= $sections;
 
         return view('front.home',$data);
     }
