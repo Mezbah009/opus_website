@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminLoginController;
+use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
@@ -92,6 +93,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/home_services/{home_services}/edit', [HomeServicesSectionController::class, 'edit'])->name('home_services_section.edit');
         Route::put('/home_services/{home_services}', [HomeServicesSectionController::class, 'update'])->name('home_services_section.update');
         Route::delete('/home_services/{home_services}', [HomeServicesSectionController::class, 'destroy'])->name('home_services_section.delete');
+
+         // Home Service section
+        Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+        Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+        Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+        Route::get('/clients/{clients}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::put('/clients/{clients}', [ClientController::class, 'update'])->name('clients.update');
+        Route::delete('/clients/{clients}', [ClientController::class, 'destroy'])->name('clients.delete');
 
     });
 });
