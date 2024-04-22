@@ -9,18 +9,21 @@
 
             <ol class="carousel-indicators" id="hero-carousel-indicators">
                 @foreach ($slider as $key => $sliders)
-                <li data-bs-target="#heroCarousel" data-bs-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
+                <li data-bs-target="#heroCarousel" data-bs-slide-to="{{ $key }}"
+                    class="{{ $key == 0 ? 'active' : '' }}"></li>
                 @endforeach
             </ol>
 
             <div class="carousel-inner" role="listbox">
                 @foreach ($slider as $key => $sliders)
-                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('uploads/slider/'.$sliders->image) }}');">
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}"
+                    style="background-image: url('{{ asset('uploads/slider/'.$sliders->image) }}');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
                             <h2 class="animate__animated animate__fadeInDown">{{ $sliders->title }}</h2>
                             <p class="animate__animated animate__fadeInUp">{{ $sliders->description }}</p>
-                            <a href="{{ $sliders->link }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                            <a href="{{ $sliders->link }}"
+                                class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
                                 $sliders->button_name }}</a>
                         </div>
                     </div>
@@ -46,41 +49,42 @@
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
                 <img src="{{ asset('front-assets/img/about.jpg')}}" class="img-fluid" alt="">
-<a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-</div>
+                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
+                    data-vbtype="video" data-autoplay="true"></a>
+            </div>
 
-<div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
 
-    <div class="section-title">
-        <h2>Who We Are</h2>
-        <p>Opus Technology Limited is a company that specializes in creating, designing, maintaining
-            software applications, developing custom software, mobile apps, web development,
-            artificial intelligence, games, animation and so. Opus Technology Limited started
-            operating from 2012 and since then delivering advanced software that empowers,
-            innovates, and transforms the office completely and digitally for all our clients.</p>
+                <div class="section-title">
+                    <h2>Who We Are</h2>
+                    <p>Opus Technology Limited is a company that specializes in creating, designing, maintaining
+                        software applications, developing custom software, mobile apps, web development,
+                        artificial intelligence, games, animation and so. Opus Technology Limited started
+                        operating from 2012 and since then delivering advanced software that empowers,
+                        innovates, and transforms the office completely and digitally for all our clients.</p>
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-rocket"></i></div>
+                    <h4 class="title"><a href="">Our Mission</a></h4>
+                    <p class="description">We aim to provide world-class software solutions for all our
+                        prospective clients from all over the world and build the best innovative software using
+                        our cutting edge technology and expert software development team.</p>
+                </div>
+
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-compass"></i></div>
+                    <h4 class="title"><a href="">Our Vision</a></h4>
+                    <p class="description">We want to serve customers from every corner of the world and provide
+                        them with the best IT solutions so that we are able to create a worldwide goodwill on
+                        the IT sector and achieve good worldwide recognition for being one of the best IT
+                        companies out there.</p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-
-    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon"><i class="bx bx-rocket"></i></div>
-        <h4 class="title"><a href="">Our Mission</a></h4>
-        <p class="description">We aim to provide world-class software solutions for all our
-            prospective clients from all over the world and build the best innovative software using
-            our cutting edge technology and expert software development team.</p>
-    </div>
-
-    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon"><i class="bx bx-compass"></i></div>
-        <h4 class="title"><a href="">Our Vision</a></h4>
-        <p class="description">We want to serve customers from every corner of the world and provide
-            them with the best IT solutions so that we are able to create a worldwide goodwill on
-            the IT sector and achieve good worldwide recognition for being one of the best IT
-            companies out there.</p>
-    </div>
-
-</div>
-</div>
-
-</div>
 </section><!-- End About Us Section --> --}}
 
 {{-- firts section --}}
@@ -93,7 +97,8 @@
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
                 <img src="{{ asset('uploads/first_section/' .$home_first_sections->image) }}" class="img-fluid" alt="">
-                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
+                    data-vbtype="video" data-autoplay="true"></a>
             </div>
 
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
@@ -101,7 +106,8 @@
                 <div class="section-title">
                     <h2>{{ $home_first_sections->title }}</h2>
                     <p>{!! $home_first_sections->description!!} </p>
-                    <a href="{{ $home_first_sections->link }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                    <a href="{{ $home_first_sections->link }}"
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
                         $home_first_sections->button_name }}</a>
                 </div>
 
@@ -137,10 +143,12 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
 
                 <div class="section-title">
-                    <img src="{{ asset('uploads/first_section/' .$home_second_sections->logo) }}" class="img-fluid" alt="">
+                    <img src="{{ asset('uploads/first_section/' .$home_second_sections->logo) }}" class="img-fluid"
+                        alt="">
                     <h2>{{ $home_second_sections->title }}</h2>
                     <p>{!! $home_second_sections->description!!} </p>
-                    <a href="{{ $home_second_sections->link }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                    <a href="{{ $home_second_sections->link }}"
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
                         $home_second_sections->button_name }}</a>
                 </div>
             </div>
@@ -220,7 +228,8 @@
             <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
                 <div class="count-box">
                     <i class="bi bi-simple-smile" style="color: #20b38e;"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="360" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="360" data-purecounter-duration="1"
+                        class="purecounter"></span>
                     <p>Successful Project Implementation</p>
                 </div>
             </div>
@@ -228,7 +237,8 @@
             <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="count-box">
                     <i class="bi bi-document-folder" style="color: #c042ff;"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1"
+                        class="purecounter"></span>
                     <p>Customers Worldwide</p>
                 </div>
             </div>
@@ -236,7 +246,8 @@
             <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
                 <div class="count-box">
                     <i class="bi bi-live-support" style="color: #46d1ff;"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1"
+                        class="purecounter"></span>
                     <p>Resources</p>
                 </div>
             </div>
@@ -244,7 +255,8 @@
             <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
                 <div class="count-box">
                     <i class="bi bi-users-alt-5" style="color: #ffb459;"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="45" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="45" data-purecounter-duration="1"
+                        class="purecounter"></span>
                     <p>Technical Resources</p>
                 </div>
             </div>
@@ -261,46 +273,17 @@
         <div class="section-title">
             <h2>Services</h2>
         </div>
-
         <div class="row">
+            @foreach ($home_services_section as $key => $home_services_sections)
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                <div class="icon"><i class="bi bi-chat-left-dots"></i></div>
-                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <div class="icon"><img src="{{ asset('uploads/first_section/' .$home_services_sections->icon) }}"
+                        class="img-fluid" alt="" width="50%"></div>
+                <h4 class="title"><a href="">{{ $home_services_sections->title }}</a></h4>
                 {{-- <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
                     excepturi sint occaecati cupiditate non provident</p> --}}
             </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="bi bi-bounding-box"></i></div>
-                <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                {{-- <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat tarad limino ata</p> --}}
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="bi bi-globe"></i></div>
-                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                {{-- <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur</p> --}}
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="bi bi-broadcast"></i></div>
-                <h4 class="title"><a href="">Magni Dolores</a></h4>
-                {{-- <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum</p> --}}
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon"><i class="bi bi-brightness-high"></i></div>
-                <h4 class="title"><a href="">Nemo Enim</a></h4>
-                {{-- <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque</p> --}}
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon"><i class="bi bi-calendar2-week"></i></div>
-                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                {{-- <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-                    tempore, cum soluta nobis est eligendi</p> --}}
-            </div>
+            @endforeach
         </div>
-
     </div>
 </section><!-- End Services Section -->
 
@@ -332,9 +315,11 @@
                     <img src="/uploads/first_section/{{ $section->logo }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>{{$section->title}}</h4>
-                        <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">{{$section->description}}</p>
+                        <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">
+                            {{$section->description}}</p>
                         <div class="portfolio-links">
-                            <a href="/uploads/first_section/{{ $section->logo }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                            <a href="/uploads/first_section/{{ $section->logo }}" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
                     </div>
@@ -361,7 +346,8 @@
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
                     <div class="pic">
-                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}" height="300px" width="350px">
+                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}"
+                            height="300px" width="350px">
                     </div>
 
                     <div class="member-info">
@@ -500,17 +486,21 @@
                 <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="col-lg-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                required>
                         </div>
                         <div class="col-lg-6 form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                                required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                            required></textarea>
                     </div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
