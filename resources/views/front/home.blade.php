@@ -133,7 +133,7 @@
 
 
 <!-- ======= Second Section ======= -->
-<section id="about" class="about">
+{{-- <section id="about" class="about">
     <div class="container" data-aos="fade-up">
         @foreach ($home_second_section as $key => $home_second_sections)
 
@@ -154,14 +154,14 @@
             </div>
             <div class="col-lg-6 video-box">
                 <img src="{{ asset('uploads/first_section/' .$home_second_sections->image) }}" class="img-fluid" alt="">
-                {{-- <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
-                    data-vbtype="video" data-autoplay="true"></a> --}}
             </div>
         </div>
         @endforeach
 
     </div>
-</section><!-- End About Us Section -->
+</section> --}}
+
+<!-- End About Us Section -->
 
 
 
@@ -377,6 +377,7 @@
 </section><!-- End Our Team Section -->
 
 <!-- ======= Frequently Asked Questions Section ======= -->
+
 <section id="faq" class="faq section-bg">
     <div class="container" data-aos="fade-up">
 
@@ -387,59 +388,32 @@
         <div class="row  d-flex align-items-stretch">
 
             <div class="col-lg-6 faq-item" data-aos="fade-up">
-                <h4>Non consectetur a erat nam at lectus urna duis?</h4>
+                <h4>Why Microfinance Institute should adopt TURBO?</h4>
                 <p>
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                    curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    TURBO brings several benefits, including improved operational efficiency, enhanced client management, accurate financial reporting, streamlined loan processing, better risk management, compliance with regulatory requirements, and access to insightful analytics for informed decision-making.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-                <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
+                <h4>Can a TURBO handle multiple types of loans?</h4>
                 <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                    laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium.
-                    Est pellentesque elit ullamcorper dignissim.
+                    Yes, TURBO can handle various types of loans, including individual loans, group loans, agricultural loans, business loans, and more. It offers flexible features to customize loan products and repayment schedules based on the specific needs of microfinance clients.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="200">
-                <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
+                <h4>Is data security ensured with TURBO?</h4>
                 <p>
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
-                    elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
-                    pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
+                    Yes. TURBO incorporates robust security measures to protect sensitive client information, transaction records, and financial data. This includes encryption protocols, user access controls, regular data backups, and adherence to data protection regulations.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="300">
-                <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
+                <h4>Can TURBO integrate with other financial systems?</h4>
                 <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                    laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium.
-                    Est pellentesque elit ullamcorper dignissim.
+                    Yes, TURBO can integrate with other financial systems such as core banking systems, payment processors, credit bureaus, and mobile money platforms. This integration enables seamless data exchange, facilitates transaction processing, and enhances operational efficiency.
                 </p>
             </div>
-
-            <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="400">
-                <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-                <p>
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                    ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
-                    bibendum est. Purus gravida quis blandit turpis cursus in
-                </p>
-            </div>
-
-            <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="500">
-                <h4>Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor?
-                </h4>
-                <p>
-                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                    malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem
-                    dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                </p>
-            </div>
-
         </div>
 
     </div>

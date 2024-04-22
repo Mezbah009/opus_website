@@ -42,4 +42,17 @@ class FrontController extends Controller
 
     }
 
+    public function about(){
+
+        $home_second_section = HomeSecondSection::all();
+        $data['home_second_section']= $home_second_section;
+
+        $teamMembers = User::where('role', '!=', 2)->get();
+        $data['teamMembers']= $teamMembers;
+        
+        return view('front.about',$data);
+
+    }
+
+
 }
