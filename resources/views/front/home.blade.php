@@ -132,6 +132,37 @@
 </section><!-- End About Us Section -->
 
 
+<!-- ======= Second Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        @foreach ($home_second_section as $key => $home_second_sections)
+
+        <div class="row no-gutters">
+
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+                <div class="section-title">
+                    <img src="{{ asset('uploads/first_section/' .$home_second_sections->logo) }}" class="img-fluid" alt="">
+                    <h2>{{ $home_second_sections->title }}</h2>
+                    <p>{!! $home_second_sections->description!!} </p>
+                    <a href="{{ $home_second_sections->link }}"
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
+                        $home_second_sections->button_name }}</a>
+                </div>
+            </div>
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$home_second_sections->image) }}" class="img-fluid" alt="">
+                {{-- <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
+                    data-vbtype="video" data-autoplay="true"></a> --}}
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</section><!-- End About Us Section -->
+
+
 
 <!-- ======= About Lists Section ======= -->
 <section class="about-lists">
@@ -246,38 +277,38 @@
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
                 <div class="icon"><i class="bi bi-chat-left-dots"></i></div>
                 <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                    excepturi sint occaecati cupiditate non provident</p>
+                {{-- <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                    excepturi sint occaecati cupiditate non provident</p> --}}
             </div>
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon"><i class="bi bi-bounding-box"></i></div>
                 <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat tarad limino ata</p>
+                {{-- <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat tarad limino ata</p> --}}
             </div>
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon"><i class="bi bi-globe"></i></div>
                 <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur</p>
+                {{-- <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                    dolore eu fugiat nulla pariatur</p> --}}
             </div>
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon"><i class="bi bi-broadcast"></i></div>
                 <h4 class="title"><a href="">Magni Dolores</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum</p>
+                {{-- <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum</p> --}}
             </div>
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon"><i class="bi bi-brightness-high"></i></div>
                 <h4 class="title"><a href="">Nemo Enim</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque</p>
+                {{-- <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                    praesentium voluptatum deleniti atque</p> --}}
             </div>
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon"><i class="bi bi-calendar2-week"></i></div>
                 <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-                    tempore, cum soluta nobis est eligendi</p>
+                {{-- <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+                    tempore, cum soluta nobis est eligendi</p> --}}
             </div>
         </div>
 
