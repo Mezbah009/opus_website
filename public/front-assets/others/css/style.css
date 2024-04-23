@@ -1244,13 +1244,12 @@ and (min-width : 551px){
 /*************** Testimonials ***************/
 
 .testimonial-section {
-    background: url('{{ asset('front-assets/img/parallax/testimonial-bg.jpg') }}') no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     padding-top: 120px;
     padding-bottom: 120px;
-    color: #fff;
+    color: #000000;
     text-align: center;
     position: relative;
 }
@@ -1270,7 +1269,7 @@ and (min-width : 551px){
 	font-style: italic;
 	font-weight: 400;
     margin-bottom: 40px;
-	color: #fff;
+	color: #303030;
 }
 
 .testimonials .testimonial-content {
@@ -1287,7 +1286,7 @@ and (min-width : 551px){
     padding-bottom: 5px;
 }
 .testimonials .testimonial-author .designation {
-    color: #d3d3d3;
+    color: #5c768d;
 }
 
 .touch-slider .owl-controls.clickable .owl-buttons div:hover {
@@ -1325,7 +1324,7 @@ and (min-width : 551px){
     border-radius: 3px;
 }
 .owl-theme .owl-controls .owl-page.active span {
-    background: #fff;
+    background: #5c768d;
 }
 
 

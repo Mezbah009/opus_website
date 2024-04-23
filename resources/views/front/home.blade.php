@@ -492,6 +492,7 @@
 
 
 <!-- Start Testimonial Section -->
+<section  class="faq section-bg">
 <div id="testimonial" class="testimonial-section">
     <div class="container">
         <!-- Start Testimonials Carousel -->
@@ -533,6 +534,7 @@
         <!-- End Testimonials Carousel -->
     </div>
 </div>
+</section>
 <!-- End Testimonial Section -->
 
 <!-- Clients Aside -->
@@ -542,7 +544,7 @@
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h3>They Trust Us</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                    {{-- <p>Duis aute irure dolor in reprehenderit in voluptate</p> --}}
                 </div>
             </div>
         </div>
