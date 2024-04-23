@@ -31,6 +31,25 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('front-assets/css/style.css')}}" rel="stylesheet">
 
+
+
+    {{-- others CSS--}}
+
+    {{-- <link href="{{ asset('front-assets/others/asset/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
+
+    <!-- Font Awesome CSS -->
+    <link href="{{ asset('front-assets/others/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="{{ asset('front-assets/others/css/animate.css')}}" rel="stylesheet">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.theme.css')}}">
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.transitions.css')}}">
+    <!-- Custom CSS -->
+    <link href="{{ asset('front-assets/others/css/style.csss')}}" rel="stylesheet">
+    <link href="{{ asset('front-assets/others/css/responsive.css')}}" rel="stylesheet">
+
+
     <!-- =======================================================
   * Template Name: Mamba
   * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
@@ -200,6 +219,30 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('front-assets/js/main.js')}}"></script>
+
+
+
+
+    {{-- others JS--}}
+
+    <!-- jQuery Version 2.1.1 -->
+    <script src="{{ asset('front-assets/others/js/jquery-2.1.1.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('front-assets/others/asset/js/bootstrap.min.js')}}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="{{ asset('front-assets/others/js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/classie.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/count-to.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/jquery.appear.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/cbpAnimatedHeader.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/jquery.fitvids.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/styleswitcher.js')}}"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('front-assets/others/js/jqBootstrapValidation.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/contact_me.js')}}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('front-assets/others/js/script.js')}}"></script>
 
 </body>
 
