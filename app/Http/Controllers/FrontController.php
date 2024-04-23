@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
@@ -49,8 +50,17 @@ class FrontController extends Controller
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
-        
+
         return view('front.about',$data);
+
+    }
+
+    public function clients(){
+
+        $clients = Client::all();
+        $data['clients']= $clients;
+
+        return view('front.clients',$data);
 
     }
 
