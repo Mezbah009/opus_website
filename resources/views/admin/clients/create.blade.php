@@ -26,11 +26,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="category">Product Category</label>
+                                <label for="category">Clients Category</label>
                                 <select name="category" id="category" class="form-control">
                                     <option value="" selected disabled>Select Product Category</option>
-                                    <option value="filter-sig"> Signature </option>
                                     <option value="filter-fin">Fintech</option>
+                                    <option value="filter-gov"> Government Organization</option>
+                                    <option value="filter-real">Real Estate</option>
+                                    <option value="filter-ngo">NGO</option>
+                                    <option value="filter-tel">Telecom</option>
+                                    <option value="filter-edu">Education</option>
+                                    <option value="filter-hea">Healthcare</option>
+                                    <option value="filter-manu">Manufacturing And Trading</option>
+                                    <option value="filter-ins">Inspection & Testing</option>
+                                    <option value="filter-club">Club and Restaurants</option>
+                                    <option value="filter-tech">Technology</option>
+                                    <option value="filter-man">Management Consultancy</option>
                                 </select>
                             </div>
                         </div>

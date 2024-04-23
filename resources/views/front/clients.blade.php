@@ -7,10 +7,11 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="section-title">
-            <h2>Our Clients</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Our Valuable Clients</h2>
+            <p>At OPUS System Solutions, we extend our heartfelt gratitude to the incredible organizations that have
+                become our cherished partners on our journey to harmonize technology with Islamic ethics. These valued
+                clients have not only entrusted us with their technology needs but have also played a pivotal role in
+                shaping our vision and mission.</p>
         </div>
 
         <div class="row">
@@ -18,7 +19,17 @@
                 <ul id="portfolio-flters">
                     <li data-filter="*" class="filter-active">All</li>
                     <li data-filter=".filter-fin">Fintech</li>
-                    <li data-filter=".filter-sig">Signature</li>
+                    <li data-filter=".filter-gov">Government Organization</li>
+                    <li data-filter=".filter-real">Real Estate</li>
+                    <li data-filter=".filter-ngo">NGO</li>
+                    <li data-filter=".filter-tel">Telecom</li>
+                    <li data-filter=".filter-edu">Education</li>
+                    <li data-filter=".filter-hea">Healthcare</li>
+                    <li data-filter=".filter-manu">Manufacturing And Trading</li>
+                    <li data-filter=".filter-ins">Inspection & Testing</li>
+                    <li data-filter=".filter-club">Club and Restaurants</li>
+                    <li data-filter=".filter-tech">Technology</li>
+                    <li data-filter=".filter-man">Management Consultancy</li>
                 </ul>
             </div>
         </div>
@@ -34,8 +45,8 @@
                             {{$client->description}}</p>
                         <div class="portfolio-links">
                             <a href="/uploads/first_section/{{ $client->logo }}" data-gallery="portfolioGallery"
-                                {{-- class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a> --}}
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                            <a href="{{ $client->link }}"" title=" More Details"><i class="bi bi-link"></i></a>
                         </div>
                     </div>
                 </div>

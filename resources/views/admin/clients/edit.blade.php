@@ -31,7 +31,20 @@
                                 <select name="category" id="category" class="form-control">
                                     <option value="" disabled>Select Clinets Category</option>
                                     <option value="filter-sig" {{ $clients->category === 'Signature' ? 'selected' : '' }}>Signature</option>
+                                    <option value="filter-fin" {{ $clients->category === 'Fintech' ? 'selected' : '' }} >Fintech</option>
+
                                     <option value="filter-fin" {{ $clients->category === 'Fintech' ? 'selected' : '' }}>Fintech</option>
+                                    <option value="filter-gov" {{ $clients->category === 'Government Organization' ? 'selected' : '' }}> Government Organization</option>
+                                    <option value="filter-real {{ $clients->category === 'Real Estate' ? 'selected' : '' }}">Real Estate</option>
+                                    <option value="filter-ngo" {{ $clients->category === 'NGO' ? 'selected' : '' }}>NGO</option>
+                                    <option value="filter-tel" {{ $clients->category === 'Telecom' ? 'selected' : '' }}>Telecom</option>
+                                    <option value="filter-edu" {{ $clients->category === 'Education' ? 'selected' : '' }}>Education</option>
+                                    <option value="filter-hea" {{ $clients->category === 'Healthcare' ? 'selected' : '' }}>Healthcare</option>
+                                    <option value="filter-manu" {{ $clients->category === 'Manufacturing And Trading' ? 'selected' : '' }}>Manufacturing And Trading</option>
+                                    <option value="filter-ins" {{ $clients->category === 'Inspection & Testing' ? 'selected' : '' }}>Inspection & Testing</option>
+                                    <option value="filter-club" {{ $clients->category === 'Club and Restaurants' ? 'selected' : '' }}>Club and Restaurants</option>
+                                    <option value="filter-tech" {{ $clients->category === 'Technology' ? 'selected' : '' }}>Technology</option>
+                                    <option value="filter-man" {{ $clients->category === '>Management Consultancy' ? 'selected' : '' }}>Management Consultancy</option>
                                     <!-- Add more options as needed -->
                                 </select>
                             </div>
