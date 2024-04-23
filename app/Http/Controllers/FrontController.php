@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Client;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
@@ -62,6 +63,13 @@ class FrontController extends Controller
 
         return view('front.clients',$data);
 
+    }
+
+    public function blog(){
+        $blogPosts=Blog::all();
+        $data['blogPosts']= $blogPosts;
+
+        return view('front.blog',$data);
     }
 
 
