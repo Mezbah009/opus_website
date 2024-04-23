@@ -549,49 +549,18 @@
             </div>
         </div>
         <div class="row">
+
             <div class="clients">
+                @foreach($clients as $client)
 
                 <div class="col-md-12">
-                    <img src="front-assets/img/logos/themeforest.jpg" class="img-responsive" alt="...">
+                    <a href="{{ $client->link }}" target="_blank">
+                    <img src="/uploads/first_section/{{ $client->logo }}" alt="..." width="150px">
+                    </a>
                 </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/creative-market.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/designmodo.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/creative-market.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/microlancer.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/themeforest.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/microlancer.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/designmodo.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/creative-market.jpg" class="img-responsive" alt="...">
-                </div>
-
-                <div class="col-md-12">
-                    <img src="front-assets/img/logos/designmodo.jpg" class="img-responsive" alt="...">
-                </div>
-
+                @endforeach
             </div>
+
         </div>
     </div>
 </section>

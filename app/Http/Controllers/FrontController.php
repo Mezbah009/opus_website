@@ -9,6 +9,7 @@ use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,12 @@ class FrontController extends Controller
 
         $home_services_section = HomeServicesSection::all();
         $data['home_services_section']= $home_services_section;
+
+        $testimonials = Testimonial::all();
+        $data['testimonials']= $testimonials;
+
+        $clients = Client::all();
+        $data['clients']= $clients;
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
