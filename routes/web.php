@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminLoginController;
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
@@ -12,7 +13,10 @@ use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TempImagesController;
 use App\Http\Controllers\FrontController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +37,7 @@ Route::get('/', [FrontController::class, 'index'])->name('front.home');
 Route::get('/contact-us', [FrontController::class, 'contact'])->name('front.contact');
 Route::get('/about-us', [FrontController::class, 'about'])->name('front.about');
 Route::get('/clients', [FrontController::class, 'clients'])->name('front.clients');
+Route::get('/blog', [FrontController::class, 'blog'])->name('front.blog');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
@@ -95,13 +100,32 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/home_services/{home_services}', [HomeServicesSectionController::class, 'update'])->name('home_services_section.update');
         Route::delete('/home_services/{home_services}', [HomeServicesSectionController::class, 'destroy'])->name('home_services_section.delete');
 
-         // Home Service section
+        // Home Service section
         Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
         Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
         Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
         Route::get('/clients/{clients}/edit', [ClientController::class, 'edit'])->name('clients.edit');
         Route::put('/clients/{clients}', [ClientController::class, 'update'])->name('clients.update');
         Route::delete('/clients/{clients}', [ClientController::class, 'destroy'])->name('clients.delete');
+
+        // Blog section
+        Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+        Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+        Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
+        Route::get('/blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+        Route::put('/blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
+        Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('blog.delete');
+
+        Route::get('/getSlug', function (Request $request) {
+            $slug = '';
+            if (!empty($request->title)) {
+                $slug = Str::slug($request->title);  // Corrected to Str::slug
+            }
+            return response()->json([
+                'status' => true,
+                'slug' => $slug,
+            ]);
+        })->name('getSlug');
 
     });
 });

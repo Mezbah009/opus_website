@@ -70,6 +70,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('blog.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Blogs</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="" class="nav-link">
                         <i class="nav-icon  far fa-file-alt"></i>
                         <p>Pages</p>
