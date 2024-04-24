@@ -42,6 +42,18 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6" id="fintechDropdown" style="display: none;">
+                            <div class="mb-3">
+                                <label for="fin_cat">Fintech Options</label>
+                                <select name="fin_cat" id="fintechOptions" class="form-control">
+                                    <option value="" selected disabled>Select Fintech Option</option>
+                                    <option value="filter-cb">Conventional Banking</option>
+                                    <option value="filter-ib">Islamic Banking</option>
+                                    <option value="filter-mf">Micro-Finance</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="link">Link</label>
@@ -149,6 +161,15 @@
         }
     });
 </script>
-
+<script>
+    document.getElementById("button_name").addEventListener("change", function() {
+        var selectedValue = this.value;
+        if (selectedValue === "filter-fin") {
+            document.getElementById("fintechDropdown").style.display = "block";
+        } else {
+            document.getElementById("fintechDropdown").style.display = "none";
+        }
+    });
+</script>
 
 @endsection
