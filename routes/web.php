@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TempImagesController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -100,7 +101,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/home_services/{home_services}', [HomeServicesSectionController::class, 'update'])->name('home_services_section.update');
         Route::delete('/home_services/{home_services}', [HomeServicesSectionController::class, 'destroy'])->name('home_services_section.delete');
 
-        // Home Service section
+         // Testimonials
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
+        Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+        Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+        Route::get('/testimonials/{testimonials}/edit', [TestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::put('/testimonials/{testimonials}', [TestimonialController::class, 'update'])->name('testimonials.update');
+        Route::delete('/testimonials/{testimonials}', [TestimonialController::class, 'destroy'])->name('testimonials.delete');
+
+        // Clients
         Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
         Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
         Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
@@ -108,7 +117,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/clients/{clients}', [ClientController::class, 'update'])->name('clients.update');
         Route::delete('/clients/{clients}', [ClientController::class, 'destroy'])->name('clients.delete');
 
-        // Blog section
+        // Blog
         Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
         Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
         Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');

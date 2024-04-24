@@ -46,7 +46,7 @@
                         <div class="portfolio-links">
                             <a href="/uploads/first_section/{{ $client->logo }}" data-gallery="portfolioGallery"
                                 class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="{{ $client->link }}"" title=" More Details"><i class="bi bi-link"></i></a>
+                            <a href="{{ $client->link }}"" title=" More Details" target="_blank"><i class="bi bi-link"></i></a>
                         </div>
                     </div>
                 </div>
