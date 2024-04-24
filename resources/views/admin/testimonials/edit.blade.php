@@ -39,6 +39,12 @@
                                 <p class="error"></p>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" id="description" class="form-control" placeholder="Description" value="{{ $testimonials->description }}"></textarea>
+                            </div>
+                        </div>
 
                         <div class="col-md-3">
                             <div class="mb-1">
