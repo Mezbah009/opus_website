@@ -40,7 +40,7 @@ class FrontController extends Controller
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
 
-        $sections = Product::all();
+        $sections = Product::all()->take(6);
         $data['sections']= $sections;
 
         return view('front.home',$data);
@@ -63,13 +63,24 @@ class FrontController extends Controller
 
     }
 
+    public function products(){
+        $sections = Product::where("button_name", "filter-sig")->get();
+        $data['sections']= $sections;
+        return view('front.products',$data);
+    }
+
+    public function fintech(){
+        $sections = Product::where("button_name", "filter-fin")->get();
+        $data['sections']= $sections;
+        return view('front.fintech',$data);
+    }
+
     public function clients(){
 
         $clients = Client::all();
         $data['clients']= $clients;
 
         return view('front.clients',$data);
-
     }
 
     public function blog(){
