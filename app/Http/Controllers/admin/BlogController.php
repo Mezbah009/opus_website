@@ -32,7 +32,7 @@ class BlogController extends Controller
 
         // Validate the request data
         $validator = Validator::make($request->all(), [
-            'image' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_id' => 'required',
             'category' => 'nullable|string',
             'title' => 'required|string',
             'date' => 'required|date',
