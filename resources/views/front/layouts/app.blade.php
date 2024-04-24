@@ -93,9 +93,13 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="{{ route('front.home') }}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('front.about') }}">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+
+                    <li><a class="nav-link scrollto" href="{{ route('front.products') }}">Product</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('front.fintech') }}">Fintech</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('front.clients') }}">Clients</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Blogs</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Jobs</a></li>
                     {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
