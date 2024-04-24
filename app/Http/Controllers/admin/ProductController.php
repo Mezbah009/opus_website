@@ -36,6 +36,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'button_name' => 'nullable|string',
             'link' => 'nullable|string',
+            'fin_cat' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
         ]);
 
@@ -44,6 +45,7 @@ class ProductController extends Controller
             $section->title = $request->title;
             $section->description = $request->description;
             $section->button_name = $request->button_name;
+            $section->fin_cat = $request->fin_cat;
             $section->link = $request->link;
 
             if (!empty($request->image_id)) {
