@@ -113,7 +113,7 @@
             <div></div>
             <div></div>
         </div>
-        <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit fuga nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi qui.</p>
+        <p class="text">Opus Technology Ltd is a leading Software Development and IT consulting service provider company. Combining unparalleled experience, domain expertise, best practices & comprehensive capabilities across various industries & business functions, it collaborates with customers to help them effectively address their operational challenges & grow their businesses stronger.</p>
     </div>
 
 
@@ -123,7 +123,7 @@
 
                 <div class="row">
 
-                    <div class="col-lg-6 d-flex" data-aos="fade-up">
+                    <div class="col-lg-4 d-flex" data-aos="fade-up">
                         <div class="info-box">
                             <i class="bx bx-map"></i>
                             <h3>Our Address</h3>
@@ -131,22 +131,65 @@
                                 Khan Tower (2nd Floor & 4th Floor) <br>
                                 80/3, VIP Road, Kakrail
                                 Dhaka, Bangladesh.</p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-4 d-flex" data-aos="fade-up">
                         <div class="info-box">
-                            <i class="bx bx-envelope"></i>
-                            <h3>Email Us</h3>
-                            <p>info@opus-bd.com<br>support@opus-bd.com</p>
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p>Bangladesh Office
+                                Khan Tower (2nd Floor & 4th Floor) <br>
+                                80/3, VIP Road, Kakrail
+                                Dhaka, Bangladesh.</p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex" data-aos="fade-up">
+                        <div class="info-box">
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p>Bangladesh Office
+                                Khan Tower (2nd Floor & 4th Floor) <br>
+                                80/3, VIP Road, Kakrail
+                                Dhaka, Bangladesh.</p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <div class="info-box ">
-                            <i class="bx bx-phone-call"></i>
-                            <h3>Call Us</h3>
-                            <p>+8801811317129<br>+8801765258599</p>
+                    <div class="row">
+                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                            <div class="info-box">
+                                <i class="bx bx-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p>info@opus-bd.com;<br>sales@opus-bd.com;<br>support@opus-bd.com;</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                            <div class="info-box ">
+                                <i class="bx bx-phone-call"></i>
+                                <h3>Call Us</h3>
+                                <p>+8801811317129;<br>+8801765258599;<br>+8802222225006;<br>+880258316738;</p>
+                            </div>
                         </div>
                     </div>
 
@@ -174,9 +217,7 @@
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div>
-
                 </div>
-
             </div>
         </section><!-- End Contact Us Section -->
 

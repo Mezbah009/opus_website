@@ -40,8 +40,14 @@ class FrontController extends Controller
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
 
-        $sections = Product::all()->take(6);
-        $data['sections']= $sections;
+        // $sections = Product::all()->take(6);
+        // $data['sections']= $sections;
+
+        $sectionsFilterFin = Product::where('button_name', 'filter-fin')->take(3)->get();
+        $sectionsFilterSig = Product::where('button_name', 'filter-sig')->take(3)->get();
+        $sections = $sectionsFilterFin->merge($sectionsFilterSig);
+
+        $data['sections'] = $sections;
 
         return view('front.home',$data);
     }
