@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
@@ -126,6 +127,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
         Route::put('/blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
         Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('blog.delete');
+
+        // Contact
+        Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+        Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
+        Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+        Route::get('/contact/{contact}/edit', [ContactController::class, 'edit'])->name('contact.edit');
+        Route::put('/contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+        Route::delete('/contact/{contact}', [ContactController::class, 'destroy'])->name('contact.delete');
 
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
