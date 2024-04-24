@@ -89,6 +89,7 @@ public function update(Request $request, $id)
         'title' => 'required|string',
         'description' => 'nullable|string',
         'button_name' => 'nullable|string',
+        'fin_cat' => 'nullable|string',
         'link' => 'nullable|string',
         'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
     ]);
@@ -98,6 +99,7 @@ public function update(Request $request, $id)
         $product->title = $request->title;
         $product->description = $request->description;
         $product->button_name = $request->button_name;
+        $product->fin_cat = $request->fin_cat;
         $product->link = $request->link;
 
         if (!empty($request->image_id)) {

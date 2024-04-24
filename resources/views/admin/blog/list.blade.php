@@ -57,7 +57,7 @@
                             <td>
                                 @if(!empty($blog->image))
                                 <img src="{{asset('uploads/blogs/'.$blog->image)}}" class="img-thumbnail"
-                                    alt="{{$section->title}}" width="50">
+                                    alt="{{$blog->title}}" width="50">
                                 @else
                                 <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail"
                                     alt="default image" width="50">
