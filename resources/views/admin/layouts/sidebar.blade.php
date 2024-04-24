@@ -45,6 +45,12 @@
                                 <p>Home Second Section</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('testimonials.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Testimonial</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!-- Other menu items -->
@@ -54,6 +60,7 @@
                         <p>Product</p>
                     </a>
                 </li>
+
 
                 <li class="nav-item">
                     <a href="{{ route('team_members.index') }}" class="nav-link">

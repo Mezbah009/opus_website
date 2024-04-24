@@ -419,6 +419,66 @@
     </div>
 </section><!-- End Frequently Asked Questions Section -->
 
+<!-- Clients Aside -->
+<section id="partner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3>They Trust Us</h3>
+                    {{-- <p>Duis aute irure dolor in reprehenderit in voluptate</p> --}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="clients">
+                @foreach($clients as $client)
+
+                <div class="col-md-12">
+                    <a href="{{ $client->link }}" target="_blank">
+                    <img src="/uploads/first_section/{{ $client->logo }}" alt="..." width="150px">
+                    </a>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
+</section> <!-- End Clients Section -->
+
+
+
+<!-- Start Testimonial Section -->
+<section  class="faq section-bg">
+<div id="testimonial" class="testimonial-section">
+    <div class="container">
+
+
+        <!-- Start Testimonials Carousel -->
+        <div id="testimonial-carousel" class="testimonials-carousel">
+            @foreach ($testimonials as $key => $testimonial)
+            <!-- Testimonial 1 -->
+            <div class="testimonials item">
+                <div class="testimonial-content">
+                    <img src="/uploads/first_section/{{ $testimonial->logo }}" alt="" >
+                    <div class="testimonial-author">
+                        <div class="author">{{$testimonial->name}}</div>
+                        <div class="designation">{{$testimonial->designation}}</div>
+                    </div>
+                    <p>{{$testimonial->description}}</p>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <!-- End Testimonials Carousel -->
+    </div>
+</div>
+</section>
+<!-- End Testimonial Section -->
+
+
 <!-- ======= Contact Us Section ======= -->
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
@@ -489,6 +549,7 @@
 
     </div>
 </section><!-- End Contact Us Section -->
+
 
 
 @endsection

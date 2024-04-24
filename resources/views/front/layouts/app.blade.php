@@ -31,6 +31,25 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('front-assets/css/style.css')}}" rel="stylesheet">
 
+
+
+    {{-- others CSS--}}
+
+    {{-- <link href="{{ asset('front-assets/others/asset/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
+
+    <!-- Font Awesome CSS -->
+    <link href="{{ asset('front-assets/others/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="{{ asset('front-assets/others/css/animate.css')}}" rel="stylesheet">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.theme.css')}}">
+    <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.transitions.css')}}">
+    <!-- Custom CSS -->
+    {{-- <link href="{{ asset('front-assets/others/css/style.css')}}" rel="stylesheet"> --}}
+    <link href="{{ asset('front-assets/others/css/responsive.css')}}" rel="stylesheet">
+
+
     <!-- =======================================================
   * Template Name: Mamba
   * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
@@ -77,7 +96,7 @@
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('front.clients') }}">Clients</a></li>
-                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                    {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
@@ -94,7 +113,7 @@
                             <li><a href="#">Drop Down 3</a></li>
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li><a class="nav-link scrollto" href="{{ route('front.contact') }}">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -200,6 +219,30 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('front-assets/js/main.js')}}"></script>
+
+
+
+
+    {{-- others JS--}}
+
+    <!-- jQuery Version 2.1.1 -->
+    <script src="{{ asset('front-assets/others/js/jquery-2.1.1.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('front-assets/others/asset/js/bootstrap.min.js')}}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="{{ asset('front-assets/others/js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/classie.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/count-to.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/jquery.appear.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/cbpAnimatedHeader.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/jquery.fitvids.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/styleswitcher.js')}}"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('front-assets/others/js/jqBootstrapValidation.js')}}"></script>
+    <script src="{{ asset('front-assets/others/js/contact_me.js')}}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('front-assets/others/js/script.js')}}"></script>
 
 </body>
 
