@@ -301,7 +301,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
+                    {{-- <li data-filter="*" class="filter-active">All</li> --}}
                     <li data-filter=".filter-fin">Fintech</li>
                     <li data-filter=".filter-sig">Signature</li>
                 </ul>
