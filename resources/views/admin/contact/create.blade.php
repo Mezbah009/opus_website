@@ -5,7 +5,7 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create Contact</h1>
+                <h1>Create Contact Us</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('contact.index') }}" class="btn btn-primary">Back</a>
@@ -48,7 +48,7 @@
                             <div class="mb-3">
                                 <label for="office_name">Office name</label>
                                 <input type="text" name="office_name" id="office_name" class="form-control"
-                                    placeholder="office name" value="{{ old('office_name') }}">
+                                    placeholder="Office name" value="{{ old('office_name') }}">
                                 @error('company_name')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
