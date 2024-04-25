@@ -47,6 +47,7 @@ class BlogController extends Controller
             $blogPost->title = $request->title;
             $blogPost->date = $request->date;
             $blogPost->excerpt = $request->excerpt;
+            $blogPost->description = $request->description;
             $blogPost->slug = $request->slug;
 
             // Handle image upload and save
