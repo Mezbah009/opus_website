@@ -95,7 +95,7 @@
                     <li><a class="nav-link scrollto {{ Request::is('fintech') ? 'active' : '' }}" href="{{ route('front.fintech') }}">Fintech</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('clients') ? 'active' : '' }}" href="{{ route('front.clients') }}">Clients</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('services') ? 'active' : '' }}" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}" href="#blogs">Blogs</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}" href="{{ route('front.blog') }}">Blogs</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}" href="#jobs">Jobs</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('front.contact') }}">Contact</a></li>
                 </ul>

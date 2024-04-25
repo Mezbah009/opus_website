@@ -25,51 +25,55 @@ class ContactController extends Controller
     }
 
     public function store(Request $request)
-{
-    // Validate the request data
-    $validator = Validator::make($request->all(), [
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'country_name' => 'nullable|string',
-        'company_name' => 'nullable|string',
-        'office_name' => 'nullable|string',
-        'address' => 'nullable|string',
-    ]);
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'country_name' => 'nullable|string',
+            'company_name' => 'nullable|string',
+            'office_name' => 'nullable|string',
+            'address' => 'nullable|string',
+        ]);
 
-    // If validation fails, redirect back with errors
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        // If validation fails, redirect back with errors
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Create a new Contact instance
+        $contact = new Contact();
+
+        // Set properties from the request
+        $contact->country_name = $request->country_name;
+        $contact->company_name = $request->company_name;
+        $contact->office_name = $request->office_name;
+        $contact->address = $request->address;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'image_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/first_section'), $imageName);
+            $contact->image = $imageName;
+        }
+
+        // Update flag if provided
+        if ($request->hasFile('flag')) {
+            $flag = $request->file('flag');
+            $flagName = 'flag_' . time() . '.' . $flag->getClientOriginalExtension();
+            $flag->move(public_path('uploads/first_section'), $flagName);
+            $contact->flag = $flagName;
+
+            // Save the contact to the database
+            $contact->save();
+
+            // Redirect to index page
+            return redirect()->route('contact.index')->with('success', 'Contact updated successfully');
+        } else {
+            return back()->withErrors($validator)->withInput();
+        }
     }
 
-    // Create a new Contact instance
-    $contact = new Contact();
 
-    // Set properties from the request
-    $contact->country_name = $request->country_name;
-    $contact->company_name = $request->company_name;
-    $contact->office_name = $request->office_name;
-    $contact->address = $request->address;
-
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imageName = 'image_' . time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('uploads/first_section'), $imageName);
-        $contact->image = $imageName;
-    }
-
-    // Update flag if provided
-    if ($request->hasFile('flag')) {
-        $flag = $request->file('flag');
-        $flagName = 'flag_' . time() . '.' . $flag->getClientOriginalExtension();
-        $flag->move(public_path('uploads/first_section'), $flagName);
-        $contact->flag = $flagName;
-    }
-
-    // Save the contact to the database
-    $contact->save();
-
-    // Redirect to the index page with success message
-    return redirect()->route('contact.index')->with('success', 'Contact added successfully');
-}
 }
