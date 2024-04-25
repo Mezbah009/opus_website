@@ -56,10 +56,11 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="link">Link</label>
-                                <input type="text" name="link" id="link" class="form-control" placeholder="Link" value="{{ $product->link }}">
+                                <input type="text" readonly name="slug" id="slug" class="form-control" placeholder="Link" value="{{ $product->link }}">
                                 <p class="error"></p>
                             </div>
                         </div>
@@ -143,6 +144,31 @@
                 console.log("Something went wrong");
             }
         })
+    });
+
+    $("#title").change(function() {
+        var title = $(this).val();
+        $("button[type=submit]").prop('disabled', true);
+        $.ajax({
+            url: '{{ route("getSlug") }}',
+            type: 'get',
+            data: {
+                title: title
+            },
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                $("button[type=submit]").prop('disabled', false);
+                if (response["status"] == true) {
+                    $("#slug").val(response["slug"]);
+                }
+            },
+            error: function(jqXHR, exception) {
+                console.log("Something went wrong");
+            }
+        });
     });
 
 

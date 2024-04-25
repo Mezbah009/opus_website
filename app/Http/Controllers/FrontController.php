@@ -81,6 +81,14 @@ class FrontController extends Controller
         return view('front.products',$data);
     }
 
+    public function showProduct($slug){
+
+        $query = Product::where('link', $slug);
+
+        $sections = $query->firstOrFail();
+        return view('front.product-post', compact('sections'));
+    }
+
     public function fintech(){
         $sections = Product::where("button_name", "filter-fin")->get();
         $data['sections']= $sections;
