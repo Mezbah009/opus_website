@@ -38,24 +38,31 @@
                                 <p class="error"></p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="category">Category</label>
-                                <input type="text" name="category" id="category" class="form-control" placeholder="Category" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="date">Date</label>
-                                <input type="date" name="date" id="date" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="excerpt">Excerpt</label>
                                 <textarea type="text" name="excerpt" id="excerpt" class="form-control" placeholder="Excerpt" required></textarea>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="category">Category</label>
+                                <input type="text" name="category" id="category" class="form-control" placeholder="Category" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="date">Date</label>
+                                <input type="date" name="date" id="date" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10" class="summernote" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+
                         <div class="col-md-3">
                             <div class="mb-1">
                                 <label for="image">Image</label>
