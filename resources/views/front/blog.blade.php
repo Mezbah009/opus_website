@@ -42,6 +42,7 @@
         padding: 0;
         box-shadow: none;
     }
+
 </style>
 <section id="blog-card" class="padding-top-bottom-90">
     <div class="container">
@@ -51,7 +52,7 @@
         </div>
         <div class="row">
             @foreach ($blogPosts as $post)
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card">
                     <img class="card-img-top img-responsive max-width-100" src="/uploads/blogs/{{ $post->image }}" alt="{{ $post->title }}">
                     <div class="card-block">
@@ -59,7 +60,7 @@
                         <h4 class="card-title">{{ $post->title }}</h4>
                         <p class="card-text"><small class="text-muted italic">{{ $post->date }}</small></p>
                         <p class="card-text">{{ $post->excerpt }}</p>
-                        <a href="" class="btn btn-link">read more <span><i class="ion-ios-arrow-thin-right"></i></span> </a>
+                        <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="btn btn-link">read more <span><i class="ion-ios-arrow-thin-right"></i></span></a>
                     </div>
                 </div>
             </div>
