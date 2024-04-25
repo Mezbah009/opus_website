@@ -34,8 +34,6 @@ class ContactController extends Controller
             'company_name' => 'nullable|string',
             'office_name' => 'nullable|string',
             'address' => 'nullable|string',
-            'email' => 'nullable|string',
-            'phone' => 'nullable|string',
             'website' => 'nullable|string',
             'linkedIn' => 'nullable|string',
             'facebook' => 'nullable|string',
@@ -55,8 +53,6 @@ class ContactController extends Controller
         $contact->company_name = $request->company_name;
         $contact->office_name = $request->office_name;
         $contact->address = $request->address;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
         $contact->website = $request->website;
         $contact->linkedIn = $request->linkedIn;
         $contact->facebook = $request->facebook;
@@ -106,8 +102,6 @@ class ContactController extends Controller
             'company_name' => 'nullable|string',
             'office_name' => 'nullable|string',
             'address' => 'nullable|string',
-            'email' => 'nullable|string',
-            'phone' => 'nullable|string',
             'website' => 'nullable|string',
             'linkedIn' => 'nullable|string',
             'facebook' => 'nullable|string',
@@ -121,8 +115,6 @@ class ContactController extends Controller
         $contact->company_name = $request->company_name;
         $contact->office_name = $request->office_name;
         $contact->address = $request->address;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
         $contact->website = $request->website;
         $contact->linkedIn = $request->linkedIn;
         $contact->facebook = $request->facebook;

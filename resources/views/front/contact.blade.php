@@ -134,7 +134,8 @@
                         <h6>{{ $contact->office_name }}</h6>
                         <p>{{ $contact->address }}</p>
                         <div class="social-links mt-3">
-                            <a href="{{ $contact->website }}" class="twitter"><i class="bx bxl-internet-explorer"></i></a>
+                            <a href="{{ $contact->website }}" class="twitter"><i
+                                    class="bx bxl-internet-explorer"></i></a>
                             <a href="{{ $contact->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="{{ $contact->youtube }}" class="instagram"><i class="bx bxl-youtube"></i></a>
                             <a href="{{ $contact->linkedIn }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -144,25 +145,28 @@
                 @endforeach
             </div>
 
-            <div class="row">
-                @foreach($contacts as $contact)
-                <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                    <div class="info-box">
-                        <i class="bx bx-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>{{ $contact->email }}</p>
-                    </div>
-                </div>
 
-                <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <div class="info-box ">
-                        <i class="bx bx-phone-call"></i>
-                        <h3>Call Us</h3>
-                        <p>{{ $contact->phone }}</p>
-                    </div>
-                </div>
+            <div class="row">
+                @foreach($numbers as $number)
+                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                            <div class="info-box">
+                                <i class="bx bx-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p>{{ $number->email }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                            <div class="info-box ">
+                                <i class="bx bx-phone-call"></i>
+                                <h3>Call Us</h3>
+                                <p>{{ $number->phone }}</p>
+                            </div>
+                        </div>
+
                 @endforeach
             </div>
+
+
 
             <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                 <form action="forms/contact.php" method="post" role="form" class="php-email-form">
