@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Client;
+use App\Models\Contact;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
@@ -53,7 +54,9 @@ class FrontController extends Controller
     }
 
     public function contact(){
-        return view('front.contact');
+        $contacts = Contact::all();
+        $data['contacts']= $contacts;
+        return view('front.contact',$data);
 
     }
 
@@ -98,14 +101,14 @@ class FrontController extends Controller
 
     public function showBlogPost($slug, Request $request){
         $query = Blog::where('slug', $slug);
-    
+
         if(!empty($request->get('keyword'))){
             $query->where('title', 'like', '%' . $request->get('keyword') . '%');
         }
-    
+
         $blogPost = $query->firstOrFail();
         return view('front.blog-post', compact('blogPost'));
     }
-    
+
 
 }
