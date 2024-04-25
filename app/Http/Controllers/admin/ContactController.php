@@ -34,6 +34,12 @@ class ContactController extends Controller
             'company_name' => 'nullable|string',
             'office_name' => 'nullable|string',
             'address' => 'nullable|string',
+            'email' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'website' => 'nullable|string',
+            'linkedIn' => 'nullable|string',
+            'facebook' => 'nullable|string',
+            'youtube' => 'nullable|string',
         ]);
 
         // If validation fails, redirect back with errors
@@ -49,6 +55,12 @@ class ContactController extends Controller
         $contact->company_name = $request->company_name;
         $contact->office_name = $request->office_name;
         $contact->address = $request->address;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->website = $request->website;
+        $contact->linkedIn = $request->linkedIn;
+        $contact->facebook = $request->facebook;
+        $contact->youtube = $request->youtube;
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -74,6 +86,87 @@ class ContactController extends Controller
             return back()->withErrors($validator)->withInput();
         }
     }
+
+    // Edit method
+
+    public function edit($id)
+    {
+        $contact = Contact::findOrFail($id);
+        return view('admin.contact.edit', compact('contact'));
+    }
+
+    // Update method
+    public function update(Request $request, $id)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'country_name' => 'nullable|string',
+            'company_name' => 'nullable|string',
+            'office_name' => 'nullable|string',
+            'address' => 'nullable|string',
+            'email' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'website' => 'nullable|string',
+            'linkedIn' => 'nullable|string',
+            'facebook' => 'nullable|string',
+            'youtube' => 'nullable|string',
+        ]);
+
+        // If validation fails, redirect back with errors
+        if ($validator->passes()) {
+        $contact = Contact::findOrFail($id);
+        $contact->country_name = $request->country_name;
+        $contact->company_name = $request->company_name;
+        $contact->office_name = $request->office_name;
+        $contact->address = $request->address;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->website = $request->website;
+        $contact->linkedIn = $request->linkedIn;
+        $contact->facebook = $request->facebook;
+        $contact->youtube = $request->youtube;
+
+        // Handle image update
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'image_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/first_section'), $imageName);
+            $contact->image = $imageName;
+        }
+
+        // Handle flag update
+        if ($request->hasFile('flag')) {
+            $flag = $request->file('flag');
+            $flagName = 'flag_' . time() . '.' . $flag->getClientOriginalExtension();
+            $flag->move(public_path('uploads/first_section'), $flagName);
+            $contact->flag = $flagName;
+
+        }
+        // Save the contact to the database
+        $contact->save();
+
+        return redirect()->route('contact.index')->with('success', 'Contact US updated successfully');
+    } else {
+        return back()->withErrors($validator)->withInput();
+    }
+    }
+
+public function destroy($id)
+{
+    $clients = Contact::findOrFail($id);
+    $clients->delete();
+
+    // Flash success message
+    session()->flash('success', 'Contact deleted successfully');
+
+    // Return JSON response
+    return response()->json([
+        'status' => true,
+        'message' => 'Contact deleted successfully'
+    ]);
+}
 
 
 }
