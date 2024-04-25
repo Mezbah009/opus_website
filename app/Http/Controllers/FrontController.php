@@ -100,7 +100,7 @@ class FrontController extends Controller
         $query = Blog::where('slug', $slug);
     
         if(!empty($request->get('keyword'))){
-            $query->where('title', 'like', '%' . $request->get('keyword') . '%');
+            $query->where('description', 'like', '%' . $request->get('keyword') . '%');
         }
     
         $blogPost = $query->firstOrFail();
