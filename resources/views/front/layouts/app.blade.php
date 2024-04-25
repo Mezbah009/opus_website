@@ -35,7 +35,8 @@
 
     {{-- others CSS--}}
 
-    {{-- <link href="{{ asset('front-assets/others/asset/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
+    {{--
+    <link href="{{ asset('front-assets/others/asset/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
 
     <!-- Font Awesome CSS -->
     <link href="{{ asset('front-assets/others/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -46,7 +47,8 @@
     <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.transitions.css')}}">
     <!-- Custom CSS -->
-    {{-- <link href="{{ asset('front-assets/others/css/style.css')}}" rel="stylesheet"> --}}
+    {{--
+    <link href="{{ asset('front-assets/others/css/style.css')}}" rel="stylesheet"> --}}
     <link href="{{ asset('front-assets/others/css/responsive.css')}}" rel="stylesheet">
 
 
@@ -84,20 +86,30 @@
             <div class="logo me-auto">
                 <!-- <h1><a href="index.html">OPUS</a></h1> -->
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="{{ asset('front-assets/img/opus-logo.png')}}" alt="" class="img-fluid"></a>
+                <a href="index.html"><img src="{{ asset('front-assets/img/opus-logo.png')}}" alt=""
+                        class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : '' }}" href="{{ route('front.home') }}">Home</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('about-us') ? 'active' : '' }}" href="{{ route('front.about') }}">About</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('products') ? 'active' : '' }}" href="{{ route('front.products') }}">Product</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('fintech') ? 'active' : '' }}" href="{{ route('front.fintech') }}">Fintech</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('clients') ? 'active' : '' }}" href="{{ route('front.clients') }}">Clients</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('services') ? 'active' : '' }}" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}" href="{{ route('front.blog') }}">Blogs</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}" href="#jobs">Jobs</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('front.contact') }}">Contact</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : '' }}"
+                            href="{{ route('front.home') }}">Home</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('about-us') ? 'active' : '' }}"
+                            href="{{ route('front.about') }}">About</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('products') ? 'active' : '' }}"
+                            href="{{ route('front.products') }}">Product</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('fintech') ? 'active' : '' }}"
+                            href="{{ route('front.fintech') }}">Fintech</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('clients') ? 'active' : '' }}"
+                            href="{{ route('front.clients') }}">Clients</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('services') ? 'active' : '' }}"
+                            href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}"
+                            href="{{ route('front.blog') }}">Blogs</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}" href="#jobs">Jobs</a>
+                    </li>
+                    <li><a class="nav-link scrollto {{ Request::is('contact-us') ? 'active' : '' }}"
+                            href="{{ route('front.contact') }}">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -119,8 +131,10 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
+
                     <div class="row" style="text-align: center">
-                        @foreach($contacts as $contact)
+                        @if(isset(footer()['contacts']) && footer()['contacts']->isNotEmpty())
+                        @foreach(footer()['contacts'] as $contact)
                         <div class="col-lg-4 d-flex" data-aos="fade-up">
                             <div class="info-box">
                                 <img src="/uploads/first_section/{{ $contact->image }}" alt="..." width="150px">
@@ -131,24 +145,32 @@
                                 <div class="social-links mt-3">
                                     <a href="{{ $contact->website }}" class="twitter"><i
                                             class="bx bxl-internet-explorer"></i></a>
-                                    <a href="{{ $contact->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                    <a href="{{ $contact->youtube }}" class="instagram"><i class="bx bxl-youtube"></i></a>
-                                    <a href="{{ $contact->linkedIn }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    <a href="{{ $contact->facebook }}" class="facebook"><i
+                                            class="bx bxl-facebook"></i></a>
+                                    <a href="{{ $contact->youtube }}" class="instagram"><i
+                                            class="bx bxl-youtube"></i></a>
+                                    <a href="{{ $contact->linkedIn }}" class="linkedin"><i
+                                            class="bx bxl-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
                 <br>
                 <br>
                 <div style="text-align: center">
-                    @foreach($numbers as $number)
+                    @if(isset(footer()['numbers']) && footer()['numbers']->isNotEmpty())
+                    @foreach(footer()['numbers'] as $number)
                     <p>{{ $number->phone }}</p>
 
                     <p>{{ $number->email }}</p>
 
                     @endforeach
+                    @endif
+
+
                 </div>
             </div>
         </div>

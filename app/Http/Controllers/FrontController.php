@@ -120,14 +120,6 @@ class FrontController extends Controller
         $blogPost = $query->firstOrFail();
         return view('front.blog-post', compact('blogPost'));
     }
-
-    public function footer(){
-        $contacts = Contact::all();
-        $numbers = Number::all();
-        $data['numbers']= $numbers;
-        $data['contacts']= $contacts;
-        return view('front.layouts.app',$data);
-    }
-
+    
 
 }
