@@ -174,6 +174,7 @@
                                 </div>
                         </div>
                     </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
@@ -217,7 +218,6 @@
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div>
-                </div>
             </div>
         </section><!-- End Contact Us Section -->
 

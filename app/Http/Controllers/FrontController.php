@@ -96,5 +96,16 @@ class FrontController extends Controller
         return view('front.blog',$data);
     }
 
+    public function showBlogPost($slug, Request $request){
+        $query = Blog::where('slug', $slug);
+    
+        if(!empty($request->get('keyword'))){
+            $query->where('title', 'like', '%' . $request->get('keyword') . '%');
+        }
+    
+        $blogPost = $query->firstOrFail();
+        return view('front.blog-post', compact('blogPost'));
+    }
+    
 
 }
