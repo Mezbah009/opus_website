@@ -35,7 +35,7 @@ class ProductController extends Controller
             'title' => 'required|string',
             'description' => 'nullable|string',
             'button_name' => 'nullable|string',
-            'link' => 'nullable|string',
+            'slug' => 'nullable|string',
             'fin_cat' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
         ]);
@@ -46,7 +46,7 @@ class ProductController extends Controller
             $section->description = $request->description;
             $section->button_name = $request->button_name;
             $section->fin_cat = $request->fin_cat;
-            $section->link = $request->link;
+            $section->link = $request->slug;
 
             if (!empty($request->image_id)) {
                 $tempImage = TempImage::find($request->image_id);
@@ -90,7 +90,7 @@ public function update(Request $request, $id)
         'description' => 'nullable|string',
         'button_name' => 'nullable|string',
         'fin_cat' => 'nullable|string',
-        'link' => 'nullable|string',
+        'slug' => 'nullable|string',
         'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
     ]);
 
@@ -100,7 +100,7 @@ public function update(Request $request, $id)
         $product->description = $request->description;
         $product->button_name = $request->button_name;
         $product->fin_cat = $request->fin_cat;
-        $product->link = $request->link;
+        $product->link = $request->slug;
 
         if (!empty($request->image_id)) {
             $tempImage = TempImage::find($request->image_id);
