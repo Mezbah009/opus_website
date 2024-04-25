@@ -81,50 +81,29 @@
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center">
-
             <div class="logo me-auto">
                 <!-- <h1><a href="index.html">OPUS</a></h1> -->
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="{{ asset('front-assets/img/opus-logo.png')}}" alt=""
-                        class="img-fluid"></a>
+                <a href="index.html"><img src="{{ asset('front-assets/img/opus-logo.png')}}" alt="" class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{{ route('front.home') }}">Home</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('front.about') }}">About</a></li>
-
-                    <li><a class="nav-link scrollto" href="{{ route('front.products') }}">Product</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('front.fintech') }}">Fintech</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('front.clients') }}">Clients</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Blogs</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Jobs</a></li>
-                    {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li> --}}
-                    <li><a class="nav-link scrollto" href="{{ route('front.contact') }}">Contact</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : '' }}" href="{{ route('front.home') }}">Home</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('about-us') ? 'active' : '' }}" href="{{ route('front.about') }}">About</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('products') ? 'active' : '' }}" href="{{ route('front.products') }}">Product</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('fintech') ? 'active' : '' }}" href="{{ route('front.fintech') }}">Fintech</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('clients') ? 'active' : '' }}" href="{{ route('front.clients') }}">Clients</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('services') ? 'active' : '' }}" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}" href="{{ route('front.blog') }}">Blogs</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}" href="#jobs">Jobs</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('front.contact') }}">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
+
 
 
     <!-- End Hero -->
