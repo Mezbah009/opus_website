@@ -49,7 +49,7 @@
                                 <label for="office_name">Office name</label>
                                 <input type="text" name="office_name" id="office_name" class="form-control"
                                     placeholder="Office name" value="{{ old('office_name') }}">
-                                @error('company_name')
+                                @error('office_name')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -59,7 +59,67 @@
                                 <label for="address">Address</label>
                                 <input type="text" name="address" id="address" class="form-control"
                                     placeholder="Address" value="{{ old('address') }}">
-                                @error('company_name')
+                                @error('address')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" class="form-control"
+                                    placeholder="Email" value="{{ old('email') }}">
+                                @error('email')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="phone">Phone</label>
+                                <input type="text" name="phone" id="phone" class="form-control"
+                                    placeholder="Phone" value="{{ old('phone') }}">
+                                @error('phone')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="website">Website</label>
+                                <input type="text" name="website" id="website" class="form-control"
+                                    placeholder="website" value="{{ old('website') }}">
+                                @error('website')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="linkedIn">LinkedIn</label>
+                                <input type="text" name="linkedIn" id="linkedIn" class="form-control"
+                                    placeholder="LinkedIn" value="{{ old('linkedIn') }}">
+                                @error('linkedIn')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="facebook">Facebook</label>
+                                <input type="text" name="facebook" id="facebook" class="form-control"
+                                    placeholder="Facebook" value="{{ old('facebook') }}">
+                                @error('facebook')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="youtube">Youtube</label>
+                                <input type="text" name="youtube" id="youtube" class="form-control"
+                                    placeholder="Youtube" value="{{ old('youtube') }}">
+                                @error('youtube')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
