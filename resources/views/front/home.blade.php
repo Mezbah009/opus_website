@@ -312,14 +312,16 @@
             @foreach($sections as $section)
             <div class="col-lg-4 col-md-6 portfolio-item {{$section->button_name}}">
                 <div class="portfolio-wrap">
-                    <img src="/uploads/first_section/{{ $section->logo }}" class="img-fluid" alt="">
+                    <img src="{{ asset('uploads/first_section/' . $section->logo) }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>{{$section->title}}</h4>
                         <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">
                             {{$section->description}}</p>
                         <div class="portfolio-links">
-                            <a href="/uploads/first_section/{{ $section->logo }}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                            <a href="{{ asset('uploads/first_section/' . $section->logo) }}"
+                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
+                                    class="bi bi-plus"></i></a>
+
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
                     </div>
@@ -346,10 +348,9 @@
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
                     <div class="pic">
-                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}"
-                            height="300px" width="350px">
+                        <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-fluid"
+                            alt="{{ $member->name }}" height="300px" width="350px">
                     </div>
-
                     <div class="member-info">
                         <h4>{{ $member->name }}</h4>
                         <span>{{ $member->designation }}</span>
@@ -390,28 +391,37 @@
             <div class="col-lg-6 faq-item" data-aos="fade-up">
                 <h4>Why Microfinance Institute should adopt TURBO?</h4>
                 <p>
-                    TURBO brings several benefits, including improved operational efficiency, enhanced client management, accurate financial reporting, streamlined loan processing, better risk management, compliance with regulatory requirements, and access to insightful analytics for informed decision-making.
+                    TURBO brings several benefits, including improved operational efficiency, enhanced client
+                    management, accurate financial reporting, streamlined loan processing, better risk management,
+                    compliance with regulatory requirements, and access to insightful analytics for informed
+                    decision-making.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
                 <h4>Can a TURBO handle multiple types of loans?</h4>
                 <p>
-                    Yes, TURBO can handle various types of loans, including individual loans, group loans, agricultural loans, business loans, and more. It offers flexible features to customize loan products and repayment schedules based on the specific needs of microfinance clients.
+                    Yes, TURBO can handle various types of loans, including individual loans, group loans, agricultural
+                    loans, business loans, and more. It offers flexible features to customize loan products and
+                    repayment schedules based on the specific needs of microfinance clients.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="200">
                 <h4>Is data security ensured with TURBO?</h4>
                 <p>
-                    Yes. TURBO incorporates robust security measures to protect sensitive client information, transaction records, and financial data. This includes encryption protocols, user access controls, regular data backups, and adherence to data protection regulations.
+                    Yes. TURBO incorporates robust security measures to protect sensitive client information,
+                    transaction records, and financial data. This includes encryption protocols, user access controls,
+                    regular data backups, and adherence to data protection regulations.
                 </p>
             </div>
 
             <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="300">
                 <h4>Can TURBO integrate with other financial systems?</h4>
                 <p>
-                    Yes, TURBO can integrate with other financial systems such as core banking systems, payment processors, credit bureaus, and mobile money platforms. This integration enables seamless data exchange, facilitates transaction processing, and enhances operational efficiency.
+                    Yes, TURBO can integrate with other financial systems such as core banking systems, payment
+                    processors, credit bureaus, and mobile money platforms. This integration enables seamless data
+                    exchange, facilitates transaction processing, and enhances operational efficiency.
                 </p>
             </div>
         </div>
@@ -431,50 +441,50 @@
             </div>
         </div>
         <div class="row">
-
             <div class="clients">
                 @foreach($clients as $client)
-
                 <div class="col-md-12">
                     <a href="{{ $client->link }}" target="_blank">
-                    <img src="/uploads/first_section/{{ $client->logo }}" alt="..." width="150px">
+                        <img src="{{ asset('uploads/first_section/' . $client->logo) }}" alt="Client Logo"
+                            width="150px">
                     </a>
                 </div>
                 @endforeach
             </div>
-
         </div>
+
     </div>
 </section> <!-- End Clients Section -->
 
 
 
 <!-- Start Testimonial Section -->
-<section  class="faq section-bg">
-<div id="testimonial" class="testimonial-section">
-    <div class="container">
+<section class="faq section-bg">
+    <div id="testimonial" class="testimonial-section">
+        <div class="container">
 
 
-        <!-- Start Testimonials Carousel -->
-        <div id="testimonial-carousel" class="testimonials-carousel">
-            @foreach ($testimonials as $key => $testimonial)
-            <!-- Testimonial 1 -->
-            <div class="testimonials item">
-                <div class="testimonial-content">
-                    <img src="/uploads/first_section/{{ $testimonial->logo }}" alt="" >
-                    <div class="testimonial-author">
-                        <div class="author">{{$testimonial->name}}</div>
-                        <div class="designation">{{$testimonial->designation}}</div>
+            <!-- Start Testimonials Carousel -->
+            <div id="testimonial-carousel" class="testimonials-carousel">
+                @foreach ($testimonials as $testimonial)
+                <!-- Testimonial {{$loop->iteration}} -->
+                <div class="testimonials item">
+                    <div class="testimonial-content">
+                        <img src="{{ asset('uploads/first_section/' . $testimonial->logo) }}" alt="Testimonial Logo">
+                        <div class="testimonial-author">
+                            <div class="author">{{$testimonial->name}}</div>
+                            <div class="designation">{{$testimonial->designation}}</div>
+                        </div>
+                        <p>{{$testimonial->description}}</p>
                     </div>
-                    <p>{{$testimonial->description}}</p>
                 </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
 
-        <!-- End Testimonials Carousel -->
+
+            <!-- End Testimonials Carousel -->
+        </div>
     </div>
-</div>
 </section>
 <!-- End Testimonial Section -->
 

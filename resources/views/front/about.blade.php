@@ -20,7 +20,7 @@
     .contact-bg {
         height: 40vh;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-        url('{{ asset('front-assets/img/about-au-cover.jpg') }}');
+        url('{{ asset(' front-assets/img/about-au-cover.jpg') }}');
         background-position: 50% 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -116,7 +116,8 @@
         <div></div>
         <div></div>
     </div>
-    <p class="text">WE are a group of elites in Bangladesh that have a vision to bring changeover IT to every corner of the world
+    <p class="text">WE are a group of elites in Bangladesh that have a vision to bring changeover IT to every corner of
+        the world
     </p>
 </div>
 
@@ -262,9 +263,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
                     <div class="pic">
-                        <img src="/uploads/users/{{ $member->image }}" class="img-fluid" alt="{{ $member->name }}"
-                            height="300px" width="350px">
+                        <img src="{{ asset('uploads/users/' . $member->image) }}" class="img-fluid"
+                            alt="{{ $member->name }}" height="300px" width="350px">
                     </div>
+
 
                     <div class="member-info">
                         <h4>{{ $member->name }}</h4>

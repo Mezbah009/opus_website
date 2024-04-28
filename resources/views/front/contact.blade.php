@@ -124,11 +124,12 @@
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
 
-            <div class="row" >
+            <div class="row">
                 @foreach($contacts as $contact)
                 <div class="col-lg-4 d-flex" data-aos="fade-up">
-                    <div class="info-box" >
-                        <img src="/uploads/first_section/{{ $contact->flag }}" alt="..." width="80px" style="padding: 8px">
+                    <div class="info-box">
+                        <img src="{{ asset('uploads/first_section/' . $contact->flag) }}" alt="..." width="80px"
+                            style="padding: 8px">
                         <h3>{{ $contact->country_name }}</h3>
                         <h5>{{ $contact->company_name }}</h5>
                         <h6>{{ $contact->office_name }}</h6>
@@ -148,20 +149,20 @@
 
             <div class="row">
                 @foreach($numbers as $number)
-                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                            <div class="info-box">
-                                <i class="bx bx-envelope"></i>
-                                <h3>Email Us</h3>
-                                <p>{{ $number->email }}</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <div class="info-box ">
-                                <i class="bx bx-phone-call"></i>
-                                <h3>Call Us</h3>
-                                <p>{{ $number->phone }}</p>
-                            </div>
-                        </div>
+                <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-box">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>{{ $number->email }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-box ">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call Us</h3>
+                        <p>{{ $number->phone }}</p>
+                    </div>
+                </div>
 
                 @endforeach
             </div>
