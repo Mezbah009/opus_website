@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
+use App\Models\Number;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Testimonial;
@@ -55,6 +56,8 @@ class FrontController extends Controller
 
     public function contact(){
         $contacts = Contact::all();
+        $numbers = Number::all();
+        $data['numbers']= $numbers;
         $data['contacts']= $contacts;
         return view('front.contact',$data);
 
@@ -117,6 +120,6 @@ class FrontController extends Controller
         $blogPost = $query->firstOrFail();
         return view('front.blog-post', compact('blogPost'));
     }
-
+    
 
 }

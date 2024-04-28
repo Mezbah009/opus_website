@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
 use App\Http\Controllers\admin\HomeServicesSectionController;
+use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -44,8 +45,6 @@ Route::get('products/{slug}', [FrontController::class, 'showProduct'])->name('pr
 Route::get('/fintech', [FrontController::class, 'fintech'])->name('front.fintech');
 Route::get('/clients', [FrontController::class, 'clients'])->name('front.clients');
 Route::get('/blog', [FrontController::class, 'blog'])->name('front.blog');
-Route::get('blog/{slug}', [FrontController::class, 'showBlogPost'])->name('blog.show');
-
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
@@ -128,7 +127,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
         Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
         Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
-
         Route::get('/blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
         Route::put('/blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
         Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('blog.delete');
@@ -140,6 +138,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/contact/{contact}/edit', [ContactController::class, 'edit'])->name('contact.edit');
         Route::put('/contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
         Route::delete('/contact/{contact}', [ContactController::class, 'destroy'])->name('contact.delete');
+
+        // Number
+        Route::get('/numbers', [NumberController::class, 'index'])->name('numbers.index');
+        Route::get('/numbers/create', [NumberController::class, 'create'])->name('numbers.create');
+        Route::post('/numbers', [NumberController::class, 'store'])->name('numbers.store');
+        Route::get('/numbers/{numbers}/edit', [NumberController::class, 'edit'])->name('numbers.edit');
+        Route::put('/numbers/{numbers}', [NumberController::class, 'update'])->name('numbers.update');
+        Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
 
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
