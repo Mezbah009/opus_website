@@ -19,7 +19,7 @@
     .contact-bg {
         height: 40vh;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-        url('{{ asset('front-assets/img/contact-bg.jpg') }}');
+        url('{{ asset(' front-assets/img/contact-bg.jpg') }}');
         background-position: 50% 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -115,7 +115,9 @@
         <div></div>
         <div></div>
     </div>
-    {{-- <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit fuga nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi qui.</p> --}}
+    {{-- <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit
+        fuga nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi
+        qui.</p> --}}
 </div>
 
 <!-- ======= Our Portfolio Section ======= -->
@@ -129,7 +131,7 @@
                 ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-         <div class="row">
+        <div class="row">
             <div class="col-lg-12">
                 <ul id="portfolio-flters">
                     <li data-filter="*" class="filter-active">All</li>
@@ -138,13 +140,13 @@
                     <li data-filter=".filter-mf">Micro-Finance</li>
                 </ul>
             </div>
-        </div> 
+        </div>
 
         <div class="row portfolio-container">
             @foreach($sections as $section)
             <div class="col-lg-4 col-md-6 portfolio-item {{$section->fin_cat}}">
                 <div class="portfolio-wrap">
-                    <img src="/uploads/first_section/{{ $section->logo }}" class="img-fluid" alt="">
+                    <img src="{{ asset('uploads/first_section/' . $section->logo) }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>{{$section->title}}</h4>
                         <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">
