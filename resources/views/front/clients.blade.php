@@ -19,7 +19,7 @@
     .contact-bg {
         height: 40vh;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-        url('{{ asset('front-assets/img/contact-bg.jpg') }}');
+        url('{{ asset(' front-assets/img/contact-bg.jpg') }}');
         background-position: 50% 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -115,7 +115,9 @@
         <div></div>
         <div></div>
     </div>
-    {{-- <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit fuga nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi qui.</p> --}}
+    {{-- <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit
+        fuga nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi
+        qui.</p> --}}
 </div>
 
 <!-- ======= Our Portfolio Section ======= -->
@@ -154,7 +156,7 @@
             @foreach($clients as $client)
             <div class="col-lg-4 col-md-6 portfolio-item {{$client->category}}">
                 <div class="portfolio-wrap">
-                    <img src="/uploads/first_section/{{ $client->logo }}" class="img-fluid" alt="">
+                    <img src="{{ asset('uploads/first_section/' . $client->logo) }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>{{$client->title}}</h4>
                         <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">
@@ -162,7 +164,8 @@
                         <div class="portfolio-links">
                             <a href="/uploads/first_section/{{ $client->logo }}" data-gallery="portfolioGallery"
                                 class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="{{ $client->link }}"" title=" More Details" target="_blank"><i class="bi bi-link"></i></a>
+                            <a href="{{ $client->link }}"" title=" More Details" target="_blank"><i
+                                    class="bi bi-link"></i></a>
                         </div>
                     </div>
                 </div>

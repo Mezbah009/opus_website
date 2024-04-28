@@ -46,6 +46,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('home_services_section.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>Home Service Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('testimonials.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Testimonial</p>

@@ -137,7 +137,8 @@
                         @foreach(footer()['contacts'] as $contact)
                         <div class="col-lg-4 d-flex" data-aos="fade-up">
                             <div class="info-box">
-                                <img src="/uploads/first_section/{{ $contact->image }}" alt="..." width="150px">
+                                <img src="{{ asset('uploads/first_section/' . $contact->image) }}" alt="Contact Image"
+                                    width="150px">
                                 <h3>{{ $contact->country_name }}</h3>
                                 <h5>{{ $contact->company_name }}</h5>
                                 <h6>{{ $contact->office_name }}</h6>
@@ -149,10 +150,11 @@
                                             class="bx bxl-facebook"></i></a>
                                     <a href="{{ $contact->youtube }}" class="instagram"><i
                                             class="bx bxl-youtube"></i></a>
-                                    <a href="{{ $contact->linkedIn }}" class="linkedin"><i
+                                    <a href="{{ $contact->linkedin }}" class="linkedin"><i
                                             class="bx bxl-linkedin"></i></a>
                                 </div>
                             </div>
+
                         </div>
                         @endforeach
                         @endif
