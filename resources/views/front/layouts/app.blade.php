@@ -47,6 +47,8 @@
     <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{ asset('front-assets/others/css/owl.transitions.css')}}">
     <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="{{ asset('front-assets/css/custom.css')}}">
     {{--
     <link href="{{ asset('front-assets/others/css/style.css')}}" rel="stylesheet"> --}}
     <link href="{{ asset('front-assets/others/css/responsive.css')}}" rel="stylesheet">

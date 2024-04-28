@@ -52,7 +52,7 @@
     .line div:nth-child(3) {
         height: 3px;
         width: 70px;
-        background: #f7327a;
+        background: #0E72B4;
         border-radius: 5px;
     }
 
@@ -64,7 +64,7 @@
     .line div:nth-child(2) {
         width: 10px;
         height: 10px;
-        background: #f7327a;
+        background: #0E72B4;
         border-radius: 50%;
     }
 
@@ -156,7 +156,8 @@
             @foreach($clients as $client)
             <div class="col-lg-4 col-md-6 portfolio-item {{$client->category}}">
                 <div class="portfolio-wrap">
-                    <img src="{{ asset('uploads/first_section/' . $client->logo) }}" class="img-fluid" alt="">
+                    <img src="{{ asset('uploads/first_section/' . $client->logo) }}" class="img-fluid" alt="" style="margin: 0 auto;
+                    display: block;">
                     <div class="portfolio-info">
                         <h4>{{$client->title}}</h4>
                         <p style="word-wrap: break-word; padding-right:10px; padding-left:10px;">

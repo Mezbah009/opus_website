@@ -52,7 +52,7 @@
     .line div:nth-child(3) {
         height: 3px;
         width: 70px;
-        background: #f7327a;
+        background: #0E72B4;
         border-radius: 5px;
     }
 
@@ -64,7 +64,7 @@
     .line div:nth-child(2) {
         width: 10px;
         height: 10px;
-        background: #f7327a;
+        background: #0E72B4;
         border-radius: 50%;
     }
 
