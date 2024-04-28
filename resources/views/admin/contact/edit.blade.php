@@ -67,26 +67,6 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control"
-                                    placeholder="Email" value="{{ $contact->email }}">
-                                @error('email')
-                                <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="phone">Phone</label>
-                                <input type="text" name="phone" id="phone" class="form-control"
-                                    placeholder="Phone" value="{{ $contact->phone }}">
-                                @error('phone')
-                                <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
                                 <label for="website">Website</label>
                                 <input type="text" name="website" id="website" class="form-control"
                                     placeholder="website" value="{{ $contact->website }}">

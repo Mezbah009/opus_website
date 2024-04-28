@@ -49,8 +49,6 @@
                             <th>Country Name</th>
                             <th>Company Name</th>
                             <th>Office Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
                             <th width="100">Action</th>
                         </tr>
                     </thead>
@@ -80,8 +78,6 @@
                             <td>{{$section->country_name}}</td>
                             <td>{{$section->company_name}}</td>
                             <td>{{$section->office_name}}</td>
-                            <td>{{$section->phone}}</td>
-                            <td>{{$section->email}}</td>
                             {{-- <td>
                                 @if ($section->active == 'Yes')
                                 <svg class="text-success-500 h-6 w-6 text-success" xmlns="http://www.w3.org/2000/svg"
