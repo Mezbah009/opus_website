@@ -84,9 +84,10 @@ class FrontController extends Controller
     public function showProduct($slug){
 
         $query = Product::where('link', $slug);
+        $home_first_section = HomeFirstSection::all();
 
         $sections = $query->firstOrFail();
-        return view('front.product-post', compact('sections'));
+        return view('front.product-post', compact('sections','home_first_section'));
     }
 
     public function fintech(){
@@ -120,6 +121,6 @@ class FrontController extends Controller
         $blogPost = $query->firstOrFail();
         return view('front.blog-post', compact('blogPost'));
     }
-    
+
 
 }
