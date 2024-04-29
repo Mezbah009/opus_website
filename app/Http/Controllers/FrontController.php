@@ -10,6 +10,7 @@ use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
 use App\Models\Number;
 use App\Models\Product;
+use App\Models\ProductFirstSection;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -84,10 +85,10 @@ class FrontController extends Controller
     public function showProduct($slug){
 
         $query = Product::where('link', $slug);
-        $home_first_section = HomeFirstSection::all();
+        $product_first_sections = ProductFirstSection::all();
 
         $sections = $query->firstOrFail();
-        return view('front.product-post', compact('sections','home_first_section'));
+        return view('front.product-post', compact('sections','product_first_sections'));
     }
 
     public function fintech(){
