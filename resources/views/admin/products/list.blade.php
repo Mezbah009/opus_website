@@ -86,6 +86,14 @@
                                 @endif
                             </td> --}}
                             <td>
+                                <a href="{{ route('products.show', $section->id) }}" class="btn btn-sm btn-clean btn-icon mr-2">
+                                    <span class="svg-icon svg-icon-md">
+                                        <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path d="M3,12 C3,12 5.45454545,6 12,6 C16.9090909,6 21,12 21,12 C21,12 16.9090909,18 12,18 C5.45454545,18 3,12 3,12 Z" fill="blue" fill-rule="nonzero" opacity="0.3"></path>
+                                            <path d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z" fill="blue" opacity="0.3"></path>
+                                        </svg>
+                                    </span>
+                                </a>
                                 <a href="{{route('products.edit',$section->id)}}">
                                     <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
