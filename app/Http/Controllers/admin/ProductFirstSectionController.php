@@ -28,6 +28,7 @@ class ProductFirstSectionController extends Controller
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
+            'product_id' => 'nullable|exists:products,id',
             'title' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -80,6 +81,7 @@ class ProductFirstSectionController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
+            'product_id' => 'nullable|exists:products,id',
             'title' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
