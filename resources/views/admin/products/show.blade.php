@@ -9,7 +9,7 @@
                 <h1>Product Details</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{route('product_first_section.create')}}" class="btn btn-primary">Create First Section</a>
+                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Create Product First Section</a>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
 
             </div>

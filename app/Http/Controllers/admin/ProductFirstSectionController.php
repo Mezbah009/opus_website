@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductFirstSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,13 +20,15 @@ class ProductFirstSectionController extends Controller
         return view('admin.product_first_section.list',compact('sections'));
     }
 
-    public function create()
+    public function create($id)
     {
-        return view('admin.product_first_section.create');
+        $product = Product::findOrFail($id);
+        return view('admin.product_first_section.create', compact('product'));
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         // Validate the request data
         $validator = Validator::make($request->all(), [
             'product_id' => 'nullable|exists:products,id',
@@ -36,8 +39,17 @@ class ProductFirstSectionController extends Controller
         ]);
 
         if ($validator->passes()) {
+
+            $product = Product::findOrFail($request->product_id);
+
             $section = new ProductFirstSection();
             $section->title = $request->title;
+            $section->product_id = $product->id;
+
+
+
+
+
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -61,9 +73,9 @@ class ProductFirstSectionController extends Controller
             }
 
             $section->save();
+            
+            return redirect()->route('product_first_section.create',['id' => $product->id])->with('success', 'Product First Section added successfully');
 
-            // Redirect to index page
-            return redirect()->route('product_first_section.index')->with('success', 'Product First Section  added successfully');
         } else {
             return response()->json([
                 'status' => false,
