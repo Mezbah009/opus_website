@@ -205,7 +205,7 @@
     Dropzone.autoDiscover = false;
 
 // Dropzone for the image input with ID "image"
-const dropzoneImage = new Dropzone("#image", { // Added closing parenthesis here
+const dropzoneImage = new Dropzone("", { // Added closing parenthesis here
     init: function() {
         this.on('addedfile', function(file) {
             if (this.files.length > 1) {
@@ -228,7 +228,7 @@ const dropzoneImage = new Dropzone("#image", { // Added closing parenthesis here
 });
 
 // Dropzone for the flag input with ID "flag"
-const dropzoneFlag = new Dropzone("#flag", {
+const dropzoneFlag = new Dropzone("", {
     init: function() {
         this.on('addedfile', function(file) {
             if (this.files.length > 1) {

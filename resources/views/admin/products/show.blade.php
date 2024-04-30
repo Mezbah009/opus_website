@@ -9,7 +9,8 @@
                 <h1>Product Details</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Create Product First Section</a>
+                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}"
+                    class="btn btn-primary">Create Product First Section</a>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
 
             </div>
@@ -55,19 +56,22 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
+                    <?php if ($first_sec !== null): ?>
                     <div class="col-md-6">
                         <p><strong>Title:</strong> {{ $first_sec->title }}</p>
                     </div>
-                    
+
                     <div class="col-md-3">
                         <p><strong>Image:</strong></p>
                         <img src="{{ asset('uploads/first_section/'.$first_sec->image) }}" alt="Product Image"
                             style="max-width: 30%;">
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- /.content -->
 @endsection
