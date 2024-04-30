@@ -56,20 +56,12 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <p><strong>Title:</strong> {{ $product->title }}</p>
+                        <p><strong>Title:</strong> {{ $first_sec->title }}</p>
                     </div>
-                    <div class="col-md-6">
-                        <p><strong>Product Category:</strong> {{ $product->button_name }}</p>
-                    </div>
-
-                    <!-- Additional fields based on your product attributes -->
-
-                    <div class="col-md-6">
-                        <p><strong>Description:</strong> {{ $product->description }}</p>
-                    </div>
+                    
                     <div class="col-md-3">
                         <p><strong>Image:</strong></p>
-                        <img src="{{ asset('uploads/first_section/'.$product->logo) }}" alt="Product Image"
+                        <img src="{{ asset('uploads/first_section/'.$first_sec->image) }}" alt="Product Image"
                             style="max-width: 30%;">
                     </div>
                 </div>
