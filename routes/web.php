@@ -151,12 +151,12 @@ Route::group(['prefix' => 'admin'], function () {
 
 
         // Product First section
-        Route::get('/product_first_section', [ProductFirstSectionController::class, 'index'])->name('product_first_section.index');
-        Route::get('/product_first_section/create', [ProductFirstSectionController::class, 'create'])->name('product_first_section.create');
-        Route::post('/product_first_section', [ProductFirstSectionController::class, 'store'])->name('product_first_section.store');
-        Route::get('/product_first_section/{product_first_section}/edit', [ProductFirstSectionController::class, 'edit'])->name('product_first_section.edit');
-        Route::put('/product_first_section/{product_first_section}', [ProductFirstSectionController::class, 'update'])->name('product_first_section.update');
-        Route::delete('/product_first_section/{product_first_section}', [ProductFirstSectionController::class, 'destroy'])->name('product_first_section.delete');
+        Route::get('/products/{id}/product_first_section', [ProductFirstSectionController::class, 'index'])->name('product_first_section.index');
+        Route::get('/products/{id}/product_first_section/create', [ProductFirstSectionController::class, 'create'])->name('product_first_section.create');
+        Route::post('/products/{id}/product_first_section', [ProductFirstSectionController::class, 'store'])->name('product_first_section.store');
+        Route::get('/products/{product_id}/product_first_sections/{section_id}/edit', [ProductFirstSectionController::class, 'edit'])->name('product_first_section.edit');
+        Route::put('/products/{product_id}/product_first_sections/{section_id}', [ProductFirstSectionController::class, 'update'])->name('product_first_section.update');
+        Route::delete('/products/{product_id}/product_first_sections/{section_id}', [ProductFirstSectionController::class, 'destroy'])->name('product_first_section.delete');
 
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
