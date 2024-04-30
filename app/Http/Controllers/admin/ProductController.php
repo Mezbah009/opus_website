@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductFirstSection;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -26,9 +27,10 @@ class ProductController extends Controller
     {
         // Find the product by its ID
         $product = Product::findOrFail($id);
-
+        $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
+        
         // Return the view with the product details
-        return view('admin.products.show', compact('product'));
+        return view('admin.products.show', compact('product','first_sec'));
 
     }
 
