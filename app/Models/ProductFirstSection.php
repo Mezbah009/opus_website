@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
+
 
 class ProductFirstSection extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image', 'logo', 'brochure', 'product_id'];
+    protected $fillable = ['title', 'product_id', 'image', 'logo', 'brochure'];
 
     public function product()
     {
