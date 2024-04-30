@@ -230,7 +230,7 @@
                     <i class="bi bi-simple-smile" style="color: #20b38e;"></i>
                     <span data-purecounter-start="0" data-purecounter-end="360" data-purecounter-duration="1"
                         class="purecounter"></span>
-                    <p>Successful Project Implementation</p>
+                    <p>Successful Project </p>
                 </div>
             </div>
 
