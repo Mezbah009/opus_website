@@ -137,7 +137,7 @@
 
 
     Dropzone.autoDiscover = false;
-const dropzone = $("#image,#logo").dropzone({
+const dropzone = $("").dropzone({
     init: function() {
         this.on('addedfile', function(file) {
             if (this.files.length > 1) {
