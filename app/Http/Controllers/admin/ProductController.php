@@ -21,6 +21,15 @@ class ProductController extends Controller
         return view('admin.products.list',compact('sections'));
     }
 
+    public function show($id)
+    {
+        // Find the product by its ID
+        $product = Product::findOrFail($id);
+
+        // Return the view with the product details
+        return view('admin.products.show', compact('product'));
+    }
+
     public function create()
     {
         return view('admin.products.create');

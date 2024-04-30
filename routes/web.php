@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\HomeSecondSectionController;
 use App\Http\Controllers\admin\HomeServicesSectionController;
 use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\ProductFirstSectionController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
@@ -95,6 +96,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/products', [ProductController::class, 'index'])->name('products.index');
         Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
         Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
         Route::get('/products/{products}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{products}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{products}', [ProductController::class, 'destroy'])->name('products.delete');
@@ -147,6 +149,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/numbers/{numbers}', [NumberController::class, 'update'])->name('numbers.update');
         Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
 
+
+        // Product First section
+        Route::get('/product_first_section', [ProductFirstSectionController::class, 'index'])->name('product_first_section.index');
+        Route::get('/product_first_section/create', [ProductFirstSectionController::class, 'create'])->name('product_first_section.create');
+        Route::post('/product_first_section', [ProductFirstSectionController::class, 'store'])->name('product_first_section.store');
+        Route::get('/product_first_section/{product_first_section}/edit', [ProductFirstSectionController::class, 'edit'])->name('product_first_section.edit');
+        Route::put('/product_first_section/{product_first_section}', [ProductFirstSectionController::class, 'update'])->name('product_first_section.update');
+        Route::delete('/product_first_section/{product_first_section}', [ProductFirstSectionController::class, 'destroy'])->name('product_first_section.delete');
+
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
             if (!empty($request->title)) {
@@ -159,5 +170,5 @@ Route::group(['prefix' => 'admin'], function () {
         })->name('getSlug');
 
     });
-    
+
 });
