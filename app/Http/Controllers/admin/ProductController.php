@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
     public function index(Request $request)
+    
     {
         $sections = Product::latest();
         if(!empty($request->get('keyword'))){
@@ -28,6 +29,7 @@ class ProductController extends Controller
 
         // Return the view with the product details
         return view('admin.products.show', compact('product'));
+
     }
 
     public function create()
