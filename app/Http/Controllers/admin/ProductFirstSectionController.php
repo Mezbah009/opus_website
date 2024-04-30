@@ -12,6 +12,7 @@ class ProductFirstSectionController extends Controller
 {
     public function index(Request $request)
     {
+        $product = Product::findOrFail($request->product_id);
         $sections = ProductFirstSection::latest();
         if(!empty($request->get('keyword'))){
             $sections = $sections->where('title','like','%'.$request->get('keyword').'%');
@@ -26,7 +27,7 @@ class ProductFirstSectionController extends Controller
         return view('admin.product_first_section.create', compact('product'));
     }
 
-    public function store(Request $request)
+    public function store($id,Request $request)
     {
         // dd($request->all());
         // Validate the request data
@@ -40,15 +41,12 @@ class ProductFirstSectionController extends Controller
 
         if ($validator->passes()) {
 
-            $product = Product::findOrFail($request->product_id);
+            $product = Product::findOrFail($id);
+            // dd($product);
 
             $section = new ProductFirstSection();
             $section->title = $request->title;
             $section->product_id = $product->id;
-
-
-
-
 
 
             if ($request->hasFile('image')) {
@@ -73,8 +71,10 @@ class ProductFirstSectionController extends Controller
             }
 
             $section->save();
-            
-            return redirect()->route('product_first_section.create',['id' => $product->id])->with('success', 'Product First Section added successfully');
+
+            // dd("Section saved");
+
+            return redirect()->route('products.show', $product->id)->with('success', 'Product First Section added successfully');
 
         } else {
             return response()->json([
@@ -91,18 +91,18 @@ class ProductFirstSectionController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $validator = Validator::make($request->all(), [
-            'product_id' => 'nullable|exists:products,id',
-            'title' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'brochure' => 'nullable|mimes:pdf|max:10240',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'title' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'brochure' => 'nullable|mimes:pdf|max:10240',
+    ]);
 
-        if ($validator->passes()) {
-            $section = ProductFirstSection::findOrFail($id);
-            $section->title = $request->title;
+    if ($validator->passes()) {
+        // Find the ProductFirstSection record to update
+        $section = ProductFirstSection::findOrFail($id);
+        $section->title = $request->title;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -127,13 +127,13 @@ class ProductFirstSectionController extends Controller
 
         $section->save();
 
-         // Redirect to index page
-         return redirect()->route('product_first_section.index')->with('success', 'Product First Section updated successfully');
-        } else {
-            return back()->withErrors($validator)->withInput();
-        }
-
+        // Redirect to index page
+        return redirect()->route('product_first_section.index')->with('success', 'Product First Section updated successfully');
+    } else {
+        return back()->withErrors($validator)->withInput();
+    }
 }
+
 
 public function destroy($id)
 {
@@ -149,5 +149,9 @@ public function destroy($id)
         'message' => 'Product First Section deleted successfully'
     ]);
 }
+
+
+
+
 }
 

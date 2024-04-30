@@ -73,7 +73,7 @@
         var element = $(this);
         $("button[type=submit]").prop('disabled',true);
         $.ajax({
-            url: '{{ route('product_first_section.create', ['id' => $product->id]) }}',
+            url: '',
             type: 'POST',
             data: element.serializeArray(),  // Fixed typo: 'data' instead of 'date'
             dataType: 'json',
