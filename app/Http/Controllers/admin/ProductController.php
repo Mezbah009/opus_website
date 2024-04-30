@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
     public function index(Request $request)
-    
+
     {
         $sections = Product::latest();
         if(!empty($request->get('keyword'))){

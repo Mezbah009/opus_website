@@ -91,6 +91,7 @@ class FrontController extends Controller
         return view('front.product-post', compact('sections','product_first_sections'));
     }
 
+
     public function fintech(){
         $sections = Product::where("button_name", "filter-fin")->get();
         $data['sections']= $sections;
