@@ -28,7 +28,7 @@ class ProductController extends Controller
         // Find the product by its ID
         $product = Product::findOrFail($id);
         $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
-        
+
         // Return the view with the product details
         return view('admin.products.show', compact('product','first_sec'));
 
@@ -154,6 +154,150 @@ public function destroy($id)
     return response()->json([
         'status' => true,
         'message' => 'Product deleted successfully'
+    ]);
+}
+
+
+// First Section
+
+public function indexFirstSection(Request $request)
+{
+    $product = Product::findOrFail($request->product_id);
+    $sections = ProductFirstSection::latest();
+    if(!empty($request->get('keyword'))){
+        $sections = $sections->where('title','like','%'.$request->get('keyword').'%');
+    }
+    $sections = $sections->latest()->paginate(10);
+    return view('admin.product_first_section.list',compact('sections'));
+}
+
+public function createFirstSection($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.product_first_section.create', compact('product'));
+    }
+
+    public function storeFirstSection($id,Request $request)
+    {
+        // dd($request->all());
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'nullable|exists:products,id',
+            'title' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'brochure' => 'nullable|mimes:pdf|max:10240',
+        ]);
+
+        if ($validator->passes()) {
+
+            $product = Product::findOrFail($id);
+            // dd($product);
+
+            $section = new ProductFirstSection();
+            $section->title = $request->title;
+            $section->product_id = $product->id;
+
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/first_section'), $imageName);
+                $section->image = $imageName;
+            }
+
+            if ($request->hasFile('logo')) {
+                $logo = $request->file('logo');
+                $logoName = 'logo' . time() . '.' . $logo->getClientOriginalExtension();
+                $logo->move(public_path('uploads/first_section'), $logoName);
+                $section->logo = $logoName;
+            }
+
+            if ($request->hasFile('brochure')) {
+                $brochure = $request->file('brochure');
+                $brochureName = 'brochure' . time() . '.' . $brochure->getClientOriginalExtension();
+                $brochure->move(public_path('uploads/first_section'), $brochureName);
+                $section->brochure = $brochureName;
+            }
+
+            $section->save();
+
+            // dd("Section saved");
+
+            return redirect()->route('products.show', $product->id)->with('success', 'Product First Section added successfully');
+
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+    }
+
+    public function editFirstSection($id)
+
+    {
+        $section = ProductFirstSection::findOrFail($id);
+        return view('admin.product_first_section.edit', compact('section'));
+    }
+
+    public function updateFirstSection(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'brochure' => 'nullable|mimes:pdf|max:10240',
+        ]);
+
+        if ($validator->passes()) {
+            // Find the ProductFirstSection record to update
+            $section = ProductFirstSection::findOrFail($id);
+            $section->title = $request->title;
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/first_section'), $imageName);
+                $section->image = $imageName;
+            }
+
+            if ($request->hasFile('logo')) {
+                $logo = $request->file('logo');
+                $logoName = 'logo' . time() . '.' . $logo->getClientOriginalExtension();
+                $logo->move(public_path('uploads/first_section'), $logoName);
+                $section->logo = $logoName;
+            }
+
+            if ($request->hasFile('brochure')) {
+                $brochure = $request->file('brochure');
+                $brochureName = 'brochure' . time() . '.' . $brochure->getClientOriginalExtension();
+                $brochure->move(public_path('uploads/first_section'), $brochureName);
+                $section->brochure = $brochureName;
+            }
+
+            $section->save();
+
+            // Redirect to index page
+            return redirect()->route('product_first_section.index')->with('success', 'Product First Section updated successfully');
+        } else {
+            return back()->withErrors($validator)->withInput();
+        }
+    }
+
+
+    public function destroyFirstSection($id)
+{
+    $section = ProductFirstSection::findOrFail($id);
+    $section->delete();
+
+    // Flash success message
+    session()->flash('success', 'Product First Section deleted successfully');
+
+    // Return JSON response
+    return response()->json([
+        'status' => true,
+        'message' => 'Product First Section deleted successfully'
     ]);
 }
 
