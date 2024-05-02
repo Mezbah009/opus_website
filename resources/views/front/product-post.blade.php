@@ -83,6 +83,28 @@
     @endforeach
 </div>
 
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($product_second_sections as $key => $product_second_section)
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+                <div class="section-title">
+                    <img src="{{ asset('uploads/first_section/' .$product_second_section->logo) }}" class="img-fluid"
+                        alt="">
+                    <p>{!! $product_second_section->description!!} </p>
+                </div>
+            </div>
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$product_second_section->image) }}" class="img-fluid" alt="">
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</section> 
+
 
 <script>
     function downloadBrochure(url) {
