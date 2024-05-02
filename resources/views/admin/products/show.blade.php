@@ -6,11 +6,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Product Details</h1>
+                <h1>Product Details of {{$product->title}}</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}"
-                    class="btn btn-primary">Create Product First Section</a>
+                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-primary">First Section</a>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
 
             </div>
@@ -19,66 +18,73 @@
     <!-- /.container-fluid -->
 </section>
 
-<!-- Main content -->
-<section class="content">
-    @include('admin.message')
-    <!-- Product details -->
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><strong>Title:</strong> {{ $product->title }}</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Product Category:</strong> {{ $product->button_name }}</p>
-                    </div>
-
-                    <!-- Additional fields based on your product attributes -->
-
-                    <div class="col-md-6">
-                        <p><strong>Description:</strong> {{ $product->description }}</p>
-                    </div>
-                    <div class="col-md-3">
-                        <p><strong>Image:</strong></p>
-                        <img src="{{ asset('uploads/first_section/'.$product->logo) }}" alt="Product Image"
-                            style="max-width: 30%;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 {{-- product First section --}}
+<section class="content-header">
+<div class="col-sm-6">
+    <h4>Section 1</h4>
+</div>
+</section>
+
 <section class="content">
-    <!-- Product details -->
+
     <div class="container-fluid">
         <div class="card">
-            <div class="card-body">
-                @if ($first_sec)
-                <div class="col-sm-12 text-right">
-                    <a href="{{ route('product_first_section.edit', $first_sec->id) }}" class="btn btn-primary">Edit</a>
-                </div>
-                @else
-                <p>No product first section found.</p>
-                @endif
-                <div class="row">
-                    <?php if ($first_sec !== null): ?>
-                    <div class="col-md-6">
-                        <p><strong>Title:</strong> {{ $first_sec->title }}</p>
-                    </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th width="60">ID</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Logo</th>
+                            <th>Brochure</th>
+                            <th width="100">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($first_sec !== null)
+                        <tr>
+                            <td>{{$first_sec->id}}</td>
+                            <td>{{$first_sec->title}}</td>
+                            <td>
+                                @if(!empty($first_sec->image))
+                                <img src="{{ asset('uploads/first_section/'.$first_sec->image) }}" class="img-thumbnail" alt="{{$first_sec->title}}" width="50">
+                                @else
+                                <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail" alt="default image" width="50">
+                                @endif
+                            </td>
+                            <td>
+                                @if(!empty($first_sec->logo))
+                                <img src="{{ asset('uploads/first_section/'.$first_sec->logo) }}" class="img-thumbnail" alt="{{$first_sec->title}}" width="50">
+                                @else
+                                <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail" alt="default image" width="50">
+                                @endif
+                            </td>
+                            <td>{{$first_sec->brochure}}</td>
 
-                    <div class="col-md-3">
-                        <p><strong>Image:</strong></p>
-                        <img src="{{ asset('uploads/first_section/'.$first_sec->image) }}" alt="Product Image"
-                            style="max-width: 30%;">
-                    </div>
-                    <?php endif; ?>
-                </div>
+                            <td>
+                                <a href="{{route('product_first_section.edit', $first_sec->id)}}">
+                                    <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#" onclick="destroySection({{$first_sec->id}})" class="text-danger w-4 h-4 mr-1">
+                                    <svg wire:loading.remove.delay="" wire:target="" class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path ath fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                        @else
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- /.content -->
 @endsection
