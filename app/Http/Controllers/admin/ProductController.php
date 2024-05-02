@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductFirstSection;
+use App\Models\ProductSecondSection;
+use App\Models\ProductThirdSection;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -28,9 +30,12 @@ class ProductController extends Controller
         // Find the product by its ID
         $product = Product::findOrFail($id);
         $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
+        $second_sec = ProductSecondSection::where('product_id', $product->id)->first();
+        $third_secs = ProductThirdSection::where('product_id', $product->id)->get();
+
 
         // Return the view with the product details
-        return view('admin.products.show', compact('product', 'first_sec'));
+        return view('admin.products.show', compact('product', 'first_sec','second_sec','third_secs'));
     }
 
     public function create()
@@ -303,6 +308,245 @@ class ProductController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Product First Section deleted successfully'
+        ]);
+    }
+
+
+
+
+    // Second Section
+
+    public function indexSecondSection(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+        $sections = ProductSecondSection::latest();
+        if (!empty($request->get('keyword'))) {
+            $sections = $sections->where('title', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $sections = $sections->latest()->paginate(10);
+        return view('admin.product_second_section.list', compact('sections'));
+    }
+
+    public function createSecondSection($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.product_second_section.create', compact('product'));
+    }
+
+    public function storeSecondSection($id, Request $request)
+    {
+        // dd($request->all());
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'nullable|exists:products,id',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->passes()) {
+
+            $product = Product::findOrFail($id);
+            // dd($product);
+
+            $section = new ProductSecondSection();
+            $section->description = $request->description;
+            $section->product_id = $product->id;
+
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/first_section'), $imageName);
+                $section->image = $imageName;
+            }
+
+            $section->save();
+
+            // dd("Section saved");
+
+            return redirect()->route('products.show', $product->id)->with('success', 'Product Second Section added successfully');
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+    }
+
+    public function editSecondSection($id)
+
+    {
+        $section = ProductSecondSection::findOrFail($id);
+        return view('admin.product_second_section.edit', compact('section'));
+    }
+
+    public function updateSecondSection(Request $request, $id)
+{
+    // Validate the request data
+    $validator = Validator::make($request->all(), [
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    if ($validator->passes()) {
+        // Find the ProductSecondSection record to update
+        $section = ProductSecondSection::findOrFail($id);
+
+        // Update the description
+        $section->description = $request->description;
+
+        // Handle image update
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/first_section'), $imageName);
+            $section->image = $imageName;
+        }
+
+        // Save the updated section
+        $section->save();
+
+        // Redirect to index page
+        return redirect()->route('products.show', $section->product_id)->with('success', 'Product Second Section updated successfully');
+    } else {
+        return back()->withErrors($validator)->withInput();
+    }
+}
+
+    public function destroySecondSection($id)
+    {
+        $section = ProductSecondSection::findOrFail($id);
+        $section->delete();
+
+        // Flash success message
+        session()->flash('success', 'Product Second Section deleted successfully');
+
+        // Return JSON response
+        return response()->json([
+            'status' => true,
+            'message' => 'Product Second Section deleted successfully'
+        ]);
+    }
+
+
+
+ // Third Section
+
+    public function indexThirdSection(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+        $sections = ProductThirdSection::latest();
+        if (!empty($request->get('keyword'))) {
+            $sections = $sections->where('title', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $sections = $sections->latest()->paginate(10);
+        return view('admin.product_third_section.list', compact('sections'));
+    }
+
+    public function createThirdSection($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.product_third_section.create', compact('product'));
+    }
+
+    public function storeThirdSection($id, Request $request)
+    {
+        // dd($request->all());
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+
+            'product_id' => 'nullable|exists:products,id',
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->passes()) {
+
+            $product = Product::findOrFail($id);
+            // dd($product);
+
+            $section = new ProductThirdSection();
+            $section->title = $request->title;
+            $section->description = $request->description;
+            $section->product_id = $product->id;
+
+
+            if ($request->hasFile('icon')) {
+                $icon = $request->file('icon');
+                $iconName = 'icon' . time() . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path('uploads/first_section'), $iconName);
+                $section->icon = $iconName;
+            }
+
+            $section->save();
+
+            // dd("Section saved");
+
+            return redirect()->route('products.show', $product->id)->with('success', 'Product Third Section added successfully');
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+    }
+
+    public function editThirdSection($id)
+
+    {
+        $section = ProductThirdSection::findOrFail($id);
+        return view('admin.product_third_section.edit', compact('section'));
+    }
+
+    public function updateThirdSection(Request $request, $id)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->passes()) {
+            // Find the ProductThirdSection record to update
+            $section = ProductThirdSection::findOrFail($id);
+
+            // Update the title and description
+            $section->title = $request->title;
+            $section->description = $request->description;
+
+            // Handle icon update
+            if ($request->hasFile('icon')) {
+                $icon = $request->file('icon');
+                $iconName = 'icon' . time() . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path('uploads/first_section'), $iconName);
+                $section->icon = $iconName;
+            }
+
+            // Save the updated section
+            $section->save();
+
+            // Redirect to index page
+            return redirect()->route('products.show', $section->product_id)->with('success', 'Product Third Section updated successfully');
+        } else {
+            return back()->withErrors($validator)->withInput();
+        }
+    }
+
+
+    public function destroyThirdSection($id)
+    {
+        $section = ProductThirdSection::findOrFail($id);
+        $section->delete();
+
+        // Flash success message
+        session()->flash('success', 'Product Second Section deleted successfully');
+
+        // Return JSON response
+        return response()->json([
+            'status' => true,
+            'message' => 'Product Second Section deleted successfully'
         ]);
     }
 }

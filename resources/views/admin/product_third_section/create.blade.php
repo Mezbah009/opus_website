@@ -5,10 +5,11 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create Product First Section</h1>
+                <h1>Create Product Third Section</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('products.index') }}"
+                    class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
@@ -16,7 +17,8 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <form method="POST" action="{{ route('product_first_section.store', ['id' => $product->id]) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('product_third_section.store', ['id' => $product->id]) }}"
+        enctype="multipart/form-data">
 
         @csrf
 
@@ -33,29 +35,25 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" id="description" class="form-control"
+                                    placeholder="Description"></textarea>
+                                <p class="error"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="logo">Logo</label>
-                                <input type="file" class="form-control-file" id="logo" name="logo">
+                            <div class="mb-1">
+                                <label for="icon">Icon</label>
+                                <input type="file" class="form-control-file" id="icon" name="icon">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="brochure">Brochure (PDF)</label>
-                                <input type="file" class="form-control-file" id="brochure" name="brochure">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{ route('product_third_section.create', ['id' => $product->id]) }}"
+                    class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
@@ -85,7 +83,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{ route('product_first_section.index', ['id' => $product->id]) }}"
+                    window.location.href="{{ route('product_third_section.index', ['id' => $product->id]) }}"
 
 
 
