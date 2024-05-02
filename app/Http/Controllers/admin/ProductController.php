@@ -252,6 +252,8 @@ class ProductController extends Controller
             // Find the ProductFirstSection record to update
             $product = Product::findOrFail($request->product_id);
 
+            // $product = Product::findOrFail($id);
+
             $section = ProductFirstSection::findOrFail($id);
             $section->title = $request->title;
 
