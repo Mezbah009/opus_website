@@ -8,7 +8,7 @@
                 <h1>Update Product First Section</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('product_first_section.index', ['id' => $product->id]) }}" class="btn btn-primary">Back</a>
+                
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('product_first_section.update', ['id' => $section->id]) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('product_first_section.update', $section->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

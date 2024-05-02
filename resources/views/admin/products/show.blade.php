@@ -56,7 +56,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-sm-12 text-right">
-                    <a href="{{ route('products.index') }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('product_first_section.edit', $first_sec->id) }}" class="btn btn-primary">Edit</a>
                 </div>
                 <div class="row">
                     <?php if ($first_sec !== null): ?>
