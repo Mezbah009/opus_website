@@ -16,11 +16,11 @@ class ProductController extends Controller
 
     {
         $sections = Product::latest();
-        if(!empty($request->get('keyword'))){
-            $sections = $sections->where('title','like','%'.$request->get('keyword').'%');
+        if (!empty($request->get('keyword'))) {
+            $sections = $sections->where('title', 'like', '%' . $request->get('keyword') . '%');
         }
         $sections = $sections->latest()->paginate(10);
-        return view('admin.products.list',compact('sections'));
+        return view('admin.products.list', compact('sections'));
     }
 
     public function show($id)
@@ -30,8 +30,7 @@ class ProductController extends Controller
         $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
 
         // Return the view with the product details
-        return view('admin.products.show', compact('product','first_sec'));
-
+        return view('admin.products.show', compact('product', 'first_sec'));
     }
 
     public function create()
@@ -89,95 +88,95 @@ class ProductController extends Controller
 
 
 
-public function edit($id)
-{
-    $product = Product::findOrFail($id);
-    return view('admin.products.edit', compact('product'));
-}
-
-public function update(Request $request, $id)
-{
-    // Validate the request data
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|string',
-        'description' => 'nullable|string',
-        'button_name' => 'nullable|string',
-        'fin_cat' => 'nullable|string',
-        'slug' => 'nullable|string',
-        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
-    ]);
-
-    if ($validator->passes()) {
+    public function edit($id)
+    {
         $product = Product::findOrFail($id);
-        $product->title = $request->title;
-        $product->description = $request->description;
-        $product->button_name = $request->button_name;
-        $product->fin_cat = $request->fin_cat;
-        $product->link = $request->slug;
+        return view('admin.products.edit', compact('product'));
+    }
 
-        if (!empty($request->image_id)) {
-            $tempImage = TempImage::find($request->image_id);
+    public function update(Request $request, $id)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string',
+            'description' => 'nullable|string',
+            'button_name' => 'nullable|string',
+            'fin_cat' => 'nullable|string',
+            'slug' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation rules for logo
+        ]);
 
-            $extArray = explode('.', $tempImage->name);
-            $ext = last($extArray);
-            $newImageName = $product->id . '.' . $ext;
-            $sPath = public_path() . '/temp/' . $tempImage->name;
-            $dPath = public_path() . '/uploads/first_section/' . $newImageName;
+        if ($validator->passes()) {
+            $product = Product::findOrFail($id);
+            $product->title = $request->title;
+            $product->description = $request->description;
+            $product->button_name = $request->button_name;
+            $product->fin_cat = $request->fin_cat;
+            $product->link = $request->slug;
 
-            File::copy($sPath, $dPath);
+            if (!empty($request->image_id)) {
+                $tempImage = TempImage::find($request->image_id);
 
-            $product->logo = $newImageName;
+                $extArray = explode('.', $tempImage->name);
+                $ext = last($extArray);
+                $newImageName = $product->id . '.' . $ext;
+                $sPath = public_path() . '/temp/' . $tempImage->name;
+                $dPath = public_path() . '/uploads/first_section/' . $newImageName;
+
+                File::copy($sPath, $dPath);
+
+                $product->logo = $newImageName;
+                $product->save();
+            }
+
             $product->save();
+
+            // Redirect to index page
+            return redirect()->route('products.index')->with('success', 'Product updated successfully');
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
         }
+    }
 
-        $product->save();
+    public function destroy($id)
+    {
+        $section = Product::findOrFail($id);
+        $section->delete();
 
-        // Redirect to index page
-        return redirect()->route('products.index')->with('success', 'Product updated successfully');
-    } else {
+        // Flash success message
+        session()->flash('success', 'Product deleted successfully');
+
+        // Return JSON response
         return response()->json([
-            'status' => false,
-            'errors' => $validator->errors()
+            'status' => true,
+            'message' => 'Product deleted successfully'
         ]);
     }
-}
-
-public function destroy($id)
-{
-    $section = Product::findOrFail($id);
-    $section->delete();
-
-    // Flash success message
-    session()->flash('success', 'Product deleted successfully');
-
-    // Return JSON response
-    return response()->json([
-        'status' => true,
-        'message' => 'Product deleted successfully'
-    ]);
-}
 
 
-// First Section
+    // First Section
 
-public function indexFirstSection(Request $request)
-{
-    $product = Product::findOrFail($request->product_id);
-    $sections = ProductFirstSection::latest();
-    if(!empty($request->get('keyword'))){
-        $sections = $sections->where('title','like','%'.$request->get('keyword').'%');
+    public function indexFirstSection(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+        $sections = ProductFirstSection::latest();
+        if (!empty($request->get('keyword'))) {
+            $sections = $sections->where('title', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $sections = $sections->latest()->paginate(10);
+        return view('admin.product_first_section.list', compact('sections'));
     }
-    $sections = $sections->latest()->paginate(10);
-    return view('admin.product_first_section.list',compact('sections'));
-}
 
-public function createFirstSection($id)
+    public function createFirstSection($id)
     {
         $product = Product::findOrFail($id);
         return view('admin.product_first_section.create', compact('product'));
     }
 
-    public function storeFirstSection($id,Request $request)
+    public function storeFirstSection($id, Request $request)
     {
         // dd($request->all());
         // Validate the request data
@@ -225,7 +224,6 @@ public function createFirstSection($id)
             // dd("Section saved");
 
             return redirect()->route('products.show', $product->id)->with('success', 'Product First Section added successfully');
-
         } else {
             return response()->json([
                 'status' => false,
@@ -252,6 +250,8 @@ public function createFirstSection($id)
 
         if ($validator->passes()) {
             // Find the ProductFirstSection record to update
+            $product = Product::findOrFail($request->product_id);
+
             $section = ProductFirstSection::findOrFail($id);
             $section->title = $request->title;
 
@@ -279,7 +279,7 @@ public function createFirstSection($id)
             $section->save();
 
             // Redirect to index page
-            return redirect()->route('product_first_section.index')->with('success', 'Product First Section updated successfully');
+            return redirect()->route('products.show', $product->id)->with('success', 'Product First Section updated successfully');
         } else {
             return back()->withErrors($validator)->withInput();
         }
@@ -287,18 +287,17 @@ public function createFirstSection($id)
 
 
     public function destroyFirstSection($id)
-{
-    $section = ProductFirstSection::findOrFail($id);
-    $section->delete();
+    {
+        $section = ProductFirstSection::findOrFail($id);
+        $section->delete();
 
-    // Flash success message
-    session()->flash('success', 'Product First Section deleted successfully');
+        // Flash success message
+        session()->flash('success', 'Product First Section deleted successfully');
 
-    // Return JSON response
-    return response()->json([
-        'status' => true,
-        'message' => 'Product First Section deleted successfully'
-    ]);
-}
-
+        // Return JSON response
+        return response()->json([
+            'status' => true,
+            'message' => 'Product First Section deleted successfully'
+        ]);
+    }
 }
