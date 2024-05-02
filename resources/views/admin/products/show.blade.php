@@ -55,9 +55,13 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
+                @if ($first_sec)
                 <div class="col-sm-12 text-right">
                     <a href="{{ route('product_first_section.edit', $first_sec->id) }}" class="btn btn-primary">Edit</a>
                 </div>
+                @else
+                <p>No product first section found.</p>
+                @endif
                 <div class="row">
                     <?php if ($first_sec !== null): ?>
                     <div class="col-md-6">
