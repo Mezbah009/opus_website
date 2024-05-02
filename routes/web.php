@@ -101,6 +101,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/products/{products}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{products}', [ProductController::class, 'destroy'])->name('products.delete');
 
+         // Product First section
+        Route::get('/products/{id}/product_first_section', [ProductController::class, 'indexFirstSection'])->name('product_first_section.index');
+        Route::get('/products/{id}/product_first_section/create', [ProductController::class, 'createFirstSection'])->name('product_first_section.create');
+        Route::post('/products/{id}/product_first_section', [ProductController::class, 'storeFirstSection'])->name('product_first_section.store');
+        Route::get('/products/{product_id}/product_first_sections/{section_id}/edit', [ProductController::class, 'editFirstSection'])->name('product_first_section.edit');
+        Route::put('/products/{product_id}/product_first_sections/{section_id}', [ProductController::class, 'updateFirstSection'])->name('product_first_section.update');
+        Route::delete('/products/{product_id}/product_first_sections/{section_id}', [ProductController::class, 'destroyFirstSection'])->name('product_first_section.delete');
+
+
         // Home Service section
         Route::get('/home_services', [HomeServicesSectionController::class, 'index'])->name('home_services_section.index');
         Route::get('/home_services/create', [HomeServicesSectionController::class, 'create'])->name('home_services_section.create');
@@ -150,13 +159,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
 
 
-        // Product First section
-        Route::get('/products/{id}/product_first_section', [ProductFirstSectionController::class, 'index'])->name('product_first_section.index');
-        Route::get('/products/{id}/product_first_section/create', [ProductFirstSectionController::class, 'create'])->name('product_first_section.create');
-        Route::post('/products/{id}/product_first_section', [ProductFirstSectionController::class, 'store'])->name('product_first_section.store');
-        Route::get('/products/{product_id}/product_first_sections/{section_id}/edit', [ProductFirstSectionController::class, 'edit'])->name('product_first_section.edit');
-        Route::put('/products/{product_id}/product_first_sections/{section_id}', [ProductFirstSectionController::class, 'update'])->name('product_first_section.update');
-        Route::delete('/products/{product_id}/product_first_sections/{section_id}', [ProductFirstSectionController::class, 'destroy'])->name('product_first_section.delete');
 
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
