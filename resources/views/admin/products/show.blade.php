@@ -55,6 +55,9 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
+                <div class="col-sm-12 text-right">
+                    <a href="{{ route('products.index') }}" class="btn btn-primary">Edit</a>
+                </div>
                 <div class="row">
                     <?php if ($first_sec !== null): ?>
                     <div class="col-md-6">
