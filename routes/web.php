@@ -105,8 +105,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/products/{id}/product_first_section', [ProductController::class, 'indexFirstSection'])->name('product_first_section.index');
         Route::get('/products/{id}/product_first_section/create', [ProductController::class, 'createFirstSection'])->name('product_first_section.create');
         Route::post('/products/{id}/product_first_section', [ProductController::class, 'storeFirstSection'])->name('product_first_section.store');
-        Route::get('/products/{product_id}/product_first_sections/{section_id}/edit', [ProductController::class, 'editFirstSection'])->name('product_first_section.edit');
-        Route::put('/products/{product_id}/product_first_sections/{section_id}', [ProductController::class, 'updateFirstSection'])->name('product_first_section.update');
+        Route::get('/product_first_sections/{section_id}/edit', [ProductController::class, 'editFirstSection'])->name('product_first_section.edit');
+        Route::put('/products/product_first_sections/{section_id}', [ProductController::class, 'updateFirstSection'])->name('product_first_section.update');
         Route::delete('/products/{product_id}/product_first_sections/{section_id}', [ProductController::class, 'destroyFirstSection'])->name('product_first_section.delete');
 
 
