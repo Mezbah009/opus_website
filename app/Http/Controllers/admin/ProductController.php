@@ -250,13 +250,12 @@ class ProductController extends Controller
 
         if ($validator->passes()) {
             // Find the ProductFirstSection record to update
-            $product = Product::findOrFail($request->product_id);
-
-            // $product = Product::findOrFail($id);
-
             $section = ProductFirstSection::findOrFail($id);
+
+            // Update the title
             $section->title = $request->title;
 
+            // Handle image update
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
@@ -264,6 +263,7 @@ class ProductController extends Controller
                 $section->image = $imageName;
             }
 
+            // Handle logo update
             if ($request->hasFile('logo')) {
                 $logo = $request->file('logo');
                 $logoName = 'logo' . time() . '.' . $logo->getClientOriginalExtension();
@@ -271,6 +271,7 @@ class ProductController extends Controller
                 $section->logo = $logoName;
             }
 
+            // Handle brochure update
             if ($request->hasFile('brochure')) {
                 $brochure = $request->file('brochure');
                 $brochureName = 'brochure' . time() . '.' . $brochure->getClientOriginalExtension();
@@ -278,14 +279,16 @@ class ProductController extends Controller
                 $section->brochure = $brochureName;
             }
 
+            // Save the updated section
             $section->save();
 
             // Redirect to index page
-            return redirect()->route('products.show', $product->id)->with('success', 'Product First Section updated successfully');
+            return redirect()->route('products.show', $section->product_id)->with('success', 'Product First Section updated successfully');
         } else {
             return back()->withErrors($validator)->withInput();
         }
     }
+
 
 
     public function destroyFirstSection($id)
