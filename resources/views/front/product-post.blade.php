@@ -1,160 +1,87 @@
 @extends('front.layouts.app')
 
 @section('content')
-
-{{$sections->title}}
-
-{{-- <style>
-    #hero {
-        width: 100%;
-        height: 100vh;
-        /* Adjust height as needed */
+<style>
+    /* CSS Styling */
+    .custom-section {
+        padding: 100px;
+        /* Adjust padding as needed */
         background-size: cover;
         background-position: center;
         position: relative;
     }
 
-    .hero-container {
+    .custom-section::before {
+        content: "";
+        background-color: rgba(13, 30, 45, 0.4);
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
     }
 
-    .carousel-content {
-        text-align: center;
-        color: #fff;
+    .custom-section .container {
+        position: relative;
+        z-index: 1;
+        text-align: left;
+        /* Center align content */
     }
 
-    .slider-title {
-        font-size: 3rem;
-        font-weight: bold;
+    .custom-section img {
+        max-height: 100px;
+        /* Set max height for the logo */
         margin-bottom: 20px;
+        /* Adjust margin as needed */
     }
 
-    .slider-logo {
-        max-width: 200px;
-        /* Adjust logo size as needed */
+    .custom-section h2 {
+        color: #fff;
+        /* Text color */
+        font-size: 24px;
+        /* Font size */
         margin-bottom: 20px;
+        /* Adjust margin as needed */
     }
 
-    .btn-get-started {
-        background-color: #007bff;
-        color: #fff;
+    .custom-section .btn-download {
+        background-color: #fff;
+        /* Button background color */
+        color: #333;
+        /* Button text color */
         padding: 10px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
+        /* Adjust padding as needed */
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        /* Font size */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
-    .btn-get-started:hover {
-        background-color: #0056b3;
+    .custom-section .btn-download:hover {
+        background-color: #eee;
+        /* Button hover background color */
     }
-
-    .btn-download {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .btn-download:hover {
-        background-color: #0056b3;
-    }
-</style> --}}
-
-<section id="about" class="about">
-    <div class="container" data-aos="fade-up">
-        @foreach ($product_first_sections as $key => $product_first_section)
-
-        <div class="contact-bg"
-            style="background-image: url('{{ asset('uploads/first_section/'.$product_first_section->image) }}');">
-            <div class="banner-content">
+</style>
+<div class="" data-aos="">
+    @foreach ($product_first_sections as $key => $product_first_section)
+    <section id="hero{{$key}}" class="custom-section" style="background-image: url('{{ asset('uploads/first_section/'.$product_first_section->image) }}');">
+        <div class="container">
+            <div class="carousel-content">
                 <img src="{{ asset('uploads/first_section/'.$product_first_section->logo) }}" alt="Logo">
-                <h3>{{ $product_first_section->title }}</h3>
-
-                <div class="line">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+                <h2>{{ $product_first_section->title }}</h2>
                 @if($product_first_section->brochure)
-                <a href="{{ asset('uploads/first_section/'.$product_first_section->brochure) }}"
-                    class="btn-download">Download Brochure</a>
+                <button class="btn-download" onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download Brochure</button>
                 @endif
             </div>
         </div>
-
-
-
-        {{-- <div class="row no-gutters">
-            <div class="col-lg-6 video-box">
-                <img src="{{ asset('uploads/first_section/' .$product_first_section->image) }}" class="img-fluid"
-                    alt="">
-                <a href="https://youtu.be/eNz-5QvXmog?si=P5S7DF078CSD3xj1" class="venobox play-btn mb-4"
-                    data-vbtype="video" data-autoplay="true"></a>
-            </div>
-
-            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
-
-                <div class="section-title">
-                    <h2>{{ $product_first_section->title }}</h2>
-                    <p>{!! $product_first_section->description!!} </p>
-                    <a href="{{ $product_first_section->link }}"
-                        class="btn-get-started animate__animated animate__fadeInUp scrollto">{{
-                        $product_first_section->button_name }}</a>
-                </div>
-
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-rocket"></i></div>
-                    <h4 class="title"><a href="">Our Mission</a></h4>
-                    <p class="description">{{$product_first_section->mission}}</p>
-                </div>
-
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-compass"></i></div>
-                    <h4 class="title"><a href="">Our Vision</a></h4>
-                    <p class="description">{{$product_first_section->vision}}</p>
-
-                </div>
-
-            </div>
-        </div> --}}
-        @endforeach
-
-    </div>
-</section><!-- End About Us Section -->
-
-<section id="" class="" ">
-    <div class="" data-aos="">
-        @foreach ($product_first_sections as $key => $product_first_section)
-        <section id=" hero{{$key}}"
-    style="background-image: url('{{ asset('uploads/first_section/'.$product_first_section->image) }}'); background-size: cover; background-position: center;"
-    style="padding: 170px>
-            <div class=" hero-container">
-    <div class="carousel-container">
-        <div class="carousel-content container">
-            <h2>{{ $product_first_section->title }}</h2>
-            <!-- Assuming 'logo' is an image field -->
-            <img src="{{ asset('uploads/first_section/'.$product_first_section->logo) }}" alt="Logo">
-            <!-- Assuming 'brochure' is a link field -->
-            @if($product_first_section->brochure)
-            <button class="btn-download"
-                onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download
-                Brochure</button>
-            @endif
-        </div>
-    </div>
-    </div>
-</section>
-@endforeach
+    </section>
+    @endforeach
 </div>
-</section>
-
-
-
 
 
 <script>
