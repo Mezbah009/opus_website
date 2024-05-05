@@ -14,6 +14,7 @@ use App\Models\ProductFifthSection;
 use App\Models\ProductFirstSection;
 use App\Models\ProductFourthSection;
 use App\Models\ProductSecondSection;
+use App\Models\ProductSeventhSection;
 use App\Models\ProductSixthSection;
 use App\Models\ProductThirdSection;
 use App\Models\Slider;
@@ -98,10 +99,12 @@ class FrontController extends Controller
         $product_fourth_sections = ProductFourthSection::where('product_id', $sections->id)->get();
         $product_fifth_sections = ProductFifthSection::where('product_id', $sections->id)->get();
         $product_sixth_sections = ProductSixthSection::where('product_id', $sections->id)->get();
+        $product_seventh_sections = ProductSeventhSection::where('product_id', $sections->id)->get();
+
 
 
         // Pass the retrieved data to the view
-        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections','product_fourth_sections','product_fifth_sections','product_sixth_sections'));
+        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections','product_fourth_sections','product_fifth_sections','product_sixth_sections','product_seventh_sections'));
     }
 
 

@@ -6,15 +6,16 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Product Details of {{$product->title}}</h1>
+                <h1> {{$product->title}} Details</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('product_sixth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Sixth Section</a>
-                <a href="{{ route('product_fifth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fifth Section</a>
-                <a href="{{ route('product_fourth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fourth Section</a>
-                <a href="{{ route('product_third_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Third Section</a>
-                <a href="{{ route('product_second_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Second Section</a>
-                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-primary">First Section</a>
+                <a href="{{ route('product_seventh_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Seventh</a>
+                <a href="{{ route('product_sixth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Sixth</a>
+                <a href="{{ route('product_fifth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fifth</a>
+                <a href="{{ route('product_fourth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fourth</a>
+                <a href="{{ route('product_third_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Third</a>
+                <a href="{{ route('product_second_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Second</a>
+                <a href="{{ route('product_first_section.create', ['id' => $product->id]) }}" class="btn btn-primary">First</a>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
             </div>
         </div>
@@ -356,8 +357,8 @@
     </div>
 </section>
 
-{{-- Fifth section --}}
-<{{-- second section --}}
+{{-- Sixth section --}}
+
 <section class="content">
 
     <div class="container-fluid">
@@ -395,6 +396,68 @@
                         @else
                         <tr>
                             <td colspan="4">No data found</td>
+                        </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- end --}}
+<section class="content-header">
+    <div class="col-sm-6">
+        <h4>Section 7</h4>
+    </div>
+</section>
+
+{{-- Seventh section --}}
+<section class="content">
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th width="60">ID</th>
+                            <th>Logo</th>
+                            <th>Link</th>
+                            <th width="100">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($seventh_secs !== null)
+                        @foreach ($seventh_secs as $seventh_sec)
+                        <tr>
+                            <td>{{$seventh_sec->id}}</td>
+                            <td>
+                                @if(!empty($seventh_sec->image))
+                                <img src="{{ asset('uploads/first_section/'.$seventh_sec->image) }}" class="img-thumbnail" alt="" width="50">
+                                @else
+                                <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail" alt="default image" width="50">
+                                @endif
+                            </td>
+                            <td>{{$seventh_sec->link}}</td>
+                            <td>
+                                <a href="{{route('product_seventh_section.edit', $seventh_sec->id)}}">
+                                    <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#" onclick="destroySection({{$seventh_sec->id}})" class="text-danger w-4 h-4 mr-1">
+                                    <svg wire:loading.remove.delay="" wire:target="" class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path ath fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5">No data found</td>
                         </tr>
                         @endif
                     </tbody>
