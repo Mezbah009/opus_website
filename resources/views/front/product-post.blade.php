@@ -78,6 +78,8 @@
             <div class="carousel-content">
                 <img src="{{ asset('uploads/first_section/'.$product_first_section->logo) }}" alt="Logo">
                 <h2>{{ $product_first_section->title }}</h2>
+                <button class="btn-download" style=""
+                    onclick="">Request Demo</button>
                 @if($product_first_section->brochure)
                 <button class="btn-download" style="margin-left: 40px"
                     onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download
@@ -163,7 +165,7 @@
 </section>
 <!-- End  Section -->
 
-{{-- Fift section --}}
+{{-- Fifth section --}}
 
 <div class="contact-body">
     <section id="contact" class="contact">
@@ -187,7 +189,7 @@
 </div>
 <!-- End  Section -->
 
-{{-- second section --}}
+{{-- sixth section --}}
 
 <section id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
@@ -205,6 +207,33 @@
 
     </div>
 </section>
+
+<!-- seventh section -->
+<section id="partners">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    {{-- <h3>They Trust Us</h3> --}}
+                    {{-- <p>Duis aute irure dolor in reprehenderit in voluptate</p> --}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="clients">
+                @foreach($product_seventh_sections as $product_seventh_section)
+                <div class="col-md-12">
+                    <a href="{{ $product_seventh_section->link }}" target="_blank">
+                        <img src="{{ asset('uploads/first_section/' . $product_seventh_section->image) }}" alt="Client Logo"
+                            width="150px">
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
+    </div>
+</section> <!-- End Clients Section -->
 
 
 <script>

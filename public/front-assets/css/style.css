@@ -1601,3 +1601,19 @@ section {
 	opacity: 1;
 	filter: Alpha(Opacity=100);
 }
+
+#partners {
+    padding-top: 0px;
+    padding-bottom: 50px;
+    text-align: center !important;
+}
+
+.clients .owl-buttons {
+    padding-top: 50px;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+	opacity: 1;
+	filter: Alpha(Opacity=100);
+}
+
