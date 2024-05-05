@@ -5,7 +5,7 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Update Product Fifth Section</h1>
+                <h1>Update Product Sixth Section</h1>
             </div>
             <div class="col-sm-6 text-right">
 
@@ -19,7 +19,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('product_fifth_section.update', $section->id) }}"
+    <form method="POST" action="{{ route('product_sixth_section.update', $section->id) }}"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -43,21 +43,12 @@
                                 <textarea name="description" id="description" cols="30" rows="10" class="summernote" placeholder="Description">{{ $section->description }}</textarea>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="icon">Image</label>
-                                <input type="file" class="form-control-file" id="icon" name="icon">
-                                @if($section->icon)
-                                <p>Current Image: {{ $section->icon }}</p>
-                                @endif
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{{ route('product_fifth_section.index', ['id' => $section->product_id]) }}"
+                <a href="{{ route('product_sixth_section.index', ['id' => $section->product_id]) }}"
                     class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
