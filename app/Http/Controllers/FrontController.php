@@ -11,6 +11,7 @@ use App\Models\HomeServicesSection;
 use App\Models\Number;
 use App\Models\Product;
 use App\Models\ProductFirstSection;
+use App\Models\ProductFourthSection;
 use App\Models\ProductSecondSection;
 use App\Models\ProductThirdSection;
 use App\Models\Slider;
@@ -92,10 +93,12 @@ class FrontController extends Controller
         $product_first_sections = ProductFirstSection::where('product_id', $sections->id)->get();
         $product_second_sections = ProductSecondSection::where('product_id', $sections->id)->get();
         $product_third_sections = ProductThirdSection::where('product_id', $sections->id)->get();
+        $product_fourth_sections = ProductFourthSection::where('product_id', $sections->id)->get();
+
 
 
         // Pass the retrieved data to the view
-        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections'));
+        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections','product_fourth_sections'));
     }
 
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductFirstSection;
 use App\Models\ProductSecondSection;
 use App\Models\ProductThirdSection;
+use App\Models\ProductFourthSection;
 
 
 
@@ -26,5 +27,10 @@ class Product extends Model
     public function thirdSections()
     {
         return $this->hasMany(ProductThirdSection::class);
+    }
+
+    public function fourthSections()
+    {
+        return $this->hasMany(ProductFourthSection::class);
     }
 }
