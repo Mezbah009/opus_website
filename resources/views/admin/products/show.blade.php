@@ -9,6 +9,7 @@
                 <h1>Product Details of {{$product->title}}</h1>
             </div>
             <div class="col-sm-6 text-right">
+                <a href="{{ route('product_fifth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fifth Section</a>
                 <a href="{{ route('product_fourth_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Fourth Section</a>
                 <a href="{{ route('product_third_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Third Section</a>
                 <a href="{{ route('product_second_section.create', ['id' => $product->id]) }}" class="btn btn-primary">Second Section</a>
@@ -271,6 +272,71 @@
                         @else
                         <tr>
                             <td colspan="4">No data found</td>
+                        </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- end --}}
+
+<section class="content-header">
+    <div class="col-sm-6">
+        <h4>Section 5</h4>
+    </div>
+</section>
+
+{{-- Fifth section --}}
+<section class="content">
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th width="60">ID</th>
+                            <th>Icon</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th width="100">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($fifth_secs !== null)
+                        @foreach ($fifth_secs as $fifth_sec)
+                        <tr>
+                            <td>{{$fifth_sec->id}}</td>
+                            <td>
+                                @if(!empty($fifth_sec->icon))
+                                <img src="{{ asset('uploads/first_section/'.$fifth_sec->icon) }}" class="img-thumbnail" alt="" width="50">
+                                @else
+                                <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail" alt="default image" width="50">
+                                @endif
+                            </td>
+                            <td>{{$fifth_sec->title}}</td>
+                            <td>{{Str::limit($fifth_sec->description, 50)}}</td>
+                            <td>
+                                <a href="{{route('product_fifth_section.edit', $fifth_sec->id)}}">
+                                    <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#" onclick="destroySection({{$fifth_sec->id}})" class="text-danger w-4 h-4 mr-1">
+                                    <svg wire:loading.remove.delay="" wire:target="" class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path ath fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5">No data found</td>
                         </tr>
                         @endif
                     </tbody>

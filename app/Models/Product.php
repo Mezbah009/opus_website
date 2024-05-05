@@ -8,6 +8,8 @@ use App\Models\ProductFirstSection;
 use App\Models\ProductSecondSection;
 use App\Models\ProductThirdSection;
 use App\Models\ProductFourthSection;
+use App\Models\ProductFifthSection;
+
 
 
 
@@ -32,5 +34,10 @@ class Product extends Model
     public function fourthSections()
     {
         return $this->hasMany(ProductFourthSection::class);
+    }
+
+    public function fifthSections()
+    {
+        return $this->hasMany(ProductFifthSection::class);
     }
 }
