@@ -33,7 +33,7 @@ class ProductController extends Controller
         $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
         $second_sec = ProductSecondSection::where('product_id', $product->id)->first();
         $third_secs = ProductThirdSection::where('product_id', $product->id)->get();
-        $fourth_sec = ProductFourthSection::where('product_id', $product->id)->get();
+        $fourth_sec = ProductFourthSection::where('product_id', $product->id)->first();
 
 
 
