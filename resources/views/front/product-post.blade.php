@@ -67,21 +67,30 @@
         /* Button hover background color */
     }
 </style>
+
+{{-- first Section --}}
+
 <div class="" data-aos="">
     @foreach ($product_first_sections as $key => $product_first_section)
-    <section id="hero{{$key}}" class="custom-section" style="background-image: url('{{ asset('uploads/first_section/'.$product_first_section->image) }}');">
+    <section id="hero{{$key}}" class="custom-section"
+        style="background-image: url('{{ asset('uploads/first_section/'.$product_first_section->image) }}');">
         <div class="container">
             <div class="carousel-content">
                 <img src="{{ asset('uploads/first_section/'.$product_first_section->logo) }}" alt="Logo">
                 <h2>{{ $product_first_section->title }}</h2>
                 @if($product_first_section->brochure)
-                <button class="btn-download" onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download Brochure</button>
+                <button class="btn-download" style="margin-left: 40px"
+                    onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download
+                    Brochure</button>
                 @endif
             </div>
         </div>
     </section>
     @endforeach
 </div>
+
+
+{{-- second section --}}
 
 <section id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
@@ -97,13 +106,37 @@
                 </div>
             </div>
             <div class="col-lg-6 video-box">
-                <img src="{{ asset('uploads/first_section/' .$product_second_section->image) }}" class="img-fluid" alt="">
+                <img src="{{ asset('uploads/first_section/' .$product_second_section->image) }}" class="img-fluid"
+                    alt="">
             </div>
         </div>
         @endforeach
 
     </div>
-</section> 
+</section>
+
+{{-- Third section --}}
+
+<div class="contact-body">
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="row">
+                    @foreach($product_third_sections as $product_third_section)
+                    <div class="col-lg-3 d-flex" data-aos="fade-up">
+                        <div class="info-box">
+                            <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
+                                width="80px" style="padding: 8px">
+                            <h1>{{ $product_third_section->title }}</h1>
+                            <h5>{{ $product_third_section->description }}</h5>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+</div><!-- End  Section -->
 
 
 <script>
@@ -124,8 +157,6 @@
         xhr.send();
     }
 </script>
-
-
 
 
 
