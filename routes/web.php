@@ -42,6 +42,7 @@ Route::get('/contact-us', [FrontController::class, 'contact'])->name('front.cont
 Route::get('/about-us', [FrontController::class, 'about'])->name('front.about');
 Route::get('/products', [FrontController::class, 'products'])->name('front.products');
 Route::get('products/{slug}', [FrontController::class, 'showProduct'])->name('product.show');
+Route::get('blogs/{slug}', [FrontController::class, 'showBlogPost'])->name('blog.show');
 
 Route::get('/fintech', [FrontController::class, 'fintech'])->name('front.fintech');
 Route::get('/clients', [FrontController::class, 'clients'])->name('front.clients');
