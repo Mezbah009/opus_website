@@ -97,4 +97,34 @@
     .contact-info {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    .contact .info-boxs {
+        color: #444;
+        box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+        padding: 20px 0 30px 0;
+        margin-bottom: 30px;
+        width: 100%;
+      }
+
+      .contact .info-boxs i {
+        font-size: 20px;
+        color: #428bca;
+        border-radius: 50%;
+        padding: 8px;
+        border: 2px dotted #9eccf4;
+      }
+
+      .contact .info-boxs h3 {
+        font-size: 20px;
+        color: #666;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+      .contact .info-boxs p {
+        padding: 0;
+        line-height: 24px;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
 }
