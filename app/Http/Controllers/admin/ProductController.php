@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductFirstSection;
+use App\Models\ProductFourthSection;
 use App\Models\ProductSecondSection;
 use App\Models\ProductThirdSection;
 use App\Models\TempImage;
@@ -32,10 +33,12 @@ class ProductController extends Controller
         $first_sec = ProductFirstSection::where('product_id', $product->id)->first();
         $second_sec = ProductSecondSection::where('product_id', $product->id)->first();
         $third_secs = ProductThirdSection::where('product_id', $product->id)->get();
+        $fourth_sec = ProductFourthSection::where('product_id', $product->id)->get();
+
 
 
         // Return the view with the product details
-        return view('admin.products.show', compact('product', 'first_sec','second_sec','third_secs'));
+        return view('admin.products.show', compact('product', 'first_sec','second_sec','third_secs','fourth_sec'));
     }
 
     public function create()
@@ -547,6 +550,122 @@ class ProductController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Product Second Section deleted successfully'
+        ]);
+    }
+
+
+
+    // Fourth Section
+
+    public function indexFourthSection(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+        $sections = ProductFourthSection::latest();
+        if (!empty($request->get('keyword'))) {
+            $sections = $sections->where('title', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $sections = $sections->latest()->paginate(10);
+        return view('admin.product_fourth_section.list', compact('sections'));
+    }
+
+    public function createFourthSection($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.product_fourth_section.create', compact('product'));
+    }
+
+    public function storeFourthSection($id, Request $request)
+    {
+        // dd($request->all());
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'nullable|exists:products,id',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->passes()) {
+
+            $product = Product::findOrFail($id);
+            // dd($product);
+
+            $section = new ProductFourthSection();
+            $section->description = $request->description;
+            $section->product_id = $product->id;
+
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/first_section'), $imageName);
+                $section->image = $imageName;
+            }
+
+            $section->save();
+
+            // dd("Section saved");
+
+            return redirect()->route('products.show', $product->id)->with('success', 'Product Fourth Section added successfully');
+        } else {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+    }
+
+    public function editFourthSection($id)
+
+    {
+        $section = ProductFourthSection::findOrFail($id);
+        return view('admin.product_fourth_section.edit', compact('section'));
+    }
+
+    public function updateFourthSection(Request $request, $id)
+{
+    // Validate the request data
+    $validator = Validator::make($request->all(), [
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    if ($validator->passes()) {
+        // Find the ProductSecondSection record to update
+        $section = ProductFourthSection::findOrFail($id);
+
+        // Update the description
+        $section->description = $request->description;
+
+        // Handle image update
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'image' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/first_section'), $imageName);
+            $section->image = $imageName;
+        }
+
+        // Save the updated section
+        $section->save();
+
+        // Redirect to index page
+        return redirect()->route('products.show', $section->product_id)->with('success', 'Product Fourth Section updated successfully');
+    } else {
+        return back()->withErrors($validator)->withInput();
+    }
+}
+
+    public function destroyFourthSection($id)
+    {
+        $section = ProductFourthSection::findOrFail($id);
+        $section->delete();
+
+        // Flash success message
+        session()->flash('success', 'Product Fourth Section deleted successfully');
+
+        // Return JSON response
+        return response()->json([
+            'status' => true,
+            'message' => 'Product Fourth Section deleted successfully'
         ]);
     }
 }
