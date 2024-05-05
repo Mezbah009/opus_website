@@ -134,6 +134,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/products/product_fourth_section/{section_id}', [ProductController::class, 'updateFourthSection'])->name('product_fourth_section.update');
         Route::delete('/products/{product_id}/product_fourth_section/{section_id}', [ProductController::class, 'destroyFourthSection'])->name('product_fourth_section.delete');
 
+        // Product Fifth section
+        Route::get('/products/{id}/product_fifth_section', [ProductController::class, 'indexFifthSection'])->name('product_fifth_section.index');
+        Route::get('/products/{id}/product_fifth_section/create', [ProductController::class, 'createFifthSection'])->name('product_fifth_section.create');
+        Route::post('/products/{id}/product_fifth_section', [ProductController::class, 'storeFifthSection'])->name('product_fifth_section.store');
+        Route::get('/product_fifth_section/{section_id}/edit', [ProductController::class, 'editFifthSection'])->name('product_fifth_section.edit');
+        Route::put('/products/product_fifth_section/{section_id}', [ProductController::class, 'updateFifthSection'])->name('product_fifth_section.update');
+        Route::delete('/products/{product_id}/product_fifth_section/{section_id}', [ProductController::class, 'destroyFifthSection'])->name('product_fifth_section.delete');
+
         // Home Service section
         Route::get('/home_services', [HomeServicesSectionController::class, 'index'])->name('home_services_section.index');
         Route::get('/home_services/create', [HomeServicesSectionController::class, 'create'])->name('home_services_section.create');

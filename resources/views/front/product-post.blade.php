@@ -163,6 +163,29 @@
 </section>
 <!-- End  Section -->
 
+{{-- Fift section --}}
+
+<div class="contact-body">
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="row">
+                    @foreach($product_fifth_sections as $product_fifth_section)
+                    <div class="col-lg-3 d-flex" data-aos="fade-up">
+                        <div class="info-box">
+                            <img src="{{ asset('uploads/first_section/' . $product_fifth_section->icon) }}" alt="..."
+                                width="80px" style="padding: 8px">
+                            <h3>{{ $product_fifth_section->title }}</h3>
+                            <p style="text-align:left important">{!!$product_fifth_section->description!!}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+</div><!-- End  Section -->
+
 
 <script>
     function downloadBrochure(url) {
