@@ -38,6 +38,7 @@ class BlogController extends Controller
             'date' => 'required|date',
             'excerpt' => 'required|string',
             'slug' => 'required|string|unique:blogs,slug',
+            'description' => 'nullable',
         ]);
 
         if ($validator->passes()) {
