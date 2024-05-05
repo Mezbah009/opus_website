@@ -172,11 +172,11 @@
                 <div class="row">
                     @foreach($product_fifth_sections as $product_fifth_section)
                     <div class="col-lg-3 d-flex" data-aos="fade-up">
-                        <div class="info-box">
+                        <div class="info-boxs">
                             <img src="{{ asset('uploads/first_section/' . $product_fifth_section->icon) }}" alt="..."
-                                width="80px" style="padding: 8px">
-                            <h3>{{ $product_fifth_section->title }}</h3>
-                            <p style="text-align:left important">{!!$product_fifth_section->description!!}</p>
+                                width="80px" style="padding: 8px; display: block; margin: 0 auto;">
+                            <h3 style="text-align:center; margin-bottom: 10px;">{{ $product_fifth_section->title }}</h3>
+                            <p style="text-align:left; margin-bottom: 20px;">{!! $product_fifth_section->description !!}</p>
                         </div>
                     </div>
                     @endforeach
@@ -184,7 +184,27 @@
             </div>
         </div>
     </section>
-</div><!-- End  Section -->
+</div>
+<!-- End  Section -->
+
+{{-- second section --}}
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($product_sixth_sections as $key => $product_sixth_section)
+
+        <div class="row no-gutters">
+            <div class="col-lg-12 d-flex flex-column justify-content-center about-content">
+                <div class="section-title">
+                    <h1>{{ $product_sixth_section->title }}</h1>
+                    <p>{!! $product_sixth_section->description!!} </p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</section>
 
 
 <script>
