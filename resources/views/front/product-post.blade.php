@@ -138,6 +138,31 @@
     </section>
 </div><!-- End  Section -->
 
+{{-- Fourth section --}}
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($product_fourth_sections as $key => $product_fourth_section)
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$product_fourth_section->image) }}" class="img-fluid"
+                    alt="">
+            </div>
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+                <div class="section-title">
+                    <img src="{{ asset('uploads/first_section/' .$product_fourth_section->logo) }}" class="img-fluid"
+                        alt="">
+                    <p>{!! $product_fourth_section->description!!} </p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</section>
+<!-- End  Section -->
+
 
 <script>
     function downloadBrochure(url) {
