@@ -20,6 +20,7 @@ use App\Models\ProductSecondSection;
 use App\Models\ProductSeventhSection;
 use App\Models\ProductSixthSection;
 use App\Models\ProductThirdSection;
+use App\Models\Quality;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -86,6 +87,9 @@ class FrontController extends Controller
 
         $awards= Award::all();
         $data['awards']= $awards;
+
+        $qualities= Quality::all();
+        $data['qualities']= $qualities;
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;

@@ -100,6 +100,12 @@
                                 <p>Awards Section</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('quality.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Quality Section</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!-- Other menu items -->
