@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
 use App\Http\Controllers\admin\HomeServicesSectionController;
+use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductFirstSectionController;
@@ -205,6 +206,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/numbers/{numbers}/edit', [NumberController::class, 'edit'])->name('numbers.edit');
         Route::put('/numbers/{numbers}', [NumberController::class, 'update'])->name('numbers.update');
         Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
+
+        // about management
+        Route::get('/managements', [ManagementController::class, 'index'])->name('managements.index');
+        Route::get('/managements/create', [ManagementController::class, 'create'])->name('managements.create');
+        Route::post('/managements', [ManagementController::class, 'store'])->name('managements.store');
+        Route::get('/managements/{id}', [ManagementController::class, 'show'])->name('managements.show');
+        Route::get('/managements/{managements}/edit', [ManagementController::class, 'edit'])->name('managements.edit');
+        Route::put('/managements/{managements}', [ManagementController::class, 'update'])->name('managements.update');
+        Route::delete('/managements/{managements}', [ManagementController::class, 'destroy'])->name('managements.delete');
 
 
 
