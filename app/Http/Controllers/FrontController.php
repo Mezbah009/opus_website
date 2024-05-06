@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
+use App\Models\Leader;
 use App\Models\Number;
 use App\Models\Product;
 use App\Models\ProductFifthSection;
@@ -74,6 +75,9 @@ class FrontController extends Controller
 
         $home_second_section = HomeSecondSection::all();
         $data['home_second_section']= $home_second_section;
+
+        $managements = Leader::all();
+        $data['managements']= $managements;
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;

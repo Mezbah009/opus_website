@@ -74,6 +74,12 @@
                         <p>Team Member</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('managements.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Management</p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('clients.index') }}" class="nav-link">
