@@ -356,6 +356,35 @@ button:hover {
     </div>
 </section><!-- End Counts Section -->
 
+{{-- Accreditation section --}}
+
+<div class="section-title">
+    <h2></h2>
+    <h2>Accreditation</h2>
+</div>
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($accreditations as $key => $accreditation)
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$accreditation->image) }}" class="img-fluid"
+                    alt="">
+            </div>
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+                <div class="section-title">
+                    <h1>{{ $accreditation->title}} </h1>
+                    <p>{!! $accreditation->description!!} </p>
+                </div>
+            </div>
+
+        </div>
+        @endforeach
+
+    </div>
+</section>
+
 <!-- ======= management Section ======= -->
 <section id="management" class="management">
     <div class="container" data-aos="fade-up">

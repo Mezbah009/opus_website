@@ -215,7 +215,7 @@ const dropzoneImage = new Dropzone("", { // Added closing parenthesis here
     },
     url: "{{ route('temp-images.create') }}",
     maxFiles: 1, // Limit to only one file
-    paramName: 'image',
+    paramName: '',
     addRemoveLinks: true,
     acceptedFiles: "image/jpeg,image/png,image/gif",
     headers: {

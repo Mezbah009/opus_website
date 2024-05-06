@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AccreditationController;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
@@ -215,6 +216,22 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/managements/{managements}/edit', [ManagementController::class, 'edit'])->name('managements.edit');
         Route::put('/managements/{managements}', [ManagementController::class, 'update'])->name('managements.update');
         Route::delete('/managements/{managements}', [ManagementController::class, 'destroy'])->name('managements.delete');
+
+        // about Accreditation
+        Route::get('/accreditation', [AccreditationController::class, 'index'])->name('accreditation.index');
+        Route::get('/accreditation/create', [AccreditationController::class, 'create'])->name('accreditation.create');
+        Route::post('/accreditation', [AccreditationController::class, 'store'])->name('accreditation.store');
+        Route::get('/accreditation/{accreditation}/edit', [AccreditationController::class, 'edit'])->name('accreditation.edit');
+        Route::put('/accreditation/{accreditation}', [AccreditationController::class, 'update'])->name('accreditation.update');
+        Route::delete('/accreditation/{accreditation}', [AccreditationController::class, 'destroy'])->name('accreditation.delete');
+
+        // about Awards
+        Route::get('/awards', [AccreditationController::class, 'index'])->name('awards.index');
+        Route::get('/awards/create', [AccreditationController::class, 'create'])->name('awards.create');
+        Route::post('/awards', [AccreditationController::class, 'store'])->name('awards.store');
+        Route::get('/awards/{awards}/edit', [AccreditationController::class, 'edit'])->name('awards.edit');
+        Route::put('/awards/{awards}', [AccreditationController::class, 'update'])->name('awards.update');
+        Route::delete('/awards/{awards}', [AccreditationController::class, 'destroy'])->name('awards.delete');
 
 
 
