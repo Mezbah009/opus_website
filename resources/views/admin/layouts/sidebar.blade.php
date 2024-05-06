@@ -94,6 +94,12 @@
                                 <p>Management Section</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('awards.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Awards Section</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!-- Other menu items -->

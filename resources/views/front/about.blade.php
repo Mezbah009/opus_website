@@ -385,6 +385,29 @@ button:hover {
     </div>
 </section>
 
+{{-- Accreditation section --}}
+
+<div class="section-title">
+    <h2></h2>
+    <h2>Awards</h2>
+</div>
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($awards as $key => $award)
+
+        <div class="row no-gutters">
+            <div class="col-lg-12 video-box">
+                <img src="{{ asset('uploads/first_section/' .$award->image) }}" class="img-fluid"
+                    alt="">
+            </div>
+
+        </div>
+        @endforeach
+
+    </div>
+</section>
+
 <!-- ======= management Section ======= -->
 <section id="management" class="management">
     <div class="container" data-aos="fade-up">

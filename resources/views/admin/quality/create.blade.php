@@ -5,10 +5,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create Accreditation</h1>
+                <h1>Create Quality Mnagement</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('accreditation.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('quality.index') }}" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <form method="POST" action="{{ route('accreditation.store')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('quality.store')}}" enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
@@ -49,7 +49,7 @@
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{ route('accreditation.create') }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{ route('quality.create') }}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
@@ -79,7 +79,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{ route('accreditation.index') }}"
+                    window.location.href="{{ route('quality.index') }}"
 
 
 

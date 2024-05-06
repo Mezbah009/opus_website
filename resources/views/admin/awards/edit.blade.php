@@ -5,41 +5,32 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create Accreditation</h1>
+                <h1>Update Awards  Section</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('accreditation.index') }}" class="btn btn-primary">Back</a>
+
             </div>
         </div>
     </div>
     <!-- /.container-fluid -->
 </section>
+    <!-- /.container-fluid -->
+</section>
 <!-- Main content -->
 <section class="content">
-    <form method="POST" action="{{ route('accreditation.store')}}" enctype="multipart/form-data">
+    <!-- Default box -->
+    <form method="POST" action="{{ route('awards.update', $section->id) }}" enctype="multipart/form-data">
+
+
         @csrf
+        @method('PUT')
 
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
-                                <p class="error"></p>
-                            </div>
-                        </div>
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="description">Description</label>
-                                <textarea name="description" id="description" class="form-control"
-                                    placeholder="Description"></textarea>
-                                <p class="error"></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control-file" id="image" name="image">
                             </div>
@@ -48,11 +39,12 @@
                 </div>
             </div>
             <div class="pb-5 pt-3">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{ route('accreditation.create') }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{ route('awards.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
+
     <!-- /.card -->
 </section>
 
@@ -79,7 +71,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{ route('accreditation.index') }}"
+                    window.location.href=""
 
 
 

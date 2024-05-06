@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AccreditationController;
 use App\Http\Controllers\admin\AdminLoginController;
+use App\Http\Controllers\admin\AwardController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\ContactController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductFirstSectionController;
+use App\Http\Controllers\admin\QualityController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
@@ -208,7 +210,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/numbers/{numbers}', [NumberController::class, 'update'])->name('numbers.update');
         Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
 
-        // about management
+        // about management section
         Route::get('/managements', [ManagementController::class, 'index'])->name('managements.index');
         Route::get('/managements/create', [ManagementController::class, 'create'])->name('managements.create');
         Route::post('/managements', [ManagementController::class, 'store'])->name('managements.store');
@@ -217,7 +219,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/managements/{managements}', [ManagementController::class, 'update'])->name('managements.update');
         Route::delete('/managements/{managements}', [ManagementController::class, 'destroy'])->name('managements.delete');
 
-        // about Accreditation
+        // about Accreditation section
         Route::get('/accreditation', [AccreditationController::class, 'index'])->name('accreditation.index');
         Route::get('/accreditation/create', [AccreditationController::class, 'create'])->name('accreditation.create');
         Route::post('/accreditation', [AccreditationController::class, 'store'])->name('accreditation.store');
@@ -225,13 +227,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/accreditation/{accreditation}', [AccreditationController::class, 'update'])->name('accreditation.update');
         Route::delete('/accreditation/{accreditation}', [AccreditationController::class, 'destroy'])->name('accreditation.delete');
 
-        // about Awards
-        Route::get('/awards', [AccreditationController::class, 'index'])->name('awards.index');
-        Route::get('/awards/create', [AccreditationController::class, 'create'])->name('awards.create');
-        Route::post('/awards', [AccreditationController::class, 'store'])->name('awards.store');
-        Route::get('/awards/{awards}/edit', [AccreditationController::class, 'edit'])->name('awards.edit');
-        Route::put('/awards/{awards}', [AccreditationController::class, 'update'])->name('awards.update');
-        Route::delete('/awards/{awards}', [AccreditationController::class, 'destroy'])->name('awards.delete');
+        // about Awards section
+        Route::get('/awards', [AwardController::class, 'index'])->name('awards.index');
+        Route::get('/awards/create', [AwardController::class, 'create'])->name('awards.create');
+        Route::post('/awards', [AwardController::class, 'store'])->name('awards.store');
+        Route::get('/awards/{awards}/edit', [AwardController::class, 'edit'])->name('awards.edit');
+        Route::put('/awards/{awards}', [AwardController::class, 'update'])->name('awards.update');
+        Route::delete('/awards/{awards}', [AwardController::class, 'destroy'])->name('awards.delete');
+
+        // about Quality Management section
+        Route::get('/quality', [QualityController::class, 'index'])->name('quality.index');
+        Route::get('/quality/create', [QualityController::class, 'create'])->name('quality.create');
+        Route::post('/quality', [QualityController::class, 'store'])->name('quality.store');
+        Route::get('/quality/{quality}/edit', [QualityController::class, 'edit'])->name('quality.edit');
+        Route::put('/quality/{quality}', [QualityController::class, 'update'])->name('quality.update');
+        Route::delete('/quality/{quality}', [QualityController::class, 'destroy'])->name('quality.delete');
 
 
 
