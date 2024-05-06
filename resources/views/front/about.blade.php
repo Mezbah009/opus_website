@@ -408,6 +408,38 @@ button:hover {
     </div>
 </section>
 
+
+{{-- quality section --}}
+
+<div class="section-title">
+    <h2></h2>
+    <h2>Quality Management</h2>
+</div>
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+        @foreach ($qualities as $key => $quality)
+
+        <div class="row no-gutters">
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+                <div class="section-title">
+                    <h1>{{ $quality->title}} </h1>
+                    <p>{!! $quality->description!!} </p>
+                </div>
+            </div>
+            <div class="col-lg-6 video-box">
+                <img src="{{ asset('uploads/first_section/' .$quality->image) }}" class="img-fluid"
+                    alt="">
+            </div>
+
+        </div>
+        @endforeach
+
+    </div>
+</section>
+
+
+
 <!-- ======= management Section ======= -->
 <section id="management" class="management">
     <div class="container" data-aos="fade-up">
