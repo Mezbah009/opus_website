@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accreditation;
 use App\Models\Blog;
 use App\Models\Client;
 use App\Models\Contact;
@@ -78,6 +79,9 @@ class FrontController extends Controller
 
         $managements = Leader::all();
         $data['managements']= $managements;
+
+        $accreditations= Accreditation::all();
+        $data['accreditations']= $accreditations;
 
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
