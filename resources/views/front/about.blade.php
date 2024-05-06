@@ -490,7 +490,7 @@ button:hover {
 
         <div class="section-title">
             <h2>Core Management Team</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+            <p></p>
         </div>
 
         <div class="row">
