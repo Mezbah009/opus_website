@@ -165,7 +165,8 @@
         <div>
             <div class="section-title text-center text-md-start">
                 <h4 class="title mb-4">Find the perfect jobs</h4>
-                <p class="text-muted mb-0 para-desc">Start work with Leaping. Build responsive, mobile-first projects on the web with the world's most popular front-end component library.</p>
+                <p class="text-muted mb-0 para-desc">Join us and contribute to the enterprise market’s disruption! Join us; we’ll give you a fantastic opportunity to grow and learn while being a part of a fun team and experience.</p>
+                <h6><strong>Email: hr@opus-bd.com</strong></h6>
             </div>
         </div><!--end col-->
     </div><!--end row-->
