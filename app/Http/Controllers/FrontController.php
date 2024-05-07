@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
+use App\Models\Job;
 use App\Models\Leader;
 use App\Models\Number;
 use App\Models\Product;
@@ -104,10 +105,6 @@ class FrontController extends Controller
         return view('front.products',$data);
     }
 
-    public function jobs(){
-        return view('front.jobs');
-    }
-
     public function showProduct($slug){
 
         // Retrieve the product based on the slug
@@ -173,6 +170,13 @@ class FrontController extends Controller
     public function services(){
 
         return view('front.services');
+    }
+
+    public function job(){
+        $jobs=Job::all();
+        $data['jobs']= $jobs;
+
+        return view('front.jobs',$data);
     }
 
 

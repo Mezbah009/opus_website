@@ -171,14 +171,15 @@
     </div><!--end row-->
 
     <div class="row">
+        @foreach ($jobs as $job)
         <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
             <div class="card border-0 bg-light rounded shadow">
                 <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Full time</span>
-                    <h5>Web Designer</h5>
+                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">{{ $job->job_type }}</span>
+                    <h5>{{ $job->designation }}</h5>
                     <div class="mt-3">
-                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
+                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> {{ $job->start_date }} &nbsp&nbsp</span>
+                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> {{ $job->end_date }} &nbsp&nbsp
                         </span>
                     </div>
 
@@ -188,103 +189,7 @@
                 </div>
             </div>
         </div><!--end col-->
-
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-            <div class="card border-0 bg-light rounded shadow">
-                <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Remote</span>
-                    <h5>Front-end Developer</h5>
-                    <div class="mt-3">
-                        <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
-                        </span>
-                    </div>
-
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div><!--end col-->
-
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-            <div class="card border-0 bg-light rounded shadow">
-                <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Contract</span>
-                    <h5>Web Developer</h5>
-                    <div class="mt-3">
-                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
-                        </span>
-                    </div>
-
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div><!--end col-->
-
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-            <div class="card border-0 bg-light rounded shadow">
-                <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">WFH</span>
-                    <h5>Back-end Developer</h5>
-                    <div class="mt-3">
-                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
-                        </span>
-                    </div>
-
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div><!--end col-->
-
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-            <div class="card border-0 bg-light rounded shadow">
-                <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Full time</span>
-                    <h5>UX / UI Designer</h5>
-                    <div class="mt-3">
-                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
-                        </span>
-                    </div>
-
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div><!--end col-->
-
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-            <div class="card border-0 bg-light rounded shadow">
-                <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Remote</span>
-                    <h5>Tester</h5>
-                    <div class="mt-3">
-                    <span class="text-muted d-block">Post Date: &nbsp <i class="fa fa-calendar" aria-hidden="true"></i> 6/05/2024 &nbsp&nbsp</span>
-                        <span class="text-muted d-block">Last Submission Date: &nbsp<i class="fa fa-calendar" aria-hidden="true"></i> 6/06/2024 &nbsp&nbsp
-                        </span>
-                    </div>
-
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div><!--end col-->
-
-        <div class="col-12 mt-4 pt-2 d-block d-md-none text-center">
-            <a href="#" class="btn btn-primary">View more Jobs <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right fea icon-sm">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg></a>
-        </div><!--end col-->
+        @endforeach
     </div><!--end row-->
 </div>
 <br><br><br>
