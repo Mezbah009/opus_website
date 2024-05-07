@@ -103,6 +103,11 @@ class FrontController extends Controller
         $data['sections']= $sections;
         return view('front.products',$data);
     }
+
+    public function jobs(){
+        return view('front.jobs');
+    }
+
     public function showProduct($slug){
 
         // Retrieve the product based on the slug
