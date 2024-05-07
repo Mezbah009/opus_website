@@ -3,17 +3,12 @@
 @section('content')
 
 <div class="contact-bg" style="background-image: url('{{ asset("front-assets/img/contact-bg.jpg") }}');">
-    <h3>Get in Touch with Us</h3>
     <h2>contact us</h2>
     <div class="line">
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <p class="text">Opus Technology Ltd is a leading Software Development and IT consulting service provider company.
-        Combining unparalleled experience, domain expertise, best practices & comprehensive capabilities across various
-        industries & business functions, it collaborates with customers to help them effectively address their
-        operational challenges & grow their businesses stronger.</p>
 </div>
 
 
