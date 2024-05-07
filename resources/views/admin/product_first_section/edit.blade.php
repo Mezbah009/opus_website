@@ -8,7 +8,7 @@
                 <h1>Update Product First Section</h1>
             </div>
             <div class="col-sm-6 text-right">
-                
+
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
 
 
     Dropzone.autoDiscover = false;
-const dropzone = $("#image,#logo").dropzone({
+const dropzone = $("").dropzone({
     init: function() {
         this.on('addedfile', function(file) {
             if (this.files.length > 1) {

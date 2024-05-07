@@ -130,7 +130,7 @@
                             <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
                                 width="80px" style="padding: 8px">
                             <h1>{{ $product_third_section->title }}</h1>
-                            <h5>{{ $product_third_section->description }}</h5>
+                            <h5 style="text-align: justify">{!! $product_third_section->description !!}</h5>
                         </div>
                     </div>
                     @endforeach
