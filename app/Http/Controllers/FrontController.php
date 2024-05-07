@@ -166,6 +166,13 @@ class FrontController extends Controller
         return view('front.leader-post', compact('leaderPost'));
     }
 
+    public function showJobPost($slug, Request $request){
+        $query = Job::where('slug', $slug);
+        $job = $query->firstOrFail();
+
+        return view('front.job-post', compact('job'));
+    }
+
 
     public function services(){
 
