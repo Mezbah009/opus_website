@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="description">Description</label>
-                                <textarea type="text" name="description" id="description" class="form-control"
+                                <textarea name="description" id="description" cols="30" rows="10" class="summernote"
                                     placeholder="Description">{{ $section->description }}</textarea>
                             </div>
                         </div>
