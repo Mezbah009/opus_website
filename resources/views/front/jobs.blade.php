@@ -184,7 +184,7 @@
                     </div>
 
                     <div class="mt-3">
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a href="{{ route('job.show', ['slug' => $job->slug]) }}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>
