@@ -163,7 +163,7 @@
     </div>
 </div>
 
-{{-- Accreditation section --}}
+{{-- Awards section --}}
 
 <div class="section-title">
     <h2></h2>
