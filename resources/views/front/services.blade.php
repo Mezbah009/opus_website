@@ -153,6 +153,34 @@
     </div>
 </div>
 
+<!-- ======= Artificial Intelligence (AI) ======= -->
+
+<div class="section-title">
+    <h2>Artificial Intelligence (AI)</h2>
+    <p></p>
+</div>
+
+<div id="about" class="about">
+    <div class="container" data-aos="fade-up" style="box-shadow: none;">
+
+        <div class="row no-gutters">
+            <div class="col-lg-12 video-box">
+                <img src="{{ asset('uploads/first_section/service4.gif') }}" class="img-service" alt="" >
+            </div>
+        </div>
+        <div class="section-title">
+            <p>
+                Business intelligence (BI) comprises the strategies and technologies used by enterprises for the data analysis of business information. BI technologies provide historical, current and predictive views of business operations. Common functions of business intelligence technologies include reporting, online analytical processing, analytics, data mining, process mining, complex event processing, business performance management, benchmarking, text mining, predictive analytics and prescriptive analytics. BI technologies can handle large amounts of structured and sometimes unstructured data to help identify, develop and otherwise create new strategic business opportunities. They aim to allow for the easy interpretation of these big data. Identifying new opportunities and implementing an effective strategy based on insights can provide businesses with a competitive market advantage and long-term stability.
+            </p>
+            <br>
+            <p>
+                It can be used by enterprises to support a wide range of business decisions ranging from operational to strategic. Basic operating decisions include product positioning or pricing. Strategic business decisions involve priorities, goals and directions at the broadest level. In all cases, BI is most effective when it combines data derived from the market in which a company operates (external data) with data from company sources internal to the business such as financial and operations data (internal data). When combined, external and internal data can provide a complete picture which, in effect, creates an "intelligence" that cannot be derived from any singular set of data. Amongst myriad uses, business intelligence tools empower organizations to gain insight into new markets, to assess demand and suitability of products and services for different market segments and to gauge the impact of marketing efforts.
+            </p>
+        </div>
+
+    </div>
+</div>
+
 
 
 @endsection
