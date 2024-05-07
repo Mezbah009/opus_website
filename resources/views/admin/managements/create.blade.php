@@ -5,10 +5,11 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create About Second Section</h1>
+                <h1>Create Mnagements</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('home_second_sections.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('products.index') }}"
+                    class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
@@ -16,32 +17,32 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <!-- Default box -->
-    <form method="POST" action="{{ route('home_second_sections.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('managements.store')}}" enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
                                 <p class="error"></p>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <label for="description">Description</label>
-                                <textarea name="description" id="description" cols="30" rows="10" class="summernote" placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="button_name">Button Name</label>
-                                <input type="text" name="button_name" id="button_name" class="form-control"
-                                    placeholder="Button Name">
+                                <label for="designation">Designation</label>
+                                <input type="text" name="designation" id="designation" class="form-control" placeholder="Designation">
+                                <p class="error"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" class="form-control" placeholder="Description"></textarea>
+                                <p class="error"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -52,15 +53,27 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb-1">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
+                            <div class="mb-3">
+                                <label for="linkedin">LinkedIn</label>
+                                <input type="text" name="linkedin" id="linkedin" class="form-control" placeholder="LinkedIn" value="{{ old('linkedin') }}">
+                                @error('linkedin')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb-1">
-                                <label for="logo">Logo</label>
-                                <input type="file" class="form-control-file" id="logo" name="logo">
+                            <div class="mb-3">
+                                <label for="facebook">Facebook</label>
+                                <input type="text" name="facebook" id="facebook" class="form-control" placeholder="Facebook" value="{{ old('facebook') }}">
+                                @error('facebook')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="image">Image</label>
+                                <input type="file" class="form-control-file" id="image" name="image">
                             </div>
                         </div>
                     </div>
@@ -68,13 +81,13 @@
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{route('home_second_sections.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{ route('managements.create') }}" class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
-
     <!-- /.card -->
 </section>
+
 <!-- /.content -->
 @endsection
 @section('customJs')
@@ -86,7 +99,7 @@
         var element = $(this);
         $("button[type=submit]").prop('disabled',true);
         $.ajax({
-            url: '{{ route("home_second_sections.store") }}',
+            url: '',
             type: 'POST',
             data: element.serializeArray(),  // Fixed typo: 'data' instead of 'date'
             dataType: 'json',
@@ -98,7 +111,7 @@
                 // Handle success response here
                 $("button[type=submit]").prop('disabled',false);
                 if(response["status"] == true){
-                    window.location.href="{{route('home_second_sections.index')}}"
+                    window.location.href="{{ route('managements.index') }}"
 
 
 

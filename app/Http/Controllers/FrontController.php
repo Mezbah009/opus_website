@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accreditation;
+use App\Models\Award;
 use App\Models\Blog;
 use App\Models\Client;
 use App\Models\Contact;
 use App\Models\HomeFirstSection;
 use App\Models\HomeSecondSection;
 use App\Models\HomeServicesSection;
+use App\Models\Leader;
 use App\Models\Number;
 use App\Models\Product;
 use App\Models\ProductFifthSection;
 use App\Models\ProductFirstSection;
 use App\Models\ProductFourthSection;
 use App\Models\ProductSecondSection;
+use App\Models\ProductSeventhSection;
 use App\Models\ProductSixthSection;
 use App\Models\ProductThirdSection;
+use App\Models\Quality;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -74,6 +79,18 @@ class FrontController extends Controller
         $home_second_section = HomeSecondSection::all();
         $data['home_second_section']= $home_second_section;
 
+        $managements = Leader::all();
+        $data['managements']= $managements;
+
+        $accreditations= Accreditation::all();
+        $data['accreditations']= $accreditations;
+
+        $awards= Award::all();
+        $data['awards']= $awards;
+
+        $qualities= Quality::all();
+        $data['qualities']= $qualities;
+
         $teamMembers = User::where('role', '!=', 2)->get();
         $data['teamMembers']= $teamMembers;
 
@@ -98,10 +115,12 @@ class FrontController extends Controller
         $product_fourth_sections = ProductFourthSection::where('product_id', $sections->id)->get();
         $product_fifth_sections = ProductFifthSection::where('product_id', $sections->id)->get();
         $product_sixth_sections = ProductSixthSection::where('product_id', $sections->id)->get();
+        $product_seventh_sections = ProductSeventhSection::where('product_id', $sections->id)->get();
+
 
 
         // Pass the retrieved data to the view
-        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections','product_fourth_sections','product_fifth_sections','product_sixth_sections'));
+        return view('front.product-post', compact('sections', 'product_first_sections','product_second_sections','product_third_sections','product_fourth_sections','product_fifth_sections','product_sixth_sections','product_seventh_sections'));
     }
 
 

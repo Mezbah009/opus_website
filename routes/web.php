@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AccreditationController;
 use App\Http\Controllers\admin\AdminLoginController;
+use App\Http\Controllers\admin\AwardController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\ContactController;
@@ -8,9 +10,11 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
 use App\Http\Controllers\admin\HomeServicesSectionController;
+use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductFirstSectionController;
+use App\Http\Controllers\admin\QualityController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TeamController;
@@ -150,6 +154,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/products/product_sixth_section/{section_id}', [ProductController::class, 'updateSixthSection'])->name('product_sixth_section.update');
         Route::delete('/products/{product_id}/product_sixth_section/{section_id}', [ProductController::class, 'destroySixthSection'])->name('product_sixth_section.delete');
 
+        // Product Seventh section
+        Route::get('/products/{id}/product_seventh_section', [ProductController::class, 'indexSeventhSection'])->name('product_seventh_section.index');
+        Route::get('/products/{id}/product_seventh_section/create', [ProductController::class, 'createSeventhSection'])->name('product_seventh_section.create');
+        Route::post('/products/{id}/product_seventh_section', [ProductController::class, 'storeSeventhSection'])->name('product_seventh_section.store');
+        Route::get('/product_seventh_section/{section_id}/edit', [ProductController::class, 'editSeventhSection'])->name('product_seventh_section.edit');
+        Route::put('/products/product_seventh_section/{section_id}', [ProductController::class, 'updateSeventhSection'])->name('product_seventh_section.update');
+        Route::delete('/products/{product_id}/product_seventh_section/{section_id}', [ProductController::class, 'destroySeventhSection'])->name('product_seventh_section.delete');
+
         // Home Service section
         Route::get('/home_services', [HomeServicesSectionController::class, 'index'])->name('home_services_section.index');
         Route::get('/home_services/create', [HomeServicesSectionController::class, 'create'])->name('home_services_section.create');
@@ -197,6 +209,39 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/numbers/{numbers}/edit', [NumberController::class, 'edit'])->name('numbers.edit');
         Route::put('/numbers/{numbers}', [NumberController::class, 'update'])->name('numbers.update');
         Route::delete('/numbers/{numbers}', [NumberController::class, 'destroy'])->name('numbers.delete');
+
+        // about management section
+        Route::get('/managements', [ManagementController::class, 'index'])->name('managements.index');
+        Route::get('/managements/create', [ManagementController::class, 'create'])->name('managements.create');
+        Route::post('/managements', [ManagementController::class, 'store'])->name('managements.store');
+        Route::get('/managements/{id}', [ManagementController::class, 'show'])->name('managements.show');
+        Route::get('/managements/{managements}/edit', [ManagementController::class, 'edit'])->name('managements.edit');
+        Route::put('/managements/{managements}', [ManagementController::class, 'update'])->name('managements.update');
+        Route::delete('/managements/{managements}', [ManagementController::class, 'destroy'])->name('managements.delete');
+
+        // about Accreditation section
+        Route::get('/accreditation', [AccreditationController::class, 'index'])->name('accreditation.index');
+        Route::get('/accreditation/create', [AccreditationController::class, 'create'])->name('accreditation.create');
+        Route::post('/accreditation', [AccreditationController::class, 'store'])->name('accreditation.store');
+        Route::get('/accreditation/{accreditation}/edit', [AccreditationController::class, 'edit'])->name('accreditation.edit');
+        Route::put('/accreditation/{accreditation}', [AccreditationController::class, 'update'])->name('accreditation.update');
+        Route::delete('/accreditation/{accreditation}', [AccreditationController::class, 'destroy'])->name('accreditation.delete');
+
+        // about Awards section
+        Route::get('/awards', [AwardController::class, 'index'])->name('awards.index');
+        Route::get('/awards/create', [AwardController::class, 'create'])->name('awards.create');
+        Route::post('/awards', [AwardController::class, 'store'])->name('awards.store');
+        Route::get('/awards/{awards}/edit', [AwardController::class, 'edit'])->name('awards.edit');
+        Route::put('/awards/{awards}', [AwardController::class, 'update'])->name('awards.update');
+        Route::delete('/awards/{awards}', [AwardController::class, 'destroy'])->name('awards.delete');
+
+        // about Quality Management section
+        Route::get('/quality', [QualityController::class, 'index'])->name('quality.index');
+        Route::get('/quality/create', [QualityController::class, 'create'])->name('quality.create');
+        Route::post('/quality', [QualityController::class, 'store'])->name('quality.store');
+        Route::get('/quality/{quality}/edit', [QualityController::class, 'edit'])->name('quality.edit');
+        Route::put('/quality/{quality}', [QualityController::class, 'update'])->name('quality.update');
+        Route::delete('/quality/{quality}', [QualityController::class, 'destroy'])->name('quality.delete');
 
 
 

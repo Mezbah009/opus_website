@@ -17,12 +17,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('sliders.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-camera"></i>
                         <p>Slider</p>
                     </a>
-                </li>
+                </li> --}}
                 <!-- Home menu with submenus -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -34,17 +34,23 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('sliders.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-camera"></i>
+                                <p>Slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('home_first_sections.index') }}" class="nav-link">
                                 <i class="nav-icon far fa-file-alt"></i>
                                 <p>Home First Section</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('home_second_sections.index') }}" class="nav-link">
                                 <i class="nav-icon far fa-file-alt"></i>
                                 <p>Home Second Section</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('home_services_section.index') }}" class="nav-link">
                                 <i class="nav-icon far fa-file-alt"></i>
@@ -59,6 +65,49 @@
                         </li>
                     </ul>
                 </li>
+
+                <!-- About n=ment with submenus -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            About
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('home_second_sections.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>About First Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('accreditation.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>Accreditation Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('managements.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Management Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('awards.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Awards Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('quality.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Quality Section</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <!-- Other menu items -->
                 <li class="nav-item">
                     <a href="{{ route('products.index') }}" class="nav-link">
@@ -66,15 +115,12 @@
                         <p>Product</p>
                     </a>
                 </li>
-
-
                 <li class="nav-item">
                     <a href="{{ route('team_members.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Team Member</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a href="{{ route('clients.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
