@@ -2,17 +2,13 @@
 
 @section('content')
 
-<div class="contact-bg">
-    <h3>Get in Touch with Us</h3>
+<div class="contact-bg" style="background-image: url('{{ asset("front-assets/img/contact-bg.jpg") }}');">
     <h2>About us</h2>
     <div class="line">
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <p class="text">WE are a group of elites in Bangladesh that have a vision to bring changeover IT to every corner of
-        the world
-    </p>
 </div>
 
 

@@ -151,6 +151,15 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
 
+<div class="contact-bg" style="background-image: url('{{ asset("front-assets/img/contact-bg.jpg") }}');">
+    <h2>Jobs</h2>
+    <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
 <div class="container mt-5 pt-4">
     <div class="row align-items-end mb-4">
         <div>

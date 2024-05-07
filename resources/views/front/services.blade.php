@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="contact-bg">
+<div class="contact-bg" style="background-image: url('{{ asset("front-assets/img/contact-bg.jpg") }}');">
     {{-- <h3>Get in Touch with Us</h3> --}}
     <h2>Services</h2>
     <div class="line">
