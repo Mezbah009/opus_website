@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\HomeFirstSectionController;
 use App\Http\Controllers\admin\HomeSecondSectionController;
 use App\Http\Controllers\admin\HomeServicesSectionController;
+use App\Http\Controllers\admin\JobController;
 use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\ProductController;
@@ -246,6 +247,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/quality/{quality}/edit', [QualityController::class, 'edit'])->name('quality.edit');
         Route::put('/quality/{quality}', [QualityController::class, 'update'])->name('quality.update');
         Route::delete('/quality/{quality}', [QualityController::class, 'destroy'])->name('quality.delete');
+
+        // Jobs
+        Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+        Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+        Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+        Route::get('/jobs/{jobs}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+        Route::put('/jobs/{jobs}', [JobController::class, 'update'])->name('jobs.update');
+        Route::delete('/jobs/{jobs}', [JobController::class, 'destroy'])->name('jobs.delete');
 
 
 
