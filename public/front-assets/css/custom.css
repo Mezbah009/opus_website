@@ -104,41 +104,38 @@
         padding: 20px 0 30px 0;
         margin-bottom: 30px;
         width: 100%;
-      }
+    }
 
-      .contact .info-boxs i {
+    .contact .info-boxs i {
         font-size: 20px;
         color: #428bca;
         border-radius: 50%;
         padding: 8px;
         border: 2px dotted #9eccf4;
-      }
+    }
 
-      .contact .info-boxs h3 {
+    .contact .info-boxs h3 {
         font-size: 20px;
         color: #666;
         font-weight: 700;
         margin: 10px 0;
-      }
+    }
 
-      .contact .info-boxs p {
+    .contact .info-boxs p {
         padding: 0;
         line-height: 24px;
         font-size: 14px;
         margin-bottom: 0;
-      }
+    }
 
-<<<<<<< HEAD
-      .img-service {
+    .img-service {
         display: block;
         width: 50%;
         margin-left: auto;
         margin-right: auto;
-      }
+    }
 
 
-=======
-      
     /* management */
 
     .management {
@@ -256,5 +253,5 @@
         background-color: #0056b3;
         /* Change background color on hover */
     }
->>>>>>> 9a367dbe5fec4ff4b9b531e1d516d30f2f192b09
+
 }
