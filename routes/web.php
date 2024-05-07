@@ -49,6 +49,7 @@ Route::get('/products', [FrontController::class, 'products'])->name('front.produ
 Route::get('/jobs', [FrontController::class, 'job'])->name('front.jobs');
 Route::get('products/{slug}', [FrontController::class, 'showProduct'])->name('product.show');
 Route::get('blogs/{slug}', [FrontController::class, 'showBlogPost'])->name('blog.show');
+Route::get('jobs/{slug}', [FrontController::class, 'showJobPost'])->name('job.show');
 Route::get('leaders/{link}', [FrontController::class, 'showLeaderPost'])->name('leader.show');
 
 Route::get('/fintech', [FrontController::class, 'fintech'])->name('front.fintech');

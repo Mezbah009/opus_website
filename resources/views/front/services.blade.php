@@ -16,12 +16,12 @@
 
 <!-- =======  Custom Software ======= -->
 
-<div class="section-title">
+<div class="section-title" style="padding-top: 60px">
     <h2>Custom Software Development</h2>
     <p></p>
 </div>
 
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Mobile Application ======= -->
 
@@ -116,7 +116,7 @@
     <p></p>
 </div>
 
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
@@ -152,7 +152,7 @@
 
 
     </div>
-</section>
+</div>
 
 <!-- =======  Business Intelligence ======= -->
 
@@ -262,7 +262,7 @@
     <h2>Blockchain</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
@@ -282,15 +282,15 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Internet of Things ======= -->
 
-<div class="section-title">
+<div class="section-title" style="padding-top: 30px">
     <h2>Internet of Things</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
@@ -313,15 +313,15 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Outsourcing ======= -->
 
-<div class="section-title">
+<div class="section-title" style="padding-top: 60px">
     <h2>Outsourcing</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
@@ -345,15 +345,15 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Process Consulting ======= -->
 
-<div class="section-title">
+<div class="section-title" style="padding-top: 30px">
     <h2>Process Consulting</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
@@ -384,11 +384,11 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Re-engineering & Migration ======= -->
 
-<div class="section-title">
+<div class="section-title" style="padding-top: 60px">
     <h2>Re-engineering & Migration</h2>
     <p></p>
 </div>
@@ -436,7 +436,7 @@
     </div>
 </section>
 
-<div id="about" class="about">
+<div id="about" class="about" style="padding-top: 60px">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
 
         <div class="row no-gutters">
@@ -448,7 +448,7 @@
     </div>
 </div>
 
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
@@ -473,7 +473,7 @@
             </div>
 
         </div>
-</section>
+</div>
 
 
 <!-- =======  Audit as a Service ======= -->
@@ -482,7 +482,7 @@
     <h2>Audit as a Service</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
@@ -507,7 +507,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- =======  Digital Marketing ======= -->
 
@@ -515,7 +515,7 @@
     <h2>Digital Marketing</h2>
     <p></p>
 </div>
-<section id="about" class="about">
+<div id="about" class="about" style="padding-bottom: 60px">
     <div class="container" data-aos="fade-up" style="box-shadow: none;">
         <div class="row no-gutters">
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
@@ -565,7 +565,7 @@
                 curiosity in them wanting to know more about digital marketing.</p>
         </div>
     </div>
-</section>
+</div>
 
 
 
