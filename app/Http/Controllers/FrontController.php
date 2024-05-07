@@ -157,6 +157,13 @@ class FrontController extends Controller
         return view('front.blog-post', compact('blogPost'));
     }
 
+    public function showLeaderPost($link, Request $request){
+        $query = Leader::where('link', $link);
+        $leaderPost = $query->firstOrFail();
+
+        return view('front.leader-post', compact('leaderPost'));
+    }
+
 
     public function services(){
 
