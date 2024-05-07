@@ -108,7 +108,7 @@
                             href="{{ route('front.services') }}">Services</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('blogs') ? 'active' : '' }}"
                             href="{{ route('front.blog') }}">Blogs</a></li>
-                    <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}" href="#jobs">Jobs</a>
+                    <li><a class="nav-link scrollto {{ Request::is('jobs') ? 'active' : '' }}"  href="{{ route('front.jobs') }}">Jobs</a>
                     </li>
                     <li><a class="nav-link scrollto {{ Request::is('contact-us') ? 'active' : '' }}"
                             href="{{ route('front.contact') }}">Contact</a></li>
