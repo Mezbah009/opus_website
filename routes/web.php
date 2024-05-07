@@ -52,6 +52,8 @@ Route::get('leaders/{link}', [FrontController::class, 'showLeaderPost'])->name('
 Route::get('/fintech', [FrontController::class, 'fintech'])->name('front.fintech');
 Route::get('/clients', [FrontController::class, 'clients'])->name('front.clients');
 Route::get('/blog', [FrontController::class, 'blog'])->name('front.blog');
+Route::get('/services', [FrontController::class, 'services'])->name('front.services');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
