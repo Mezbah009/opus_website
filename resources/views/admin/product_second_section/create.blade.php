@@ -40,8 +40,6 @@
                                 <input type="file" class="form-control-file" id="image" name="image">
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

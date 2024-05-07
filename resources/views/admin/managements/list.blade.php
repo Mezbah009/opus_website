@@ -4,10 +4,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>About Second Sections</h1>
+                <h1>Managements</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{route('home_second_sections.create')}}" class="btn btn-primary">New Sections</a>
+                <a href="{{route('managements.create')}}" class="btn btn-primary">New Management</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             <form action="" method="GET">
                 <div class="card-header">
                     <div class="card-title">
-                        <button type="button" onclick="window.location.href='{{route("home_second_sections.index")}}'"
+                        <button type="button" onclick="window.location.href='{{route("managements.index")}}'"
                             class="btn btn-default btn-sm">reset</button>
                     </div>
                     <div class="card-tools">
@@ -45,8 +45,8 @@
                         <tr>
                             <th width="60">ID</th>
                             <th>Image</th>
-                            <th>Logo</th>
-                            <th>Title</th>
+                            <th>Name</th>
+                            <th>designation</th>
                             <th width="100">Action</th>
                         </tr>
                     </thead>
@@ -64,16 +64,8 @@
                                     alt="default image" width="50">
                                 @endif
                             </td>
-                            <td>
-                                @if(!empty($section->logo))
-                                <img src="{{asset('uploads/first_section/'.$section->logo)}}" class="img-thumbnail"
-                                    alt="{{$section->title}}" width="50">
-                                @else
-                                <img src="{{asset('admin-assets/img/default.png')}}" class="img-thumbnail"
-                                    alt="default image" width="50">
-                                @endif
-                            </td>
-                            <td>{{$section->title}}</td>
+                            <td>{{$section->name}}</td>
+                            <td>{{$section->designation}}</td>
                             {{-- <td>
                                 @if ($section->active == 'Yes')
                                 <svg class="text-success-500 h-6 w-6 text-success" xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +83,7 @@
                                 @endif
                             </td> --}}
                             <td>
-                                <a href="{{route('home_second_sections.edit',$section->id)}}">
+                                <a href="{{route('managements.edit',$section->id)}}">
                                     <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path
@@ -129,7 +121,7 @@
 @section('customJs')
 <script>
     function destroySection(id){
-            var url = '{{ route("home_second_sections.delete", "ID") }}';
+            var url = '{{ route("managements.delete", "ID") }}';
 
             var newUrl  = url.replace("ID",id)
             if (confirm("Are you sure you want to delete")) {
@@ -145,7 +137,7 @@
                         // Handle success response here
                         $("button[type=submit]").prop('disabled', false);
                         if (response["status"]) {
-                            window.location.href = "{{route('home_second_sections.index')}}";
+                            window.location.href = "{{route('managements.index')}}";
                         } else {
                             // Handle other cases if needed
                         }
