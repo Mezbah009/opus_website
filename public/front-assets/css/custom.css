@@ -134,6 +134,20 @@
         margin-left: auto;
         margin-right: auto;
     }
+    .img-serviceai {
+        display: block;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img-services {
+        display: block;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
 
 
     /* management */
