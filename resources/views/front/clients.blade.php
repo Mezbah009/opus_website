@@ -19,7 +19,7 @@
     .contact-bg {
         height: 40vh;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-        url('{{ asset(' front-assets/img/contact-bg.jpg') }}');
+        url('{{ asset('front-assets/img/contact-bg.jpg') }}');
         background-position: 50% 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
