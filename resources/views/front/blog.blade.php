@@ -44,6 +44,16 @@
     }
 
 </style>
+
+<div class="contact-bg" style="background-image: url('{{ asset("front-assets/img/contact-bg.jpg") }}');">
+    <h2>Blogs</h2>
+    <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
 <section id="blog-card" class="padding-top-bottom-90">
     <div class="container">
         <div class="heading-wraper text-center margin-bottom-80">
