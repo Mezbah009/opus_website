@@ -14,12 +14,13 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-    <!-- /.container-fluid -->
+<!-- /.container-fluid -->
 </section>
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <form method="POST" action="{{ route('product_fourth_section.update', $section->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('product_fourth_section.update', $section->id) }}"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -30,7 +31,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="description">Description</label>
-                                <textarea type="text" name="description" id="description" class="form-control"
+                                <textarea name="description" id="description" cols="30" rows="10" class="summernote"
                                     placeholder="Description">{{ $section->description }}</textarea>
                             </div>
                         </div>
@@ -39,7 +40,7 @@
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control-file" id="image" name="image">
                                 @if($section->image)
-                                    <p>Current Image: {{ $section->image }}</p>
+                                <p>Current Image: {{ $section->image }}</p>
                                 @endif
                             </div>
                         </div>
@@ -48,7 +49,8 @@
             </div>
             <div class="pb-5 pt-3">
                 <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{{ route('product_fourth_section.index', ['id' => $section->product_id]) }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                <a href="{{ route('product_fourth_section.index', ['id' => $section->product_id]) }}"
+                    class="btn btn-outline-dark ml-3">Cancel</a>
             </div>
         </div>
     </form>
