@@ -122,10 +122,22 @@
             });
 
             $(document).ready(function (){
-                $(".summernote").summernote({
-                    height:250
-                });
-            });
+    $(".summernote").summernote({
+        height: 250,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview']],
+        ],
+        fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '36', '48', '64', '82', '150']
+    });
+});
+
     </script>
     @yield('customJs')
 </body>

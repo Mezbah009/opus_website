@@ -211,7 +211,7 @@
 
         <div class="row no-gutters">
             <div class="col-lg-12 video-box">
-                <img src="{{ asset('uploads/first_section/service5.gif') }}" class="img-serviceai" alt="">
+                <img src="{{ asset('uploads/first_section/service5.gif') }}" class="img-service" alt="">
             </div>
         </div>
         <div class="section-title">
@@ -441,7 +441,7 @@
 
         <div class="row no-gutters">
             <div class="col-lg-12 video-box">
-                <img src="{{ asset('uploads/first_section/service10.png') }}" class="img-services" alt="">
+                <img src="{{ asset('uploads/first_section/service10.png') }}" class="img-service" alt="">
             </div>
         </div>
 
