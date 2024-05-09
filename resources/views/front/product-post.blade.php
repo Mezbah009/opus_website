@@ -122,16 +122,18 @@
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
             <div class="row">
-                    @foreach($product_third_sections as $product_third_section)
-                    <div class="col-lg-3 d-flex" data-aos="fade-up">
-                        <div class="info-box">
-                            <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
-                                width="80px" style="padding: 8px">
-                            <h4>{{ $product_third_section->title }}</h4>
-                            <h5>{!! $product_third_section->description !!}</h5>
-                        </div>
+                @foreach($product_third_sections as $product_third_section)
+                <div class="col-lg-3 d-flex" data-aos="fade-up">
+                    <div class="info-box">
+                        @if($product_third_section->icon)
+                        <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
+                            width="80px" style="padding: 8px">
+                        @endif
+                        <h4>{{ $product_third_section->title }}</h4>
+                        <h5>{!! $product_third_section->description !!}</h5>
                     </div>
-                    @endforeach
+                </div>
+                @endforeach
             </div>
         </div>
     </section>
