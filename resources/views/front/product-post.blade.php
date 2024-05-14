@@ -78,8 +78,7 @@
             <div class="carousel-content">
                 <img src="{{ asset('uploads/first_section/'.$product_first_section->logo) }}" alt="Logo">
                 <h2>{{ $product_first_section->title }}</h2>
-                <button class="btn-download" style=""
-                    onclick="">Request Demo</button>
+                <button class="btn-download" style="" onclick="">Request Demo</button>
                 @if($product_first_section->brochure)
                 <button class="btn-download" style="margin-left: 40px"
                     onclick="downloadBrochure('{{ asset('uploads/first_section/'.$product_first_section->brochure) }}')">Download
@@ -123,18 +122,18 @@
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
             <div class="row">
-                <div class="row">
-                    @foreach($product_third_sections as $product_third_section)
-                    <div class="col-lg-3 d-flex" data-aos="fade-up">
-                        <div class="info-box">
-                            <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
-                                width="80px" style="padding: 8px">
-                            <h1>{{ $product_third_section->title }}</h1>
-                            <h5>{{ $product_third_section->description }}</h5>
-                        </div>
+                @foreach($product_third_sections as $product_third_section)
+                <div class="col-lg-3 d-flex" data-aos="fade-up">
+                    <div class="info-box">
+                        @if($product_third_section->icon)
+                        <img src="{{ asset('uploads/first_section/' . $product_third_section->icon) }}" alt="..."
+                            width="80px" style="padding: 8px">
+                        @endif
+                        <h4>{{ $product_third_section->title }}</h4>
+                        <h5>{!! $product_third_section->description !!}</h5>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -152,7 +151,7 @@
                     alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
-                <div class="section-title">
+                <div class="">
                     <img src="{{ asset('uploads/first_section/' .$product_fourth_section->logo) }}" class="img-fluid"
                         alt="">
                     <p>{!! $product_fourth_section->description!!} </p>
@@ -178,7 +177,8 @@
                             <img src="{{ asset('uploads/first_section/' . $product_fifth_section->icon) }}" alt="..."
                                 width="80px" style="padding: 8px; display: block; margin: 0 auto;">
                             <h3 style="text-align:center; margin-bottom: 10px;">{{ $product_fifth_section->title }}</h3>
-                            <p style="text-align:left; margin-bottom: 20px;">{!! $product_fifth_section->description !!}</p>
+                            <p>{!! $product_fifth_section->description !!}
+                            </p>
                         </div>
                     </div>
                     @endforeach
@@ -224,8 +224,8 @@
                 @foreach($product_seventh_sections as $product_seventh_section)
                 <div class="col-md-12">
                     <a href="{{ $product_seventh_section->link }}" target="_blank">
-                        <img src="{{ asset('uploads/first_section/' . $product_seventh_section->image) }}" alt="Client Logo"
-                            width="150px">
+                        <img src="{{ asset('uploads/first_section/' . $product_seventh_section->image) }}"
+                            alt="Client Logo" width="150px">
                     </a>
                 </div>
                 @endforeach
