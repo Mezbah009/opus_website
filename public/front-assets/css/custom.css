@@ -97,6 +97,7 @@
     .contact-info {
         grid-template-columns: repeat(4, 1fr);
     }
+}
 
     .contact .info-boxs {
         color: #444;
